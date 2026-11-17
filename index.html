@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Repères Orientation</title>
+<meta name="description" content="Calendrier Parcoursup, carte des formations avec taux d'accès, tutoriels pour le dossier, rendez-vous et entraide pour l'orientation post-bac.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='12.5' fill='white' stroke='%232747b8' stroke-width='2.5'/%3E%3Cpath d='M14 5 L17 14 L14 23 L11 14 Z' fill='%232747b8'/%3E%3C/svg%3E">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:none;display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+/* Layout: agenda scolaire — barre de navigation en onglets, colonne principale, panneau latéral sur grand écran, barre basse sur téléphone */
+:root{
+  --paper:#f5f7fb; --card:#ffffff; --ink:#14213d; --muted:#5a6683; --line:#dde3ef;
+  --accent:#2747b8; --accent-ink:#ffffff; --accent-soft:#e6ebfa;
+  --marker:#ffd84d; --marker-ink:#3a2f00;
+  --ok:#1f7a4d; --ok-soft:#e1f3ea; --warn:#a65b00; --warn-soft:#fdf0dc; --bad:#b3261e; --bad-soft:#fbe5e3;
+  --ev-ps:#2747b8; --ev-moi:#7a3fb0; --ev-rdv:#1f7a4d;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0e1424; --card:#161e33; --ink:#e7ecf7; --muted:#9aa6c2; --line:#26304a;
+  --accent:#8ea6ff; --accent-ink:#0e1424; --accent-soft:#1f2a4a;
+  --marker:#ffd84d; --marker-ink:#2a2200;
+  --ok:#5fd19a; --ok-soft:#14302a; --warn:#f0a94a; --warn-soft:#33260f; --bad:#ff8a80; --bad-soft:#3a1a1a;
+  --ev-ps:#8ea6ff; --ev-moi:#c79bf2; --ev-rdv:#5fd19a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0e1424; --card:#161e33; --ink:#e7ecf7; --muted:#9aa6c2; --line:#26304a;
+  --accent:#8ea6ff; --accent-ink:#0e1424; --accent-soft:#1f2a4a;
+  --marker:#ffd84d; --marker-ink:#2a2200;
+  --ok:#5fd19a; --ok-soft:#14302a; --warn:#f0a94a; --warn-soft:#33260f; --bad:#ff8a80; --bad-soft:#3a1a1a;
+  --ev-ps:#8ea6ff; --ev-moi:#c79bf2; --ev-rdv:#5fd19a; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--card)}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h2{font-size:1.6rem;font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.1rem;font-weight:700}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* En-tête */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:20px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:1.25rem;white-space:nowrap}
+.brand svg{flex:none}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs a{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;color:var(--muted);text-decoration:none;font-weight:500;white-space:nowrap}
+nav.tabs a:hover{color:var(--ink);background:var(--accent-soft)}
+nav.tabs a[aria-current="page"]{color:var(--accent);background:var(--accent-soft);font-weight:600}
+nav.tabs svg{width:18px;height:18px;flex:none}
+.who{margin-left:auto;font-size:.82rem;color:var(--muted);white-space:nowrap}
+.mode{display:inline-block;padding:2px 8px;border-radius:99px;background:var(--warn-soft);color:var(--warn);font-weight:600;font-size:.75rem}
+.mode.on{background:var(--ok-soft);color:var(--ok)}
+
+main{padding-block:24px 110px}
+section.view{display:grid;gap:20px}
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.head p{color:var(--muted);max-width:62ch}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.grid2{grid-template-columns:minmax(0,1fr)}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:500}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--muted)}
+.btn.ghost:hover{color:var(--bad)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.small{padding:4px 10px;font-size:.85rem}
+label.f{display:grid;gap:4px;font-size:.85rem;font-weight:500;color:var(--muted)}
+input[type=text],input[type=date],input[type=time],select,textarea{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 10px;color:var(--ink)}
+textarea{resize:vertical;min-height:90px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.row > *{flex:1 1 150px;min-width:0}
+.note{font-size:.82rem;color:var(--muted)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:8px;font-weight:500;z-index:20;max-width:calc(100% - 32px)}
+
+/* Calendrier */
+.cal-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.cal-top h3{font-size:1.3rem;text-transform:capitalize}
+.cal-nav{display:flex;gap:6px}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal .dow{font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:center;padding-bottom:4px}
+.day{min-height:86px;border:1px solid var(--line);border-radius:8px;padding:6px;display:flex;flex-direction:column;gap:3px;background:var(--card);cursor:pointer;text-align:left;min-width:0}
+.day:hover{border-color:var(--accent)}
+.day.out{background:transparent;opacity:.45}
+.day .n{font-family:var(--f-mono);font-size:.8rem}
+.day.today .n{background:var(--marker);color:var(--marker-ink);border-radius:4px;padding:0 5px;align-self:flex-start;font-weight:700}
+.day.sel{outline:2px solid var(--accent)}
+.chip{font-size:.7rem;line-height:1.25;padding:2px 5px;border-radius:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff;background:var(--ev-ps)}
+.chip.moi{background:var(--ev-moi)}.chip.rdv{background:var(--ev-rdv)}
+:root .chip{color:var(--card)}
+.dots{display:none;gap:3px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--ev-ps)}
+.dots i.moi{background:var(--ev-moi)}.dots i.rdv{background:var(--ev-rdv)}
+@media (max-width:620px){.day{min-height:52px;padding:4px}.day .chip{display:none}.dots{display:flex;flex-wrap:wrap}}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:.8rem;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:3px;background:var(--ev-ps)}
+.legend i.moi{background:var(--ev-moi)}.legend i.rdv{background:var(--ev-rdv)}
+
+.next{display:grid;gap:10px}
+.ev{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+.ev:first-child{border-top:0}
+.date-tag{font-family:var(--f-mono);font-size:.75rem;text-align:center;border:1px solid var(--line);border-radius:6px;padding:4px 6px;min-width:52px;line-height:1.2}
+.date-tag b{display:block;font-size:1.1rem;font-family:var(--f-display)}
+.ev .t{font-weight:600}
+.ev .d{font-size:.84rem;color:var(--muted)}
+.jx{font-family:var(--f-mono);font-size:.75rem;padding:2px 7px;border-radius:99px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.jx.hot{background:var(--marker);color:var(--marker-ink)}
+.tag{display:inline-block;font-size:.7rem;font-weight:600;padding:1px 6px;border-radius:4px;background:var(--warn-soft);color:var(--warn);margin-left:4px;vertical-align:1px}
+.countdown{display:flex;gap:16px;align-items:center;background:var(--accent);color:var(--accent-ink);border-radius:var(--r);padding:16px 18px}
+.countdown .big{font-family:var(--f-display);font-weight:800;font-size:2.6rem;line-height:1}
+.countdown p{opacity:.9}
+
+/* Tutoriels */
+.tuto-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.tuto-card{display:grid;gap:6px;text-align:left;cursor:pointer;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.tuto-card:hover,.tuto-card[aria-pressed="true"]{border-color:var(--accent)}
+.tuto-card[aria-pressed="true"]{background:var(--accent-soft)}
+.tuto-card .k{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.tuto-body{display:grid;gap:16px;max-width:76ch}
+.tuto-body ol,.tuto-body ul{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.callout{border-left:3px solid var(--marker);background:var(--warn-soft);padding:10px 14px;border-radius:0 8px 8px 0;font-size:.9rem}
+.callout.bad{border-color:var(--bad);background:var(--bad-soft)}
+.callout.ok{border-color:var(--ok);background:var(--ok-soft)}
+.example{font-family:var(--f-body);font-size:.92rem;background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:12px 14px;color:var(--ink)}
+.counter{font-family:var(--f-mono);font-size:.8rem}
+.counter.over{color:var(--bad);font-weight:700}
+.status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.status{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.88rem}
+.status b{display:block;font-family:var(--f-display);font-size:1rem;margin-bottom:2px}
+
+/* Documents */
+.drop{border:2px dashed var(--line);border-radius:var(--r);padding:20px;text-align:center;display:grid;gap:10px;justify-items:center}
+.drop.over{border-color:var(--accent);background:var(--accent-soft)}
+.files{display:grid;gap:8px}
+.file{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.file .ic{width:36px;height:36px;border-radius:6px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--f-mono);font-size:.68rem;font-weight:700}
+.file .nm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file .mt{font-size:.8rem;color:var(--muted)}
+.file a{color:var(--accent);font-weight:500}
+.checklist{display:grid;gap:6px}
+.checklist label{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;cursor:pointer}
+.checklist input{margin-top:4px;accent-color:var(--accent)}
+.progress{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;background:var(--ok)}
+.cats{display:flex;flex-wrap:wrap;gap:6px}
+.pill{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:4px 12px;cursor:pointer;font-size:.85rem}
+.pill[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* RDV */
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.person{display:grid;gap:6px;text-align:left;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);cursor:pointer}
+.person:hover{border-color:var(--accent)}
+.person[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.person .r{font-weight:700;font-family:var(--f-display);font-size:1.05rem}
+.person .m{font-size:.8rem;color:var(--muted)}
+.slots-days{display:grid;gap:14px}
+.slot-day h4{margin:0 0 6px;font-size:.85rem;font-family:var(--f-mono);text-transform:capitalize;color:var(--muted);font-weight:500}
+.slot-row{display:flex;flex-wrap:wrap;gap:6px}
+.slot{font-family:var(--f-mono);font-size:.85rem;border:1px solid var(--line);background:var(--card);border-radius:6px;padding:6px 10px;cursor:pointer}
+.slot:hover{border-color:var(--accent)}
+.slot[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.slot:disabled{text-decoration:line-through;opacity:.45;cursor:not-allowed}
+.myrdv{display:grid;gap:8px}
+
+/* Chat */
+.chat{display:grid;grid-template-columns:220px minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);height:min(70vh,640px)}
+.chans{border-right:1px solid var(--line);padding:12px;display:flex;flex-direction:column;gap:4px;overflow-y:auto;background:var(--paper)}
+.chans button{text-align:left;border:0;background:transparent;padding:8px 10px;border-radius:6px;cursor:pointer;color:var(--muted)}
+.chans button:hover{color:var(--ink)}
+.chans button[aria-pressed="true"]{background:var(--card);color:var(--ink);font-weight:600;box-shadow:0 0 0 1px var(--line)}
+.chans small{display:block;font-size:.74rem;color:var(--muted);font-weight:400}
+.conv{display:grid;grid-template-rows:auto minmax(0,1fr) auto;min-width:0}
+.conv-h{padding:12px 16px;border-bottom:1px solid var(--line)}
+.msgs{overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.msg{display:grid;gap:2px;max-width:80%;min-width:0}
+.msg .who2{font-size:.78rem;color:var(--muted)}
+.msg .who2 b{color:var(--ink)}
+.msg .bub{background:var(--paper);border:1px solid var(--line);padding:8px 12px;border-radius:12px 12px 12px 2px;overflow-wrap:anywhere;white-space:pre-wrap}
+.msg.me{align-self:flex-end}
+.msg.me .who2{text-align:right}
+.msg.me .bub{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);border-radius:12px 12px 2px 12px}
+.role{font-size:.68rem;font-weight:600;padding:0 5px;border-radius:4px;background:var(--accent-soft);color:var(--accent);margin-left:4px}
+.compose{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.compose textarea{min-height:44px;height:44px}
+.empty{color:var(--muted);text-align:center;margin:auto;max-width:40ch;display:grid;gap:6px}
+.me-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.me-bar > *{flex:1 1 160px}
+@media (max-width:700px){
+  .chat{grid-template-columns:minmax(0,1fr);height:auto}
+  .chans{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}
+  .chans button{white-space:nowrap}.chans small{display:none}
+  .msgs{height:52vh}
+}
+
+/* Barre basse mobile */
+@media (max-width:760px){
+  header.top nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);justify-content:space-around;padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));z-index:6}
+  nav.tabs a{flex-direction:column;gap:2px;font-size:.64rem;padding:6px 3px}
+  nav.tabs svg{width:22px;height:22px}
+  .who{font-size:.75rem}
+}
+/* ---- Carte ---- */
+:root{--sea:#e4ebf5;--land:#ffffff;--border-map:#b9c4da;--good:#1f8a52;--mid:#d08a00;--low:#c2412d}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--sea:#0a1020;--land:#1b2540;--border-map:#33405f;--good:#4fd08e;--mid:#f0b440;--low:#ff7a66}}
+:root[data-theme="dark"]{--sea:#0a1020;--land:#1b2540;--border-map:#33405f;--good:#4fd08e;--mid:#f0b440;--low:#ff7a66}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;align-items:end}
+.filters .wide{grid-column:span 2}
+@media (max-width:520px){.filters .wide{grid-column:auto}}
+.checks{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.88rem}
+.checks label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.checks input{accent-color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.map-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;align-items:stretch}
+@media (max-width:900px){.map-layout{grid-template-columns:minmax(0,1fr)}}
+.mapbox{position:relative;isolation:isolate;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--sea);min-height:520px}
+#map{position:absolute;inset:0;background:var(--sea)}
+@media (max-width:900px){.mapbox{min-height:420px}}
+.map-jump{position:absolute;top:10px;right:10px;z-index:500;display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end;max-width:70%}
+.map-jump button{font-size:.75rem;padding:3px 8px;border-radius:99px;border:1px solid var(--line);background:var(--card);cursor:pointer}
+.map-jump button:hover{border-color:var(--accent)}
+.map-legend{position:absolute;left:10px;bottom:10px;z-index:500;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:.75rem;display:grid;gap:3px}
+.map-legend span{display:flex;align-items:center;gap:6px}
+.map-legend i{width:10px;height:10px;border-radius:50%}
+.leaflet-container{font:inherit;background:var(--sea)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--card);color:var(--ink)}
+.leaflet-popup-content{margin:10px 12px;font-size:.85rem}
+.leaflet-bar a{background:var(--card);color:var(--ink);border-bottom-color:var(--line)}
+.leaflet-control-attribution{background:var(--card)!important;color:var(--muted)!important;font-size:.65rem}
+.leaflet-control-attribution a{color:var(--accent)}
+.results{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;min-height:0;max-height:640px}
+.res-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}
+.res-head select{width:auto}
+.res-list{overflow-y:auto;display:grid;gap:6px;align-content:start;min-height:200px}
+.fcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;text-align:left;border:1px solid var(--line);border-radius:8px;padding:9px 11px;background:var(--card);cursor:pointer}
+.fcard:hover{border-color:var(--accent)}
+.fcard[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.fcard .ft{font-weight:600;font-size:.9rem;line-height:1.3}
+.fcard .fe{font-size:.8rem;color:var(--muted);grid-column:1}
+.rate{font-family:var(--f-mono);font-size:.78rem;font-weight:700;padding:2px 7px;border-radius:99px;align-self:start;white-space:nowrap}
+.rate.good{background:var(--ok-soft);color:var(--good)}.rate.mid{background:var(--warn-soft);color:var(--mid)}.rate.low{background:var(--bad-soft);color:var(--low)}.rate.na{background:var(--line);color:var(--muted)}
+.badge{display:inline-block;font-size:.7rem;font-weight:600;padding:1px 7px;border-radius:4px;background:var(--accent-soft);color:var(--accent);margin-right:4px}
+.badge.alt{background:var(--line);color:var(--ink)}
+.site-filter{display:flex;align-items:center;gap:8px;font-size:.85rem;background:var(--accent-soft);border-radius:8px;padding:6px 10px}
+.site-filter span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.kpi{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi b{display:block;font-family:var(--f-display);font-size:1.5rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi span{font-size:.78rem;color:var(--muted)}
+.bars{display:grid;gap:10px}
+.bar-l{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-bottom:3px}
+.stack{display:flex;height:12px;border-radius:4px;overflow:hidden;background:var(--line)}
+.stack i{display:block;height:100%}
+.keys{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.75rem;color:var(--muted);margin-top:4px}
+.keys span{display:flex;gap:5px;align-items:center}
+.keys i{width:9px;height:9px;border-radius:2px}
+.c1{background:var(--accent)}.c2{background:var(--ev-moi)}.c3{background:var(--mid)}.c4{background:var(--good)}.c5{background:var(--low)}.c0{background:var(--muted)}
+.wish{display:grid;gap:6px}
+.wrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;border-top:1px solid var(--line);padding-top:8px}
+.wrow:first-child{border-top:0;padding-top:0}
+.lvl{font-size:.7rem;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em}
+.lvl.sur{background:var(--ok-soft);color:var(--good)}.lvl.real{background:var(--warn-soft);color:var(--mid)}.lvl.amb{background:var(--bad-soft);color:var(--low)}
+.tbl{overflow-x:auto}
+.tbl table{border-collapse:collapse;width:100%;min-width:760px;font-size:.88rem}
+.tbl th,.tbl td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500}
+.tbl td:first-child{font-weight:700;font-family:var(--f-display);white-space:nowrap}
+dl.gloss{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin:0}
+dl.gloss dt{font-weight:700}
+dl.gloss dd{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+@media (min-width:800px){dl.gloss{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+nav.tabs .sm{display:none}
+@media (max-width:760px){nav.tabs .lg{display:none}nav.tabs .sm{display:inline}}
+@media (max-width:600px){
+  .map-jump{left:54px;right:10px;max-width:none;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
+  .map-jump button{flex:none}
+  .map-legend{font-size:.68rem;padding:5px 7px;gap:1px}
+  .map-legend strong{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="var(--accent)" stroke-width="2.5"/><path d="M14 5 L17 14 L14 23 L11 14 Z" fill="var(--accent)"/><circle cx="14" cy="14" r="2" fill="var(--marker)"/></svg>
+      Repères
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#calendrier" data-v="calendrier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span class="lg">Calendrier</span><span class="sm">Agenda</span></a>
+      <a href="#carte" data-v="carte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Carte</a>
+      <a href="#tutoriels" data-v="tutoriels"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 1 2-2h13"/></svg><span class="lg">Tutoriels</span><span class="sm">Tutos</span></a>
+      <a href="#documents" data-v="documents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="lg">Documents</span><span class="sm">Docs</span></a>
+      <a href="#rdv" data-v="rdv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M17 8v6M14 11h6"/></svg><span class="lg">Rendez-vous</span><span class="sm">RDV</span></a>
+      <a href="#chat" data-v="chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="lg">Discussion</span><span class="sm">Chat</span></a>
+    </nav>
+    <div class="who" id="who"><span class="mode" id="modeTag">Chargement…</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ============ CALENDRIER ============ -->
+<section class="view" id="v-calendrier">
+  <div class="head">
+    <div>
+      <div class="eyebrow">Terminale 2026-2027 · Parcoursup 2027</div>
+      <h2>Ton calendrier d'orientation</h2>
+    </div>
+    <p>Les grandes étapes nationales, tes rendez-vous et tes propres échéances au même endroit.</p>
+  </div>
+
+  <div class="countdown" id="countdown"></div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="cal-top">
+        <h3 id="calTitle"></h3>
+        <div class="cal-nav">
+          <button class="btn small" id="calPrev" aria-label="Mois précédent">‹</button>
+          <button class="btn small" id="calToday">Aujourd'hui</button>
+          <button class="btn small" id="calNext" aria-label="Mois suivant">›</button>
+        </div>
+      </div>
+      <div class="cal" id="cal"></div>
+      <div class="legend">
+        <span><i></i>Étape Parcoursup</span><span><i class="moi"></i>Mes échéances</span><span><i class="rdv"></i>Mes rendez-vous</span>
+      </div>
+    </div>
+
+    <div style="display:grid;gap:20px">
+      <div class="panel">
+        <h3 id="dayTitle" style="margin-bottom:8px">Prochaines échéances</h3>
+        <div class="next" id="dayList"></div>
+      </div>
+      <form class="panel" id="evForm" style="display:grid;gap:10px">
+        <h3>Ajouter une échéance</h3>
+        <label class="f">Intitulé<input type="text" id="evTitle" required maxlength="80" placeholder="Ex. Portes ouvertes IUT de Lyon"></label>
+        <div class="row">
+          <label class="f">Date<input type="date" id="evDate" required></label>
+          <label class="f">Type<select id="evType"><option>Portes ouvertes</option><option>Dossier école</option><option>Concours</option><option>Entretien</option><option>Autre</option></select></label>
+        </div>
+        <button class="btn primary" type="submit">Ajouter au calendrier</button>
+        <p class="note">Visible par toi seul.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARTE ============ -->
+<section class="view" id="v-carte" hidden>
+  <div class="head">
+    <div>
+      <div class="eyebrow">Données officielles Parcoursup · session 2025</div>
+      <h2>Carte des formations</h2>
+    </div>
+    <p>Toutes les formations proposées sur Parcoursup en 2025 : où elles sont, combien de places, quel taux d'accès et quel profil d'élèves y a été admis.</p>
+  </div>
+
+  <div class="panel filters">
+    <label class="f wide">Rechercher<input type="text" id="fQ" placeholder="Ex. droit, BTS MCO, infirmier, Lyon, Sorbonne…"></label>
+    <label class="f">Type de formation<select id="fType"></select></label>
+    <label class="f">Région<select id="fRegion"></select></label>
+    <label class="f">Statut<select id="fStat"><option value="">Tous</option><option value="0">Public</option><option value="1">Privé sous contrat</option><option value="23">Privé (hors contrat, écoles)</option></select></label>
+    <label class="f">Sélection<select id="fSel"><option value="">Toutes</option><option value="0">Non sélectives</option><option value="1">Sélectives</option></select></label>
+    <label class="f">Mon bac<select id="fBac"><option value="">Non précisé</option><option value="gen">Général</option><option value="tec">Technologique</option><option value="pro">Professionnel</option></select></label>
+    <label class="f">Taux d'accès minimum : <output id="fTauxOut">0 %</output><input type="range" id="fTaux" min="0" max="100" step="10" value="0"></label>
+    <div class="checks" style="grid-column:1/-1">
+      <label><input type="checkbox" id="fInt"> Avec internat</label>
+      <label><input type="checkbox" id="fMyBac"> Masquer les formations sans aucun admis de mon bac</label>
+      <label><input type="checkbox" id="fZone"> Seulement la zone affichée sur la carte</label>
+    </div>
+  </div>
+
+  <div class="map-layout">
+    <div class="mapbox">
+      <div id="map" role="application" aria-label="Carte des établissements"></div>
+      <div class="map-jump" id="mapJump"></div>
+      <div class="map-legend"><strong>Taux d'accès moyen du site</strong><span><i style="background:var(--good)"></i>70 % et plus</span><span><i style="background:var(--mid)"></i>40 à 69 %</span><span><i style="background:var(--low)"></i>moins de 40 %</span></div>
+    </div>
+    <div class="panel results">
+      <div style="display:grid;gap:8px">
+        <div class="res-head"><strong id="resCount">Chargement des formations…</strong>
+          <select id="fSort" aria-label="Trier"><option value="capa">Plus de places</option><option value="taux">Taux d'accès décroissant</option><option value="tauxAsc">Taux d'accès croissant</option><option value="nom">Nom</option></select></div>
+        <div class="site-filter" id="siteFilter" hidden><span id="siteName"></span><button class="btn small" id="siteClear">Voir tout</button></div>
+      </div>
+      <div class="res-list" id="resList"></div>
+      <button class="btn" id="resMore" hidden>Afficher plus</button>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <article class="panel" id="fDetail" style="display:grid;gap:16px">
+      <h3>Fiche formation</h3>
+      <p class="note">Choisis une formation dans la liste ou sur la carte pour voir ses chiffres : places, taux d'accès, rang du dernier appelé, profil des admis.</p>
+    </article>
+    <div class="panel" style="display:grid;gap:12px">
+      <div class="res-head"><h3>Ma liste de vœux</h3><span class="counter" id="wishCount"></span></div>
+      <div id="wishDiag"></div>
+      <div class="wish" id="wishList"></div>
+      <p class="note">Simulation pour t'aider à équilibrer ta liste. Les vœux se saisissent sur parcoursup.gouv.fr. Plusieurs BTS, BUT ou CPGE d'une même spécialité peuvent compter comme un seul vœu avec sous-vœux.</p>
+    </div>
+  </div>
+
+  <div class="panel" style="display:grid;gap:12px">
+    <h3>Quel diplôme pour quelle formation ?</h3>
+    <p class="note">Toutes les formations de Parcoursup demandent le baccalauréat ou un titre équivalent (DAEU, diplôme étranger). Ce qui change, c'est la façon d'être sélectionné. Coûts indicatifs par an.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Filière</th><th>Durée et diplôme</th><th>Comment on y entre</th><th>Bacs admis en pratique</th><th>Coût indicatif</th></tr></thead>
+      <tbody id="guideRows"></tbody>
+    </table></div>
+  </div>
+
+  <div class="panel" style="display:grid;gap:12px">
+    <h3>Lire les indicateurs</h3>
+    <dl class="gloss">
+      <div><dt>Taux d'accès</dt><dd>Part des candidats de la phase principale qui ont reçu une proposition d'admission. 30 % veut dire que 3 candidats sur 10 ont reçu un « oui » à un moment.</dd></div>
+      <div><dt>Rang du dernier appelé</dt><dd>Classement du dernier candidat qui a reçu une proposition dans le groupe principal. Si 400 places et dernier appelé 1 200 : il fallait être dans les 1 200 premiers.</dd></div>
+      <div><dt>Non sélective ≠ sans refus</dt><dd>Une licence non sélective accepte tous les candidats tant qu'il y a des places. Quand les demandes dépassent les places (droit, psycho, STAPS…), elle classe et refuse aussi.</dd></div>
+      <div><dt>Profil des admis</dt><dd>Types de bac et mentions des élèves admis l'an dernier. C'est le meilleur indice des critères réels quand la fiche reste vague.</dd></div>
+      <div><dt>Candidats par place</dt><dd>Nombre de vœux reçus divisé par le nombre de places. Au-dessus de 20, la formation est très demandée.</dd></div>
+      <div><dt>Limites</dt><dd>Chiffres de 2025 : les places et les taux changent un peu chaque année. Les critères officiels et les attendus sont sur la fiche Parcoursup de chaque formation.</dd></div>
+    </dl>
+    <p class="note">Source : ministère de l'Enseignement supérieur, jeu de données « Parcoursup 2025 – vœux de poursuite d'études et de réorientation » (data.enseignementsup-recherche.gouv.fr), licence ouverte. Fond de carte : contours des départements (OpenStreetMap / IGN via france-geojson).</p>
+  </div>
+</section>
+
+<!-- ============ TUTORIELS ============ -->
+<section class="view" id="v-tutoriels" hidden>
+  <div class="head">
+    <div>
+      <div class="eyebrow">Guides pas à pas</div>
+      <h2>Remplir ton dossier sans te tromper</h2>
+    </div>
+    <p>Ce que les commissions lisent vraiment, et ce que tu peux faire si la réponse n'est pas celle que tu attendais.</p>
+  </div>
+  <div class="tuto-list" id="tutoList"></div>
+  <article class="panel tuto-body" id="tutoBody"></article>
+</section>
+
+<!-- ============ DOCUMENTS ============ -->
+<section class="view" id="v-documents" hidden>
+  <div class="head">
+    <div>
+      <div class="eyebrow">Coffre</div>
+      <h2>Mes documents d'admission</h2>
+    </div>
+    <p>Range ici ce qu'on te demandera : bulletins, CV, lettres, attestations. La liste n'est visible que par toi.</p>
+  </div>
+  <div class="grid2">
+    <div style="display:grid;gap:16px">
+      <div class="drop panel" id="drop">
+        <strong>Dépose un fichier ici</strong>
+        <span class="note">PDF, image ou texte · 20 Mo maximum</span>
+        <div class="row" style="width:100%;max-width:480px">
+          <label class="f">Catégorie<select id="docCat"></select></label>
+          <label class="btn primary" for="docFile" style="flex:0 0 auto;align-self:end" id="docPick">Choisir un fichier</label>
+        </div>
+        <input type="file" id="docFile" hidden accept=".pdf,image/*,.txt,.md">
+        <p class="note" id="docState"></p>
+      </div>
+      <div class="cats" id="docFilter"></div>
+      <div class="files" id="docList"></div>
+    </div>
+    <div class="panel" style="display:grid;gap:12px">
+      <h3>Ce qu'il faut avoir sous la main</h3>
+      <div class="progress"><i id="chkBar" style="width:0"></i></div>
+      <p class="note" id="chkCount"></p>
+      <div class="checklist" id="checklist"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RDV ============ -->
+<section class="view" id="v-rdv" hidden>
+  <div class="head">
+    <div>
+      <div class="eyebrow">Accompagnement</div>
+      <h2>Prendre rendez-vous</h2>
+    </div>
+    <p>Choisis la personne qui correspond à ta question, puis un créneau. Les créneaux affichés sont des exemples sur les 14 prochains jours.</p>
+  </div>
+  <div class="people" id="people"></div>
+  <div class="grid2">
+    <div class="panel" style="display:grid;gap:14px">
+      <h3 id="slotTitle">Créneaux disponibles</h3>
+      <div class="slots-days" id="slots"></div>
+      <form id="rdvForm" style="display:grid;gap:10px" hidden>
+        <label class="f">Motif du rendez-vous<textarea id="rdvMotif" required maxlength="400" placeholder="Ex. Comprendre pourquoi j'ai été refusé en licence de droit et préparer la phase complémentaire."></textarea></label>
+        <button class="btn primary" type="submit" id="rdvBtn">Réserver</button>
+      </form>
+    </div>
+    <div class="panel" style="display:grid;gap:10px">
+      <h3>Mes rendez-vous</h3>
+      <div class="myrdv" id="myRdv"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAT ============ -->
+<section class="view" id="v-chat" hidden>
+  <div class="head">
+    <div>
+      <div class="eyebrow">Entraide</div>
+      <h2>Discussion</h2>
+    </div>
+    <p>Pose tes questions aux autres lycéens et aux étudiants passés par Parcoursup. Ne partage jamais ton numéro de dossier, ton mot de passe ou ton adresse.</p>
+  </div>
+  <div class="panel me-bar">
+    <label class="f">Je suis<select id="meRole"><option>Lycéen·ne</option><option>Étudiant·e tuteur</option><option>Parent</option><option>Personnel éducatif</option></select></label>
+    <label class="f">Ma région<select id="meRegion"></select></label>
+  </div>
+  <div class="chat">
+    <div class="chans" id="chans"></div>
+    <div class="conv">
+      <div class="conv-h"><h3 id="chanTitle"></h3><p class="note" id="chanDesc"></p></div>
+      <div class="msgs" id="msgs" aria-live="polite"></div>
+      <form class="compose" id="compose">
+        <textarea id="msgIn" maxlength="800" placeholder="Écris ton message…" aria-label="Message"></textarea>
+        <button class="btn primary" type="submit" id="msgBtn">Envoyer</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ---------- Données de référence ---------- */
+const PS_EVENTS = [
+  {d:"2026-12-16", t:"Ouverture du site d'information Parcoursup", x:"Les fiches des formations 2027 sont en ligne : attendus, critères d'examen, taux d'accès.", est:true},
+  {d:"2027-01-18", t:"Inscription et formulation des vœux", x:"Création du dossier, saisie des vœux (10 maximum + sous-vœux).", est:true},
+  {d:"2027-02-01", t:"Semaine conseillée : premier brouillon de tes lettres", x:"Un projet de formation motivé par vœu, 1 500 caractères maximum.", est:false},
+  {d:"2027-03-11", t:"Dernier jour pour formuler tes vœux", x:"Après cette date, aucun nouveau vœu sur la phase principale.", est:true},
+  {d:"2027-03-16", t:"Conseils de classe du 2e trimestre", x:"Tes profs remplissent la fiche Avenir (appréciations et avis du chef d'établissement). Date propre à ton lycée.", est:true},
+  {d:"2027-04-01", t:"Dernier jour pour compléter le dossier et confirmer les vœux", x:"Un vœu non confirmé n'est pas examiné.", est:true},
+  {d:"2027-06-01", t:"Premières réponses des formations", x:"Début de la phase d'admission principale.", est:true},
+  {d:"2027-06-10", t:"Ouverture de la phase complémentaire", x:"Nouveaux vœux possibles sur les places restantes.", est:true},
+  {d:"2027-07-09", t:"Fin de la phase principale", x:"Sans proposition ? Saisis la CAES de ton académie.", est:true},
+];
+const INTERVENANTS = [
+  {id:"pp", role:"Prof principal·e", what:"Vérifier ta liste de vœux et la fiche Avenir", where:"Au lycée · 20 min", days:[1,4], hours:["12:30","13:00","17:00"]},
+  {id:"psy", role:"Psy-EN (conseiller·ère d'orientation)", what:"Construire ton projet, comparer des formations", where:"CIO ou lycée · 45 min", days:[2,5], hours:["09:00","10:00","14:00","15:00"]},
+  {id:"as", role:"Assistant·e social·e", what:"Bourses, logement étudiant, frais de scolarité", where:"Au lycée · 30 min", days:[3], hours:["10:00","11:00","14:00"]},
+  {id:"tut", role:"Tuteur·rice étudiant·e", what:"Relire ton dossier, préparer un plan B", where:"En visio · 30 min", days:[1,2,3,4,5], hours:["18:00","18:30","19:00"]},
+];
+const DOC_CATS = ["Bulletins","CV","Lettres de motivation","Pièces administratives","Attestations","Autre"];
+const CHECKS = [
+  "Identifiant INE (sur tes bulletins ou relevé de notes du bac de français)",
+  "Adresse e-mail que tu consultes vraiment",
+  "Bulletins de 1re et des deux premiers trimestres de terminale",
+  "Relevé des notes anticipées de français",
+  "Un CV à jour (pour les écoles hors Parcoursup)",
+  "Un projet de formation motivé par vœu",
+  "Rubrique « Activités et centres d'intérêt » remplie",
+  "Attestations de stage, bénévolat, job, sport, BAFA…",
+  "Avis d'imposition des parents (dossier de bourse sur messervices.etudiant.gouv.fr)",
+  "Au moins un vœu à la fois sûr et souhaité",
+];
+const REGIONS = ["Auvergne-Rhône-Alpes","Bourgogne-Franche-Comté","Bretagne","Centre-Val de Loire","Corse","Grand Est","Hauts-de-France","Île-de-France","Normandie","Nouvelle-Aquitaine","Occitanie","Pays de la Loire","Provence-Alpes-Côte d'Azur","Guadeloupe","Martinique","Guyane","La Réunion","Mayotte","Autre / étranger"];
+const CHANNELS = [
+  {id:"general", t:"Général", d:"Toutes les questions sur l'orientation"},
+  {id:"voeux", t:"Liste de vœux", d:"Équilibrer ses vœux, vœux sûrs, sous-vœux"},
+  {id:"lettres", t:"Lettres et CV", d:"Relectures et conseils de rédaction"},
+  {id:"refus", t:"Refus et plan B", d:"Comprendre un refus, phase complémentaire, CAES"},
+  {id:"tuteurs", t:"Demander un tuteur", d:"Trouver un étudiant de ta filière"},
+  {id:"vie", t:"Logement et bourses", d:"CROUS, budget, déménagement"},
+];
+
+/* ---------- Tutoriels ---------- */
+const TUTOS = [
+ {id:"lettre", k:"10 min par vœu", t:"Projet de formation motivé", s:"La « lettre de motivation » de Parcoursup", html:`
+  <h3>Projet de formation motivé</h3>
+  <p>Un texte par vœu, <strong>1 500 caractères maximum</strong> espaces compris, soit environ 250 mots. La commission le lit à côté de tes notes : il sert à montrer que tu sais où tu mets les pieds.</p>
+  <ol>
+   <li><strong>Lis la fiche de la formation</strong> sur Parcoursup : rubriques « Attendus » et « Critères généraux d'examen des vœux ». Note 2 ou 3 attendus précis.</li>
+   <li><strong>Pourquoi cette formation</strong> : cite un contenu réel (une matière, un projet, un stage obligatoire), pas la réputation de l'école.</li>
+   <li><strong>La preuve que tu es prêt·e</strong> : pour chaque attendu noté, un fait vérifiable (une note, un projet, un stage, un engagement).</li>
+   <li><strong>Ton projet</strong> : ce que la formation t'apporte pour la suite, en une ou deux phrases.</li>
+   <li>Relis à voix haute, puis fais relire par ton tuteur ou ton prof principal.</li>
+  </ol>
+  <div class="callout bad"><strong>Ce qui coûte des points :</strong> le même texte copié-collé partout, les phrases vides (« je suis motivé et sérieux »), les fautes, raconter sa vie sans lien avec la formation.</div>
+  <div class="example"><strong>Exemple de phrase qui fonctionne :</strong> « La fiche de la licence demande une aisance à l'écrit argumenté : j'ai 15 de moyenne en philosophie et j'ai rédigé les articles du journal du lycée pendant deux ans. »</div>
+  <label class="f">Brouillon (enregistré dans ce navigateur)<textarea id="draft" rows="8" placeholder="Écris ici ton brouillon pour vérifier la longueur…"></textarea></label>
+  <p class="counter" id="draftCount">0 / 1 500 caractères</p>`},
+ {id:"cv", k:"20 min", t:"CV et centres d'intérêt", s:"Rubrique « Activités » et CV pour les écoles", html:`
+  <h3>CV et rubrique « Activités et centres d'intérêt »</h3>
+  <p>Sur Parcoursup, la rubrique <strong>Activités et centres d'intérêt</strong> joue le rôle du CV. Elle est commune à tous tes vœux. Les écoles hors Parcoursup demandent souvent un CV classique d'une page.</p>
+  <ol>
+   <li><strong>Liste tout</strong> : jobs d'été, baby-sitting, aide familiale, sport en club, bénévolat, délégué de classe, BAFA, projets perso (site, chaîne vidéo, musique).</li>
+   <li><strong>Pour chaque ligne</strong> : ce que tu as fait, pendant combien de temps, ce que tu en retires. « Caissier, été 2026, 6 semaines : gestion de la caisse et des clients pressés. »</li>
+   <li><strong>Garde ce qui parle à la formation</strong> en premier. Une responsabilité régulière pèse plus qu'une activité ponctuelle.</li>
+   <li><strong>CV papier</strong> : une page, coordonnées, formation (bac en cours, spécialités), expériences, compétences (langues avec niveau, logiciels), centres d'intérêt précis.</li>
+  </ol>
+  <div class="callout ok">S'occuper d'un frère ou d'une sœur, travailler pour aider sa famille ou faire de longs trajets compte aussi. Écris-le simplement : cela explique un emploi du temps chargé.</div>
+  <div class="callout bad">Évite « lecture, sport, cinéma » sans détail : cela ne dit rien de toi.</div>`},
+ {id:"dossier", k:"Janvier → avril", t:"Dossier d'admission", s:"Ce qui est transmis, ce que tu dois vérifier", html:`
+  <h3>Ce que contient ton dossier</h3>
+  <div class="status-grid">
+   <div class="status"><b>Automatique</b>Bulletins de 1re et terminale, notes du bac de français, notes des épreuves de spécialité si elles ont eu lieu.</div>
+   <div class="status"><b>Tes profs</b>La fiche Avenir : appréciations par matière, méthode de travail, autonomie, avis du chef d'établissement.</div>
+   <div class="status"><b>Toi</b>Projets de formation motivés, activités et centres d'intérêt, pièces demandées par certaines formations.</div>
+  </div>
+  <ol>
+   <li>À l'inscription, <strong>vérifie tes bulletins</strong> remontés automatiquement. Une note manquante ou fausse se signale à ton lycée avant la date de confirmation.</li>
+   <li>Pour chaque vœu, regarde dans la fiche si une <strong>pièce complémentaire</strong> est demandée (questionnaire, portfolio, épreuve écrite).</li>
+   <li>Avant le conseil de classe du 2e trimestre, <strong>parle à ton prof principal</strong> de ton projet : son avis apparaît dans la fiche Avenir.</li>
+   <li>Confirme <strong>chaque vœu</strong> avant la date limite. Un vœu non confirmé est supprimé.</li>
+  </ol>
+  <div class="callout">Les critères changent d'une formation à l'autre. Les notes ne suffisent pas toujours : certaines formations pondèrent fortement la fiche Avenir ou le projet motivé. Lis la rubrique « Critères généraux d'examen des vœux » de chaque fiche.</div>`},
+ {id:"voeux", k:"Avant mars", t:"Équilibrer sa liste de vœux", s:"Éviter de n'avoir que des vœux par dépit", html:`
+  <h3>Construire une liste équilibrée</h3>
+  <p>Tu peux formuler jusqu'à <strong>10 vœux</strong> (avec sous-vœux) et 10 vœux en apprentissage, sans les classer.</p>
+  <ol>
+   <li>Pour chaque formation, relève le <strong>taux d'accès</strong> de l'an dernier sur sa fiche et compare ton profil aux candidats admis.</li>
+   <li>Classe tes vœux en trois groupes : <strong>ambitieux</strong>, <strong>réalistes</strong>, <strong>sûrs</strong>.</li>
+   <li>Vérifie qu'au moins un vœu est <strong>à la fois sûr et souhaité</strong> : une formation que tu suivrais vraiment, pas seulement un filet.</li>
+   <li>Une licence près de chez toi n'est pas automatiquement sûre : les formations très demandées (droit, psychologie, STAPS…) refusent aussi de bons dossiers.</li>
+   <li>Fais relire ta liste par un tuteur ou le Psy-EN avant le 11 mars.</li>
+  </ol>
+  <div class="callout ok">Si ta liste ne contient que des vœux ambitieux, ajoute un vœu réaliste dans un autre établissement ou en BUT/BTS de la même filière.</div>`},
+ {id:"apres", k:"Juin → juillet", t:"Après les résultats", s:"Répondre, comprendre un refus, rebondir", html:`
+  <h3>Les réponses possibles</h3>
+  <div class="status-grid">
+   <div class="status" style="border-color:var(--ok)"><b>Oui</b>Tu es admis·e.</div>
+   <div class="status" style="border-color:var(--ok)"><b>Oui-si</b>Admis·e avec un parcours de remise à niveau.</div>
+   <div class="status" style="border-color:var(--warn)"><b>En attente</b>Tu es sur liste d'attente ; ton rang s'affiche et évolue.</div>
+   <div class="status" style="border-color:var(--bad)"><b>Non</b>Formation sélective uniquement : refus.</div>
+  </div>
+  <ol>
+   <li><strong>Réponds dans les délais</strong> affichés à chaque proposition, sinon elle est perdue.</li>
+   <li>Tu peux accepter une proposition et <strong>garder tes vœux en attente</strong> qui t'intéressent davantage.</li>
+   <li><strong>Demande les motifs d'un refus</strong> : tu peux demander à la formation les critères et la façon dont ton dossier a été examiné, dans le mois qui suit la réponse, depuis ton dossier Parcoursup (rubrique contact). C'est ce qui te permet de corriger ton dossier pour la phase complémentaire ou l'année suivante.</li>
+   <li><strong>Phase complémentaire</strong> (dès mi-juin) : nouveaux vœux sur les places restantes.</li>
+   <li><strong>Aucune proposition début juillet ?</strong> Saisis la CAES (commission d'accès à l'enseignement supérieur) de ton académie depuis ton dossier.</li>
+  </ol>
+  <div class="callout">Prends rendez-vous avec ton prof principal ou un tuteur dans la semaine qui suit les résultats : analyser un refus seul est difficile. <a href="#rdv">Réserver un créneau</a></div>`},
+];
+
+/* ---------- Utilitaires ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad = n => String(n).padStart(2,"0");
+const iso = d => d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const parse = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y,m-1,d); };
+const TODAY = new Date(); TODAY.setHours(0,0,0,0);
+const daysTo = s => Math.round((parse(s) - TODAY)/86400000);
+const fmtLong = s => parse(s).toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"});
+const fmtShort = s => { const d=parse(s); return {day:d.getDate(), mon:d.toLocaleDateString("fr-FR",{month:"short"}).replace(".","")}; };
+const ls = { get(k,f){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):f; }catch(e){ return f; } }, set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} } };
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toast._t); toast._t=setTimeout(()=>t.hidden=true,2600); }
+
+/* ---------- État et stockage ---------- */
+const S = { db:null, user:null, uid:null, assets:null, mine:[], bookings:{}, chat:[], channel:"general", calMonth:new Date(TODAY.getFullYear(),TODAY.getMonth(),1), selDay:null, tuto:"lettre", docFilter:"Tous", interv:"tut", slot:null, names:{}, chatUnsub:null };
+
+function localMine(){ return ls.get("reperes-mine",[]); }
+async function savePersonal(id, obj){
+  if (S.db && S.uid) { await S.db.collection("data/users/"+S.uid).doc(id).set(obj); }
+  else { const all = localMine().filter(x=>x.id!==id); all.push({id,...obj}); ls.set("reperes-mine",all); S.mine=all; renderAll(); }
+}
+async function deletePersonal(id){
+  if (S.db && S.uid) { await S.db.collection("data/users/"+S.uid).doc(id).delete(); }
+  else { const all = localMine().filter(x=>x.id!==id); ls.set("reperes-mine",all); S.mine=all; renderAll(); }
+}
+const mineOf = kind => S.mine.filter(x=>x.kind===kind);
+const newId = p => p+"-"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+
+/* ---------- Navigation ---------- */
+const VIEWS = ["calendrier","carte","tutoriels","documents","rdv","chat"];
+function route(){
+  const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "calendrier";
+  VIEWS.forEach(n => $("#v-"+n).hidden = n!==v);
+  document.querySelectorAll("nav.tabs a").forEach(a => { if(a.dataset.v===v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  if (v==="carte"){ loadCarte(); setTimeout(()=>{ if(M.map) M.map.invalidateSize(); },0); }
+  if (v==="chat") setTimeout(()=>{ const m=$("#msgs"); m.scrollTop=m.scrollHeight; },0);
+}
+addEventListener("hashchange", route);
+
+/* ---------- Calendrier ---------- */
+function allEvents(){
+  const ev = PS_EVENTS.map(e=>({...e, kind:"ps"}));
+  mineOf("event").forEach(e=>ev.push({d:e.date, t:e.title, x:e.type, kind:"moi", id:e.id}));
+  mineOf("rdv").forEach(r=>{ const iv=INTERVENANTS.find(i=>i.id===r.interv); ev.push({d:r.date, t:"RDV "+(iv?iv.role:"")+" · "+r.hour, x:r.motif, kind:"rdv", id:r.id}); });
+  return ev.sort((a,b)=>a.d.localeCompare(b.d));
+}
+function renderCountdown(){
+  const nxt = PS_EVENTS.find(e=>daysTo(e.d)>=0 && e.d!=="2027-02-01") ;
+  const fin = PS_EVENTS.find(e=>e.d==="2027-03-11");
+  const n = daysTo(fin.d);
+  $("#countdown").innerHTML = n>=0
+    ? `<div class="big">J-${n}</div><div><strong>avant la fin de la saisie des vœux (${fmtLong(fin.d)})</strong><p>Prochaine étape : ${esc(nxt.t.toLowerCase())}, ${fmtLong(nxt.d)}.</p></div>`
+    : `<div class="big">✓</div><div><strong>Saisie des vœux terminée</strong><p>Prochaine étape : ${nxt?esc(nxt.t.toLowerCase())+", "+fmtLong(nxt.d):"phase complémentaire"}.</p></div>`;
+}
+function renderCal(){
+  const m = S.calMonth, ev = allEvents();
+  $("#calTitle").textContent = m.toLocaleDateString("fr-FR",{month:"long",year:"numeric"});
+  const first = (m.getDay()+6)%7; const start = new Date(m); start.setDate(1-first);
+  let h = ["lun","mar","mer","jeu","ven","sam","dim"].map(d=>`<div class="dow">${d}</div>`).join("");
+  for (let i=0;i<42;i++){
+    const d = new Date(start); d.setDate(start.getDate()+i); const k = iso(d);
+    if (i===35 && d.getMonth()!==m.getMonth()) break;
+    const evs = ev.filter(e=>e.d===k);
+    const cls = ["day", d.getMonth()!==m.getMonth()?"out":"", k===iso(TODAY)?"today":"", k===S.selDay?"sel":""].join(" ");
+    h += `<button class="${cls}" data-day="${k}" aria-label="${fmtLong(k)}${evs.length?", "+evs.length+" évènement(s)":""}"><span class="n">${d.getDate()}</span>${evs.slice(0,3).map(e=>`<span class="chip ${e.kind}" title="${esc(e.t)}">${esc(e.t)}</span>`).join("")}${evs.length>3?`<span class="note">+${evs.length-3}</span>`:""}<span class="dots">${evs.map(e=>`<i class="${e.kind}"></i>`).join("")}</span></button>`;
+  }
+  $("#cal").innerHTML = h;
+}
+function evRow(e){
+  const s = fmtShort(e.d), n = daysTo(e.d);
+  const jx = n===0?"Aujourd'hui": n>0?"J-"+n : "passé";
+  const del = e.kind==="moi" ? `<button class="btn ghost small" data-delev="${e.id}" aria-label="Supprimer">Supprimer</button>` : "";
+  return `<div class="ev"><div class="date-tag"><b>${s.day}</b>${s.mon}</div><div><div class="t">${esc(e.t)}${e.est?'<span class="tag">date estimée</span>':''}</div><div class="d">${esc(e.x||"")}</div>${del}</div><span class="jx ${n>=0&&n<=14?"hot":""}">${jx}</span></div>`;
+}
+function renderDay(){
+  const ev = allEvents();
+  if (S.selDay){
+    const list = ev.filter(e=>e.d===S.selDay);
+    $("#dayTitle").textContent = fmtLong(S.selDay).replace(/^./,c=>c.toUpperCase());
+    $("#dayList").innerHTML = list.length ? list.map(evRow).join("") : `<p class="note">Rien de prévu ce jour-là. Ajoute une échéance avec le formulaire ci-dessous.</p>`;
+    $("#evDate").value = S.selDay;
+  } else {
+    $("#dayTitle").textContent = "Prochaines échéances";
+    const up = ev.filter(e=>daysTo(e.d)>=0).slice(0,6);
+    $("#dayList").innerHTML = up.map(evRow).join("") + `<p class="note" style="margin-top:6px">Dates 2027 estimées d'après le calendrier 2026 : vérifie-les sur parcoursup.gouv.fr dès leur publication.</p>`;
+  }
+}
+$("#cal").addEventListener("click", e=>{ const b=e.target.closest("[data-day]"); if(!b) return; S.selDay = S.selDay===b.dataset.day?null:b.dataset.day; renderCal(); renderDay(); });
+$("#calPrev").onclick = ()=>{ S.calMonth = new Date(S.calMonth.getFullYear(), S.calMonth.getMonth()-1, 1); renderCal(); };
+$("#calNext").onclick = ()=>{ S.calMonth = new Date(S.calMonth.getFullYear(), S.calMonth.getMonth()+1, 1); renderCal(); };
+$("#calToday").onclick = ()=>{ S.calMonth = new Date(TODAY.getFullYear(), TODAY.getMonth(), 1); S.selDay=null; renderCal(); renderDay(); };
+$("#dayList").addEventListener("click", async e=>{ const b=e.target.closest("[data-delev]"); if(!b) return; try{ await deletePersonal(b.dataset.delev); toast("Échéance supprimée"); }catch(err){ toast("Suppression impossible : "+(err.message||err.code)); } });
+$("#evForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const title=$("#evTitle").value.trim(), date=$("#evDate").value; if(!title||!date) return;
+  try{ await savePersonal(newId("evt"), {kind:"event", title, date, type:$("#evType").value, created:Date.now()}); $("#evTitle").value=""; toast("Ajouté au calendrier"); }
+  catch(err){ toast("Enregistrement impossible : "+(err.message||err.code)); }
+});
+
+/* ---------- Tutoriels ---------- */
+function renderTutos(){
+  $("#tutoList").innerHTML = TUTOS.map(t=>`<button class="tuto-card" data-tuto="${t.id}" aria-pressed="${t.id===S.tuto}"><span class="k">${t.k}</span><h3>${t.t}</h3><span class="note">${t.s}</span></button>`).join("");
+  $("#tutoBody").innerHTML = TUTOS.find(t=>t.id===S.tuto).html;
+  const dr = $("#draft");
+  if (dr){ dr.value = ls.get("reperes-draft",""); const upd=()=>{ const n=dr.value.length; const c=$("#draftCount"); c.textContent=n.toLocaleString("fr-FR")+" / 1 500 caractères"; c.classList.toggle("over",n>1500); ls.set("reperes-draft",dr.value); }; dr.addEventListener("input",upd); upd(); }
+}
+$("#tutoList").addEventListener("click", e=>{ const b=e.target.closest("[data-tuto]"); if(!b) return; S.tuto=b.dataset.tuto; renderTutos(); });
+
+/* ---------- Documents ---------- */
+const IDB = { db:null,
+  open(){ if(this.db) return this.db; this.db = new Promise((res,rej)=>{ try{ const r=indexedDB.open("reperes-docs",1); r.onupgradeneeded=()=>r.result.createObjectStore("files"); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); }catch(e){ rej(e); } }); return this.db; },
+  async tx(mode, fn){ const db=await this.open(); return new Promise((res,rej)=>{ const t=db.transaction("files",mode); const st=t.objectStore("files"); const r=fn(st); t.oncomplete=()=>res(r&&r.result); t.onerror=()=>rej(t.error); }); },
+  put(k,v){ return this.tx("readwrite",s=>s.put(v,k)); }, get(k){ return this.tx("readonly",s=>s.get(k)); }, del(k){ return this.tx("readwrite",s=>s.delete(k)); }
+};
+const localDocs = () => !(S.assets && S.db && S.uid);
+$("#docCat").innerHTML = DOC_CATS.map(c=>`<option>${c}</option>`).join("");
+function renderDocs(){
+  const docs = mineOf("doc").sort((a,b)=>b.created-a.created);
+  const cats = ["Tous", ...DOC_CATS];
+  $("#docFilter").innerHTML = cats.map(c=>{ const n = c==="Tous"?docs.length:docs.filter(d=>d.cat===c).length; return `<button class="pill" data-cat="${c}" aria-pressed="${c===S.docFilter}">${c} · ${n}</button>`; }).join("");
+  const list = docs.filter(d=>S.docFilter==="Tous"||d.cat===S.docFilter);
+  $("#docList").innerHTML = list.length ? list.map(d=>{
+    const ext = (d.name.split(".").pop()||"").slice(0,4).toUpperCase();
+    return `<div class="file"><div class="ic">${esc(ext)}</div><div style="min-width:0"><div class="nm">${esc(d.name)}</div><div class="mt">${esc(d.cat)} · ${(d.size/1024).toFixed(0)} Ko · ${new Date(d.created).toLocaleDateString("fr-FR")}</div></div><div class="row" style="flex-wrap:nowrap;gap:4px">${d.local?`<button class="btn small" data-opendoc="${d.id}">Ouvrir</button>`:`<a href="${esc("/_blob/"+d.asset)}" target="_blank" rel="noopener">Ouvrir</a>`}<button class="btn ghost small" data-deldoc="${d.id}">Supprimer</button></div></div>`;
+  }).join("") : `<p class="note">${docs.length?"Aucun document dans cette catégorie.":"Aucun document pour l'instant. Commence par tes bulletins de 1re : ils servent aussi pour les écoles hors Parcoursup."}</p>`;
+  const done = new Set((S.mine.find(x=>x.id==="checklist")||{}).done||[]);
+  $("#checklist").innerHTML = CHECKS.map((c,i)=>`<label><input type="checkbox" data-chk="${i}" ${done.has(i)?"checked":""}><span>${esc(c)}</span></label>`).join("");
+  $("#chkBar").style.width = (done.size/CHECKS.length*100)+"%";
+  $("#chkCount").textContent = done.size+" sur "+CHECKS.length+" prêts";
+  const canUp = !localDocs() || !!window.indexedDB;
+  $("#docPick").toggleAttribute("aria-disabled", !canUp); $("#docFile").disabled = !canUp;
+  $("#docPick").style.opacity = canUp?1:.5;
+  if (!$("#docState").dataset.busy) $("#docState").textContent = !canUp ? "Ton navigateur bloque le stockage de fichiers (navigation privée ?)." : localDocs() ? "Tes fichiers restent sur cet appareil, dans ce navigateur. Ils ne sont envoyés nulle part." : "";
+}
+$("#docFilter").addEventListener("click", e=>{ const b=e.target.closest("[data-cat]"); if(!b) return; S.docFilter=b.dataset.cat; renderDocs(); });
+$("#checklist").addEventListener("change", async e=>{
+  const i = Number(e.target.dataset.chk); if (Number.isNaN(i)) return;
+  const done = new Set((S.mine.find(x=>x.id==="checklist")||{}).done||[]);
+  e.target.checked ? done.add(i) : done.delete(i);
+  try{ await savePersonal("checklist",{kind:"checklist", done:[...done]}); }catch(err){ toast("Enregistrement impossible"); }
+});
+async function uploadFile(file){
+  if (!file) return;
+  if (file.size > 20*1024*1024) { toast("Fichier trop lourd : 20 Mo maximum"); return; }
+  const st=$("#docState"); st.dataset.busy="1"; st.textContent="Envoi de « "+file.name+" »…";
+  try{
+    if (localDocs()){
+      const id=newId("doc"); await IDB.put(id, file);
+      await savePersonal(id, {kind:"doc", local:true, name:file.name, cat:$("#docCat").value, size:file.size, type:file.type, created:Date.now()});
+    } else {
+      const r = await S.assets.upload(file);
+      await savePersonal(newId("doc"), {kind:"doc", name:file.name, cat:$("#docCat").value, asset:r.id, size:r.sizeBytes||file.size, created:Date.now()});
+    }
+    st.textContent = "« "+file.name+" » est rangé dans "+$("#docCat").value+".";
+  }catch(err){ st.textContent = "Envoi impossible : "+(err.message||err.code||"erreur inconnue")+". Vérifie le format (PDF, image, texte)."; }
+  delete st.dataset.busy; $("#docFile").value="";
+}
+$("#docFile").addEventListener("change", e=>uploadFile(e.target.files[0]));
+const drop=$("#drop");
+["dragenter","dragover"].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.classList.add("over");}));
+["dragleave","drop"].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.classList.remove("over");}));
+drop.addEventListener("drop", e=>uploadFile(e.dataTransfer.files[0]));
+$("#docList").addEventListener("click", async e=>{
+  const o=e.target.closest("[data-opendoc]");
+  if (o){ const w=window.open("","_blank"); try{ const blob=await IDB.get(o.dataset.opendoc); if(!blob) throw 0; const u=URL.createObjectURL(blob); if(w) w.location.href=u; else location.href=u; }catch(_){ if(w) w.close(); toast("Fichier introuvable sur cet appareil"); } return; }
+  const b=e.target.closest("[data-deldoc]"); if(!b) return;
+  if (b.dataset.confirm!=="1"){ b.dataset.confirm="1"; b.textContent="Confirmer ?"; setTimeout(()=>{ if(b.isConnected){ b.dataset.confirm=""; b.textContent="Supprimer"; } },3000); return; }
+  const d = S.mine.find(x=>x.id===b.dataset.deldoc);
+  try{ if (d && d.local) { try{ await IDB.del(d.id); }catch(_){} } else if (S.assets && d && d.asset) { try{ await S.assets.delete(d.asset); }catch(_){} } await deletePersonal(b.dataset.deldoc); toast("Document supprimé"); }
+  catch(err){ toast("Suppression impossible"); }
+});
+
+/* ---------- Rendez-vous ---------- */
+function slotKey(iv,date,hour){ return iv+"_"+date.replace(/-/g,"")+"_"+hour.replace(":",""); }
+function renderPeople(){
+  $("#people").innerHTML = INTERVENANTS.map(i=>`<button class="person" data-iv="${i.id}" aria-pressed="${i.id===S.interv}"><span class="r">${i.role}</span><span>${i.what}</span><span class="m">${i.where}</span></button>`).join("");
+}
+function renderSlots(){
+  const iv = INTERVENANTS.find(i=>i.id===S.interv);
+  $("#slotTitle").textContent = "Créneaux · "+iv.role;
+  const now = new Date(); let h="";
+  for (let k=1;k<=14;k++){
+    const d = new Date(TODAY); d.setDate(TODAY.getDate()+k);
+    if (!iv.days.includes(d.getDay())) continue;
+    const ds = iso(d);
+    const btns = iv.hours.map(hr=>{ const key=slotKey(iv.id,ds,hr); const taken=!!S.bookings[key]; const sel=S.slot&&S.slot.key===key;
+      return `<button class="slot" data-slot="${key}" data-date="${ds}" data-hour="${hr}" ${taken?"disabled":""} aria-pressed="${sel}">${hr}</button>`; }).join("");
+    h += `<div class="slot-day"><h4>${d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"})}</h4><div class="slot-row">${btns}</div></div>`;
+  }
+  $("#slots").innerHTML = h || `<p class="note">Aucun créneau sur les 14 prochains jours.</p>`;
+  $("#rdvForm").hidden = !S.slot;
+  if (S.slot) $("#rdvBtn").textContent = "Réserver le "+fmtLong(S.slot.date)+" à "+S.slot.hour;
+}
+function renderMyRdv(){
+  const list = mineOf("rdv").filter(r=>daysTo(r.date)>=0).sort((a,b)=>(a.date+a.hour).localeCompare(b.date+b.hour));
+  $("#myRdv").innerHTML = list.length ? list.map(r=>{ const iv=INTERVENANTS.find(i=>i.id===r.interv)||{role:"",where:""}; const s=fmtShort(r.date);
+    return `<div class="ev"><div class="date-tag"><b>${s.day}</b>${s.mon}</div><div><div class="t">${esc(iv.role)} · ${esc(r.hour)}</div><div class="d">${esc(iv.where)}</div><div class="d">${esc(r.motif)}</div></div><button class="btn ghost small" data-cancel="${r.id}">Annuler</button></div>`; }).join("")
+    : `<p class="note">Aucun rendez-vous prévu. Après les résultats de juin, un rendez-vous avec ton prof principal ou un tuteur aide à comprendre un refus.</p>`;
+}
+$("#people").addEventListener("click", e=>{ const b=e.target.closest("[data-iv]"); if(!b) return; S.interv=b.dataset.iv; S.slot=null; renderPeople(); renderSlots(); });
+$("#slots").addEventListener("click", e=>{ const b=e.target.closest("[data-slot]"); if(!b||b.disabled) return; S.slot={key:b.dataset.slot,date:b.dataset.date,hour:b.dataset.hour}; renderSlots(); $("#rdvMotif").focus(); });
+$("#rdvForm").addEventListener("submit", async e=>{
+  e.preventDefault(); if(!S.slot) return;
+  const motif=$("#rdvMotif").value.trim(); if(!motif) return;
+  const {key,date,hour}=S.slot; const btn=$("#rdvBtn"); btn.disabled=true;
+  try{
+    if (S.db && S.uid){
+      const ref = S.db.collection("bookings").doc(key);
+      const lease = await ref.acquire({holder:S.uid, ttlMs:5000});
+      if (!lease.acquired) throw {message:"ce créneau est en cours de réservation par quelqu'un d'autre"};
+      const cur = await ref.get();
+      if (cur.exists && cur.data().by) throw {message:"ce créneau vient d'être pris"};
+      await ref.set({by:S.uid, at:Date.now()});
+    }
+    await savePersonal("rdv-"+key, {kind:"rdv", interv:S.interv, date, hour, motif, key, created:Date.now()});
+    if (!S.db) { S.bookings[key]=true; }
+    S.slot=null; $("#rdvMotif").value=""; renderSlots(); toast("Rendez-vous réservé : "+fmtLong(date)+" à "+hour);
+  }catch(err){ toast("Réservation impossible : "+(err.message||err.code)); }
+  btn.disabled=false;
+});
+$("#myRdv").addEventListener("click", async e=>{
+  const b=e.target.closest("[data-cancel]"); if(!b) return;
+  if (b.dataset.confirm!=="1"){ b.dataset.confirm="1"; b.textContent="Confirmer l'annulation"; return; }
+  const r = S.mine.find(x=>x.id===b.dataset.cancel);
+  try{ if (S.db && r) await S.db.collection("bookings").doc(r.key).delete(); else if (r) delete S.bookings[r.key];
+       await deletePersonal(b.dataset.cancel); toast("Rendez-vous annulé"); renderSlots(); }
+  catch(err){ toast("Annulation impossible"); }
+});
+
+/* ---------- Discussion ---------- */
+$("#meRegion").innerHTML = REGIONS.map(r=>`<option>${r}</option>`).join("");
+const prefs = ls.get("reperes-me",{role:"Lycéen·ne",region:"Île-de-France"});
+$("#meRole").value = prefs.role; $("#meRegion").value = prefs.region;
+["#meRole","#meRegion"].forEach(s=>$(s).addEventListener("change",()=>ls.set("reperes-me",{role:$("#meRole").value,region:$("#meRegion").value})));
+function renderChans(){
+  $("#chans").innerHTML = CHANNELS.map(c=>`<button data-ch="${c.id}" aria-pressed="${c.id===S.channel}"># ${c.t}<small>${c.d}</small></button>`).join("");
+  const c = CHANNELS.find(c=>c.id===S.channel); $("#chanTitle").textContent = "# "+c.t; $("#chanDesc").textContent = c.d;
+}
+async function renderMsgs(){
+  const box=$("#msgs");
+  if (!S.db){ box.innerHTML = `<div class="empty"><strong>Discussion pas encore ouverte</strong><span>Les salons sont prêts. La messagerie en direct entre lycéens de toute la France sera activée avec la prochaine version, reliée à un serveur.</span></div>`; return; }
+  if (!S.chat.length){ box.innerHTML = `<div class="empty"><strong>Aucun message dans ce salon</strong><span>Lance la conversation : présente-toi et pose ta question.</span></div>`; return; }
+  const ids=[...new Set(S.chat.map(m=>m.uid))].filter(id=>!(id in S.names));
+  if (ids.length && S.user && S.user.profiles){ try{ const ps=await S.user.profiles(ids); ids.forEach(id=>S.names[id]=(ps[id]&&ps[id].name)||""); }catch(_){} }
+  const atBottom = box.scrollHeight-box.scrollTop-box.clientHeight < 80;
+  box.innerHTML = S.chat.map(m=>{ const me=m.uid===S.uid; const nm = me?"Toi":(S.names[m.uid]||"Membre");
+    const t = new Date(m.ts).toLocaleString("fr-FR",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+    return `<div class="msg ${me?"me":""}"><div class="who2"><b>${esc(nm)}</b><span class="role">${esc(m.role||"")}</span> · ${esc(m.region||"")} · ${t}</div><div class="bub">${esc(m.text)}</div></div>`; }).join("");
+  if (atBottom || box.dataset.ch!==S.channel){ box.scrollTop=box.scrollHeight; box.dataset.ch=S.channel; }
+}
+function subscribeChat(){
+  if (!S.db) return;
+  if (S.chatUnsub) S.chatUnsub();
+  S.chat=[]; renderMsgs();
+  const ch=S.channel;
+  S.chatUnsub = S.db.collection("chat").where("channel","==",ch).orderBy("ts","desc").limit(150)
+    .onSnapshot(snap=>{ if(ch!==S.channel) return; S.chat = snap.docs.map(d=>d.data()).reverse(); renderMsgs(); },
+                err=>{ $("#msgs").innerHTML=`<div class="empty"><strong>Messages inaccessibles</strong><span>${esc(err.message||err.code)}</span></div>`; });
+}
+$("#chans").addEventListener("click", e=>{ const b=e.target.closest("[data-ch]"); if(!b) return; S.channel=b.dataset.ch; renderChans(); subscribeChat(); });
+$("#compose").addEventListener("submit", async e=>{
+  e.preventDefault(); const text=$("#msgIn").value.trim(); if(!text) return;
+  if (!S.db||!S.uid){ toast("La messagerie n'est pas encore activée"); return; }
+  const btn=$("#msgBtn"); btn.disabled=true;
+  try{ await S.db.collection("chat").add({channel:S.channel, uid:S.uid, text, role:$("#meRole").value, region:$("#meRegion").value, ts:Date.now()}); $("#msgIn").value=""; }
+  catch(err){ toast(err.code==="invalid_argument"?"Tu peux lire, mais ton accès ne permet pas d'écrire ici.":"Envoi impossible : "+(err.message||err.code)); }
+  btn.disabled=false;
+});
+$("#msgIn").addEventListener("keydown", e=>{ if(e.key==="Enter"&&!e.shiftKey){ e.preventDefault(); $("#compose").requestSubmit(); } });
+
+/* ---------- Carte des formations ---------- */
+const TYPES = {BTS:"BTS",BUT:"BUT",Licence:"Licence",LAS:"Licence accès santé (L.AS)",PASS:"PASS (santé)",CPGE:"Classe prépa (CPGE)",ING:"École d'ingénieurs",COM:"École de commerce",IFSI:"Infirmier (IFSI)",EFTS:"Travail social",AUTRE:"Autres (DN MADE, DE santé, DCG…)"};
+const STATUTS = ["Public","Privé sous contrat","Privé (enseignement supérieur)","Privé hors contrat"];
+const GUIDE = [
+  ["BTS","2 ans · BTS (bac+2)","Dossier : bulletins, fiche Avenir, projet motivé. Places réservées aux bacs pro et techno.","Pro et techno prioritaires, général possible","Gratuit en lycée public · 3 000 à 7 000 € en privé · possible en apprentissage (rémunéré)"],
+  ["BUT","3 ans · BUT (bac+3, 180 crédits)","Dossier ; environ la moitié des places pour les bacs techno dans les spécialités qui leur correspondent.","Général et techno","≈ 180 € (droits universitaires), gratuit pour les boursiers"],
+  ["Licence","3 ans · Licence (bac+3)","Non sélective : admis tant qu'il y a des places, sinon classement sur dossier. Possible « oui-si » avec accompagnement.","Surtout général","≈ 180 €/an, gratuit pour les boursiers"],
+  ["PASS / L.AS","1 an puis sélection","Accès aux études de médecine, maïeutique, odontologie, pharmacie, kiné (MMOPK) après la 1re année selon les notes.","Quasi exclusivement général","≈ 180 €/an"],
+  ["CPGE","2 ans · prépare les concours","Dossier très regardé (notes, appréciations). Débouche sur les concours d'écoles d'ingénieurs, de commerce, ENS.","Général, et filières dédiées pour techno (TSI, TB, ECT)","Gratuit en public · internat souvent possible"],
+  ["École d'ingénieurs","5 ans · diplôme d'ingénieur (bac+5)","Concours post-bac communs (Geipi Polytech, Avenir, Puissance Alpha…) ou dossier + entretien.","Surtout général avec spécialités scientifiques","≈ 600 €/an en public · 6 000 à 10 000 € en privé"],
+  ["École de commerce","3 à 5 ans · bachelor ou grade master","Concours (Sésame, Accès, Ecricome Bachelor…) : écrits + entretien de motivation.","Surtout général","8 000 à 15 000 €/an ; prêts et bourses d'école"],
+  ["IFSI","3 ans · diplôme d'État infirmier","Dossier sur Parcoursup ; places aussi pour les candidats en reprise d'études.","Tous bacs","≈ 180 €/an ; formation souvent financée par la région"],
+  ["Travail social","3 ans · diplôme d'État (éducateur, assistant de service social…)","Dossier et souvent un entretien oral.","Tous bacs","≈ 180 à 600 €/an"],
+  ["DN MADE","3 ans · diplôme des métiers d'art et du design (bac+3)","Dossier, parfois portfolio ou entretien.","Tous bacs, STD2A apprécié","Gratuit en public"],
+];
+const M = { data:null, map:null, layer:null, sites:null, filtered:[], shown:60, sel:null, site:null, ready:false, loading:false };
+const norm = s => (s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const rateCls = t => t<0?"na":t>=70?"good":t>=40?"mid":"low";
+const rateTxt = t => t<0?"n.c.":t+" %";
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function fRec(i){ const a=M.data.f[i], s=M.data.sites[a[0]], S_=M.data.strs; return {
+  i, site:a[0], type:a[1], form:S_[a[2]], fil:S_[a[3]], det:S_[a[4]], sel:a[5], capa:a[6], voe:a[7], taux:a[8], gen:a[9], tec:a[10], pro:a[11],
+  sm:a[12], ab:a[13], b:a[14], tb:a[15], tbf:a[16], bours:a[17], fem:a[18], rang:a[19], internat:a[20], cod:a[21], acc:a[22], aca:a[23],
+  lat:s[0], lon:s[1], etab:S_[s[2]], ville:S_[s[3]], dep:s[4], region:S_[s[5]], statut:s[6], acad:S_[s[7]] }; }
+function fTitle(r){ const base = r.type==="AUTRE" ? r.form+" – "+r.fil : (r.type==="Licence"||r.type==="LAS"||r.type==="BUT"||r.type==="BTS" ? (TYPES[r.type].split(" (")[0])+" "+r.fil : r.fil || TYPES[r.type]); return base; }
+const psLink = cod => "https://dossierappel.parcoursup.fr/Candidats/public/fiches/afficherFicheFormation?g_ta_cod="+cod+"&typeBac=0&originePc=0";
+
+async function loadCarte(){
+  if (M.ready || M.loading) return; M.loading=true;
+  $("#fType").innerHTML = `<option value="">Tous les types</option>`+Object.entries(TYPES).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
+  $("#guideRows").innerHTML = GUIDE.map(g=>`<tr>${g.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("");
+  try{
+    const r = await fetch("formations-2025.json"); if(!r.ok) throw new Error(r.status);
+    M.data = await r.json();
+  }catch(e){ $("#resCount").textContent="Les données des formations n'ont pas pu être chargées. Recharge la page."; M.loading=false; return; }
+  const S_=M.data.strs;
+  M.search = M.data.f.map(a=>{ const s=M.data.sites[a[0]]; return norm([S_[a[2]],S_[a[3]],S_[a[4]],S_[s[2]],S_[s[3]],s[4],TYPES[a[1]]].join(" ")); });
+  const regions=[...new Set(M.data.sites.map(s=>S_[s[5]]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"fr"));
+  $("#fRegion").innerHTML = `<option value="">Toute la France</option>`+regions.map(r=>`<option>${esc(r)}</option>`).join("");
+  const p = ls.get("reperes-carte",{}); if (p.bac) $("#fBac").value=p.bac;
+  initMap();
+  M.ready=true; M.loading=false; applyFilters(); renderWish();
+}
+function initMap(){
+  if (!window.L){ $("#map").innerHTML=`<div class="empty" style="height:100%;display:grid;place-content:center;padding:20px">La carte n'a pas pu se charger. La liste de droite fonctionne quand même.</div>`; return; }
+  M.map = L.map("map",{preferCanvas:true,zoomSnap:.5,minZoom:4,maxZoom:15,attributionControl:true}).fitBounds([[41.3,-5.2],[51.1,9.6]]);
+  M.map.attributionControl.setPrefix("").addAttribution("Données : MESR, Parcoursup 2025 · Contours : IGN/OSM");
+  fetch("departements.json").then(r=>r.json()).then(g=>{ M.deps=L.geoJSON(g,{style:depStyle,interactive:false}).addTo(M.map); M.deps.bringToBack(); }).catch(()=>{});
+  M.layer = L.layerGroup().addTo(M.map);
+  M.map.on("moveend",()=>{ if($("#fZone").checked) applyFilters(true); });
+  const J=[["Métropole",[[41.3,-5.2],[51.1,9.6]]],["Corse",[[41.3,8.5],[43.05,9.6]]],["Guadeloupe",[[15.8,-61.85],[16.55,-61.0]]],["Martinique",[[14.38,-61.25],[14.9,-60.8]]],["Guyane",[[3.6,-54.6],[5.8,-51.6]]],["Réunion",[[-21.4,55.2],[-20.85,55.85]]],["Mayotte",[[-13.05,44.95],[-12.6,45.35]]]];
+  $("#mapJump").innerHTML = J.map((j,i)=>`<button data-j="${i}">${j[0]}</button>`).join("");
+  $("#mapJump").addEventListener("click",e=>{ const b=e.target.closest("[data-j]"); if(b) M.map.fitBounds(J[b.dataset.j][1]); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{ M.deps&&M.deps.setStyle(depStyle); drawMarkers(); });
+}
+function depStyle(){ return {color:css("--border-map"),weight:.8,fillColor:css("--land"),fillOpacity:1}; }
+
+function applyFilters(keepSel){
+  if(!M.ready) return;
+  const q=norm($("#fQ").value).split(/\s+/).filter(Boolean), type=$("#fType").value, reg=$("#fRegion").value, st=$("#fStat").value, sel=$("#fSel").value,
+        tmin=+$("#fTaux").value, int=$("#fInt").checked, bac=$("#fBac").value, mybac=$("#fMyBac").checked&&bac, zone=$("#fZone").checked&&M.map;
+  $("#fTauxOut").textContent = tmin+" %";
+  ls.set("reperes-carte",{bac});
+  const b = zone ? M.map.getBounds() : null, F=M.data.f, Sx=M.data.sites, S_=M.data.strs, bi={gen:9,tec:10,pro:11}[bac];
+  const out=[];
+  for (let i=0;i<F.length;i++){
+    const a=F[i], s=Sx[a[0]];
+    if (type && a[1]!==type) continue;
+    if (reg && S_[s[5]]!==reg) continue;
+    if (st && !st.includes(String(s[6]))) continue;
+    if (sel!=="" && String(a[5])!==sel) continue;
+    if (tmin && !(a[8]>=tmin)) continue;
+    if (int && !a[20]) continue;
+    if (mybac && !(a[bi]>0)) continue;
+    if (b && !b.contains([s[0],s[1]])) continue;
+    if (q.length){ const t=M.search[i]; if(!q.every(w=>t.includes(w))) continue; }
+    out.push(i);
+  }
+  M.filtered=out; M.shown=60;
+  drawMarkers(); renderResults();
+}
+function drawMarkers(){
+  if(!M.map||!M.layer) return;
+  M.layer.clearLayers();
+  const by=new Map();
+  for (const i of M.filtered){ const s=M.data.f[i][0]; let g=by.get(s); if(!g){g=[];by.set(s,g);} g.push(i); }
+  const col={good:css("--good"),mid:css("--mid"),low:css("--low"),na:css("--muted")}, stroke=css("--card");
+  by.forEach((list,s)=>{
+    const site=M.data.sites[s], ts=list.map(i=>M.data.f[i][8]).filter(t=>t>=0), avg=ts.length?Math.round(ts.reduce((x,y)=>x+y,0)/ts.length):-1;
+    const m=L.circleMarker([site[0],site[1]],{radius:Math.min(4+Math.sqrt(list.length)*1.6,14),color:stroke,weight:1,fillColor:col[rateCls(avg)],fillOpacity:.85});
+    m.bindTooltip(`${esc(M.data.strs[site[2]])} · ${esc(M.data.strs[site[3]])} · ${list.length} formation${list.length>1?"s":""}`);
+    m.on("click",()=>{ M.site=s; renderResults(); if(list.length===1) showDetail(list[0]); });
+    M.layer.addLayer(m);
+  });
+}
+function sortList(arr){
+  const F=M.data.f, k=$("#fSort").value;
+  const by={taux:(a,b)=>F[b][8]-F[a][8], tauxAsc:(a,b)=>(F[a][8]<0?999:F[a][8])-(F[b][8]<0?999:F[b][8]), capa:(a,b)=>F[b][6]-F[a][6], nom:(a,b)=>fTitle(fRec(a)).localeCompare(fTitle(fRec(b)),"fr")}[k];
+  return arr.slice().sort(by);
+}
+function renderResults(){
+  let list = M.site!=null ? M.filtered.filter(i=>M.data.f[i][0]===M.site) : M.filtered;
+  $("#siteFilter").hidden = M.site==null;
+  if (M.site!=null){ const s=M.data.sites[M.site]; $("#siteName").textContent = M.data.strs[s[2]]+" · "+M.data.strs[s[3]]; }
+  const nSites=new Set(list.map(i=>M.data.f[i][0])).size;
+  $("#resCount").textContent = list.length.toLocaleString("fr-FR")+" formation"+(list.length>1?"s":"")+" · "+nSites.toLocaleString("fr-FR")+" établissement"+(nSites>1?"s":"");
+  const sorted = (list.length>3000 && $("#fSort").value==="nom") ? list : sortList(list);
+  const page = sorted.slice(0,M.shown);
+  $("#resList").innerHTML = page.length ? page.map(i=>{ const r=fRec(i);
+    return `<button class="fcard" data-f="${i}" aria-pressed="${M.sel===i}"><span class="ft">${esc(fTitle(r))}</span><span class="rate ${rateCls(r.taux)}" title="Taux d'accès 2025">${rateTxt(r.taux)}</span><span class="fe">${esc(r.etab)} · ${esc(r.ville)} (${esc(r.dep)}) · ${r.capa>=0?r.capa+" places":""}${r.det?" · "+esc(r.det):""}</span></button>`; }).join("")
+    : `<p class="note">Aucune formation ne correspond. Élargis la recherche, baisse le taux d'accès minimum ou change de région.</p>`;
+  $("#resMore").hidden = sorted.length<=M.shown;
+}
+function bar(label, parts){ const tot=parts.reduce((x,p)=>x+Math.max(p[1],0),0);
+  return `<div><div class="bar-l"><span>${label}</span></div><div class="stack">${parts.map(p=>p[1]>0?`<i class="${p[2]}" style="width:${p[1]/Math.max(tot,1)*100}%" title="${p[0]} : ${p[1]} %"></i>`:"").join("")}</div><div class="keys">${parts.map(p=>`<span><i class="${p[2]}"></i>${p[0]} ${p[1]<0?"n.c.":p[1]+" %"}</span>`).join("")}</div></div>`; }
+function showDetail(i){
+  M.sel=i; const r=fRec(i); renderResults();
+  const ratio = r.voe>0&&r.capa>0 ? Math.round(r.voe/r.capa) : null;
+  const bac=$("#fBac").value, myShare = bac ? r[bac] : null, bacName={gen:"général",tec:"technologique",pro:"professionnel"}[bac];
+  const inWish = S.mine.some(x=>x.kind==="voeu"&&x.cod===r.cod);
+  let advice="";
+  if (bac){
+    advice = myShare===0 ? `<div class="callout bad">Aucun élève de bac ${bacName} n'a été admis ici en 2025. Ce n'est pas interdit, mais tes chances sont très faibles : garde ce vœu seulement s'il te tient vraiment à cœur.</div>`
+           : myShare>0 ? `<div class="callout ${myShare>=30?"ok":""}">${myShare} % des admis venaient d'un bac ${bacName}.</div>` : "";
+  }
+  if (r.sel===0 && r.taux>=0 && r.taux<50) advice += `<div class="callout">Formation non sélective mais en tension : plus de candidats que de places, elle a donc classé les dossiers. Ne la considère pas comme un vœu sûr.</div>`;
+  $("#fDetail").innerHTML = `
+    <div style="display:grid;gap:6px">
+      <div><span class="badge">${esc(TYPES[r.type])}</span><span class="badge alt">${r.sel?"Sélective":"Non sélective"}</span><span class="badge alt">${STATUTS[r.statut]}</span>${r.internat?'<span class="badge alt">Internat</span>':""}</div>
+      <h3 style="font-size:1.35rem">${esc(fTitle(r))}</h3>
+      ${r.det?`<p>${esc(r.det)}</p>`:""}
+      <p class="note">${esc(r.etab)} · ${esc(r.ville)} (${esc(r.dep)}) · académie de ${esc(r.acad)}</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b style="color:var(--${rateCls(r.taux)==="na"?"muted":rateCls(r.taux)==="good"?"good":rateCls(r.taux)==="mid"?"mid":"low"})">${rateTxt(r.taux)}</b><span>taux d'accès</span></div>
+      <div class="kpi"><b>${r.capa>=0?r.capa.toLocaleString("fr-FR"):"n.c."}</b><span>places</span></div>
+      <div class="kpi"><b>${r.voe>=0?r.voe.toLocaleString("fr-FR"):"n.c."}</b><span>vœux reçus${ratio?" · "+ratio+" par place":""}</span></div>
+      <div class="kpi"><b>${r.rang>=0?r.rang.toLocaleString("fr-FR"):"n.c."}</b><span>rang du dernier appelé</span></div>
+    </div>
+    <div class="bars">
+      ${bar("Type de bac des admis",[["Général",r.gen,"c1"],["Techno",r.tec,"c2"],["Pro",r.pro,"c3"]])}
+      ${bar("Mention au bac des admis",[["Sans",r.sm,"c0"],["AB",r.ab,"c3"],["B",r.b,"c2"],["TB",r.tb,"c1"],["TB+félicitations",r.tbf,"c4"]])}
+    </div>
+    <p class="note">Parmi les admis : ${r.bours>=0?r.bours+" % de boursiers":"boursiers n.c."} · ${r.fem>=0?r.fem+" % de filles":""} · ${r.aca>=0?r.aca+" % venaient de la même académie":""}.</p>
+    ${advice}
+    <div class="callout ok"><strong>Diplôme demandé :</strong> baccalauréat ou équivalent. ${esc((GUIDE.find(g=>g[0]===({LAS:"PASS / L.AS",PASS:"PASS / L.AS",ING:"École d'ingénieurs",COM:"École de commerce",EFTS:"Travail social",CPGE:"CPGE"}[r.type]||r.type))||["","","Les attendus et critères précis sont sur la fiche officielle."])[2])}</div>
+    <div class="row" style="flex-wrap:wrap">
+      <button class="btn primary" id="wishAdd" style="flex:0 0 auto" ${inWish?"disabled":""}>${inWish?"Dans ma liste de vœux":"Ajouter à ma liste de vœux"}</button>
+      <a class="btn" style="flex:0 0 auto;text-decoration:none" href="${psLink(r.cod)}" target="_blank" rel="noopener">Fiche officielle : attendus et critères ↗</a>
+    </div>`;
+  $("#wishAdd").onclick = async ()=>{ try{ await savePersonal("voeu-"+r.cod,{kind:"voeu",cod:r.cod,added:Date.now()}); toast("Ajouté à ta liste de vœux"); showDetail(i); }catch(e){ toast("Ajout impossible"); } };
+  if (M.map){ M.map.setView([r.lat,r.lon], Math.max(M.map.getZoom(),9)); }
+  if (innerWidth<900) $("#fDetail").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function renderWish(){
+  if (!M.ready) return;
+  const idx = new Map(M.data.f.map((a,i)=>[a[21],i]));
+  const items = mineOf("voeu").map(w=>({w, i:idx.get(w.cod)})).filter(x=>x.i!=null).map(x=>({...x, r:fRec(x.i)}));
+  const lvl = r => (r.taux>=80) ? ["sur","Sûr"] : (r.taux>=40) ? ["real","Réaliste"] : ["amb","Ambitieux"];
+  $("#wishCount").textContent = items.length+" / 10";
+  $("#wishList").innerHTML = items.length ? items.sort((a,b)=>b.r.taux-a.r.taux).map(({w,i,r})=>{ const l=lvl(r);
+    return `<div class="wrow"><span class="lvl ${l[0]}">${l[1]}</span><button class="btn ghost" style="justify-content:flex-start;text-align:left;padding:0;color:var(--ink)" data-open="${i}"><span><strong>${esc(fTitle(r))}</strong><br><span class="note">${esc(r.etab)} · ${esc(r.ville)} · ${rateTxt(r.taux)}</span></span></button><button class="btn ghost small" data-unwish="${w.id}">Retirer</button></div>`; }).join("")
+    : `<p class="note">Ta liste est vide. Ouvre une formation et clique sur « Ajouter à ma liste de vœux ».</p>`;
+  const n={sur:0,real:0,amb:0}; items.forEach(x=>n[lvl(x.r)[0]]++);
+  const villes=new Set(items.map(x=>x.r.ville));
+  const msgs=[];
+  if (items.length){
+    if (!n.sur) msgs.push(["bad","Aucun vœu sûr (taux d'accès ≥ 80 %). Ajoute au moins une formation que tu suivrais vraiment et où tes chances sont élevées."]);
+    if (n.amb>items.length/2) msgs.push(["","Plus de la moitié de tes vœux sont ambitieux (taux < 40 %). Équilibre avec des vœux réalistes."]);
+    if (items.length>10) msgs.push(["bad","Plus de 10 vœux : Parcoursup en accepte 10 au maximum (hors sous-vœux et apprentissage)."]);
+    if (villes.size===1 && items.length>=3) msgs.push(["","Tous tes vœux sont dans la même ville. Si tu peux te déplacer, une ville voisine augmente tes chances."]);
+    if (!msgs.length) msgs.push(["ok",`Liste équilibrée : ${n.sur} sûr${n.sur>1?"s":""}, ${n.real} réaliste${n.real>1?"s":""}, ${n.amb} ambitieux.`]);
+  }
+  $("#wishDiag").innerHTML = msgs.map(m=>`<div class="callout ${m[0]}">${m[1]}</div>`).join("");
+}
+$("#wishList").addEventListener("click", async e=>{
+  const o=e.target.closest("[data-open]"); if(o){ showDetail(+o.dataset.open); return; }
+  const u=e.target.closest("[data-unwish]"); if(u){ try{ await deletePersonal(u.dataset.unwish); toast("Retiré de ta liste"); if(M.sel!=null) showDetail(M.sel); }catch(_){ toast("Suppression impossible"); } }
+});
+$("#resList").addEventListener("click", e=>{ const b=e.target.closest("[data-f]"); if(b) showDetail(+b.dataset.f); });
+$("#resMore").onclick = ()=>{ M.shown+=60; renderResults(); };
+$("#siteClear").onclick = ()=>{ M.site=null; renderResults(); };
+$("#fSort").addEventListener("change", ()=>renderResults());
+let fT; ["#fQ","#fType","#fRegion","#fStat","#fSel","#fBac","#fTaux","#fInt","#fMyBac","#fZone"].forEach(s=>$(s).addEventListener(s==="#fQ"||s==="#fTaux"?"input":"change",()=>{ clearTimeout(fT); fT=setTimeout(()=>{ M.site=null; applyFilters(); if(M.sel!=null&&s==="#fBac") showDetail(M.sel); },180); }));
+$("#fRegion").addEventListener("change",()=>{ if(!M.map||!M.ready) return; const r=$("#fRegion").value; if(!r){ M.map.fitBounds([[41.3,-5.2],[51.1,9.6]]); return; }
+  const pts=M.data.sites.filter(s=>M.data.strs[s[5]]===r).map(s=>[s[0],s[1]]); if(pts.length) M.map.fitBounds(L.latLngBounds(pts).pad(.05)); });
+
+/* ---------- Rendu global ---------- */
+function renderAll(){ renderCountdown(); renderCal(); renderDay(); renderDocs(); renderMyRdv(); renderSlots(); if (typeof renderWish==="function") renderWish(); }
+
+/* ---------- Démarrage ---------- */
+function boot(){
+  S.mine = localMine();
+  route(); renderTutos(); renderPeople(); renderChans(); renderAll(); renderMsgs();
+  const tag=$("#modeTag"); tag.textContent="Sur cet appareil";
+  if (!window.claude || !window.claude.use) { tag.title="Données enregistrées dans ce navigateur"; return; }
+  (async ()=>{
+    const [db,user,assets] = await Promise.all([claude.use("db"),claude.use("user"),claude.use("assets")]);
+    S.user=user; S.assets=assets;
+    const uid = user ? await user.id() : null;
+    if (!db || !uid){ tag.title="Données enregistrées dans ce navigateur"; renderDocs(); return; }
+    S.db=db; S.uid=uid; tag.textContent="Synchronisé"; tag.classList.add("on");
+    const timer=setTimeout(()=>{ tag.textContent="Connexion lente"; tag.classList.remove("on"); },10000);
+    db.collection("data/users/"+uid).onSnapshot(snap=>{ if(!snap.metadata.fromCache){ clearTimeout(timer); tag.textContent="Synchronisé"; tag.classList.add("on"); } S.mine=snap.docs.map(d=>({id:d.id,...d.data()})); renderAll(); },
+      err=>{ clearTimeout(timer); tag.textContent="Hors ligne"; tag.classList.remove("on"); });
+    db.collection("bookings").onSnapshot(snap=>{ const b={}; snap.docs.forEach(d=>{ if(d.data().by) b[d.id]=true; }); S.bookings=b; renderSlots(); }, ()=>{});
+    subscribeChat();
+  })();
+}
+boot();
+</script>
+
+</body>
+</html>
