@@ -92,7 +92,7 @@ section.view{display:grid;gap:20px}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.small{padding:4px 10px;font-size:.85rem}
 label.f{display:grid;gap:4px;font-size:.85rem;font-weight:500;color:var(--muted)}
-input[type=text],input[type=url],input[type=date],input[type=time],select,textarea{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 10px;color:var(--ink)}
+input[type=text],input[type=url],input[type=email],input[type=password],input[type=date],input[type=time],select,textarea{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 10px;color:var(--ink)}
 textarea{resize:vertical;min-height:90px}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
 .row > *{flex:1 1 150px;min-width:0}
@@ -398,6 +398,49 @@ dialog#installHelp[open]{display:grid;gap:10px}
 dialog#installHelp ol{margin:0;padding-left:1.2em;display:grid;gap:6px}
 dialog::backdrop{background:rgba(0,0,0,.45)}
 @media (max-width:620px){.seg span{font-size:.75rem;padding:8px 2px}}
+/* ---- Entraide ---- */
+.chat-link{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:99px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:.82rem;vertical-align:middle}
+.chat-link svg{width:18px;height:18px}
+.chat-link:hover{border-color:var(--accent)}
+.chat-link[aria-current="page"]{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+@media (max-width:760px){.chat-link span{display:none}.chat-link{padding:6px}}
+@media (max-width:1600px){.who .mode{display:none}}
+@media (min-width:761px) and (max-width:1000px){nav.tabs svg{display:none}.chat-link span{display:none}.chat-link{padding:6px}}
+@media (min-width:761px) and (max-width:1000px){.who{display:block}.who .mode{display:none}}
+.forum{display:grid;grid-template-columns:260px minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.forum{grid-template-columns:minmax(0,1fr)}}
+.salons{display:grid;gap:4px;padding:10px}
+.salons button{position:relative;text-align:left;border:0;background:transparent;padding:8px 34px 8px 10px;border-radius:8px;cursor:pointer;color:var(--ink);display:grid;gap:1px}
+.salons button:hover{background:var(--paper)}
+.salons button[aria-pressed="true"]{background:var(--accent-soft)}
+.salons .sn{font-weight:600;font-size:.9rem}
+.salons small{font-size:.74rem;color:var(--muted)}
+.salons .ua{position:absolute;right:8px;top:9px;font-family:var(--f-mono);font-size:.72rem;font-weight:700;background:var(--marker);color:var(--marker-ink);border-radius:99px;padding:0 6px}
+@media (max-width:760px){.salons{display:flex;overflow-x:auto;scrollbar-width:none}.salons button{flex:none;padding-right:30px}.salons small{display:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fmain{display:grid;gap:12px;align-content:start;min-height:260px}
+.flist{display:grid;gap:6px}
+.ftopic{display:grid;gap:3px;text-align:left;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--card);cursor:pointer;color:var(--ink)}
+.ftopic:hover{border-color:var(--accent)}
+.ftopic .tt{font-weight:600}
+.ftopic .tx{font-size:.86rem;color:var(--muted);overflow-wrap:anywhere}
+.tm{font-size:.78rem;color:var(--muted)}
+.tm .role{margin-left:4px}
+.nr{color:var(--warn);font-weight:600}
+.ftitle{font-size:1.25rem}
+.fmsg{border-top:1px solid var(--line);padding:10px 0;display:grid;gap:6px}
+.fmsg.q{border-top:0;background:var(--paper);border-radius:8px;padding:12px}
+.fb{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.94rem}
+.fform{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:12px}
+.fme{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--ok-soft);border-radius:8px;padding:8px 12px;font-size:.9rem}
+.charte ol{margin:10px 0;padding-left:1.2em;display:grid;gap:6px;font-size:.92rem}
+.charte summary{cursor:pointer}
+.modq{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:6px}
+.codes{display:grid;gap:6px}
+.code-r{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.88rem}
+.code-r code{font-family:var(--f-mono);font-weight:700;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+.code-r span{flex:1;min-width:0}
+dialog#fReport,dialog#fModDlg{max-width:min(440px,calc(100% - 32px));color:var(--ink)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -416,7 +459,7 @@ dialog::backdrop{background:rgba(0,0,0,.45)}
       <a href="#documents" data-v="documents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="lg">Documents</span><span class="sm">Docs</span></a>
       <a href="#contacts" data-v="contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg><span class="lg">Qui contacter</span><span class="sm">Contacts</span></a>
     </nav>
-    <div class="who" id="who"><button class="btn small primary" type="button" id="installBtn" hidden>Installer l'appli</button> <span class="mode" id="modeTag">Chargement…</span></div>
+    <div class="who" id="who"><a href="#entraide" class="chat-link" data-v="entraide" title="Entraide entre élèves"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h11v8H8l-4 3z"/><path d="M15 9h5v8l-3-2h-6v-2"/></svg><span>Entraide</span></a> <button class="btn small primary" type="button" id="installBtn" hidden>Installer l'appli</button> <span class="mode" id="modeTag">Chargement…</span></div>
   </div>
 </header>
 
@@ -640,7 +683,7 @@ dialog::backdrop{background:rgba(0,0,0,.45)}
       <div><dt>Portes ouvertes en ligne</dt><dd>Filtre « En ligne » ci-dessus. Pratique pour une formation loin de chez toi. Demande à échanger avec un étudiant pendant la session.</dd></div>
       <div><dt>Salons d'orientation</dt><dd>Des dizaines d'établissements au même endroit : bien pour comparer et repérer, insuffisant pour juger l'ambiance d'un lieu. Le CIO ou ton lycée connaît ceux de ta région.</dd></div>
       <div><dt>Cours en ligne d'orientation</dt><dd>Sur FUN-MOOC, la série « ProjetSUP » présente les disciplines du supérieur, faite par des enseignants. Gratuit, sans inscription à une formation.</dd></div>
-      <div><dt>Parler à des étudiants</dt><dd>Pendant les portes ouvertes et les immersions, ou auprès du service d'orientation de l'université (SCUIO) : voir <a href="#contacts">Qui contacter</a>.</dd></div>
+      <div><dt>Parler à des étudiants</dt><dd>Dans le salon « Demande à un étudiant » de l'<a href="#entraide">Entraide</a>, pendant les portes ouvertes, ou auprès du service d'orientation de l'université (voir <a href="#contacts">Qui contacter</a>).</dd></div>
       <div><dt>La fiche Parcoursup</dt><dd>Chaque fiche de formation indique les attendus et un contact, et souvent les dates de portes ouvertes ou d'immersion déclarées par l'établissement.</dd></div>
     </dl>
   </div>
@@ -824,6 +867,76 @@ dialog::backdrop{background:rgba(0,0,0,.45)}
   </div>
 </section>
 
+<!-- ============ ENTRAIDE ============ -->
+<section class="view" id="v-entraide" hidden>
+  <div class="head">
+    <div>
+      <div class="eyebrow">Entre élèves · avec un pseudo</div>
+      <h2>Entraide</h2>
+    </div>
+    <p>Pose tes questions, partage ce que tu as appris, réponds aux autres. Ceux qui sont passés par là l'an dernier peuvent t'aider, et tu pourras aider ceux qui viennent après toi.</p>
+  </div>
+
+  <div id="fStatus"></div>
+
+  <div class="forum">
+    <nav class="panel salons" id="fSalons" aria-label="Salons"></nav>
+    <div class="panel fmain" id="fMain"></div>
+  </div>
+
+  <form class="panel" id="fJoin" style="display:grid;gap:10px" hidden>
+    <h3>Rejoindre l'entraide</h3>
+    <p class="note">Tout le monde peut lire. Pour écrire, il faut le code de ton lycée, donné par tes professeurs. Choisis un pseudo qui ne permet pas de te reconnaître : pas ton nom, pas ton prénom complet.</p>
+    <div class="row">
+      <label class="f">Code du lycée<input type="text" id="fjCode" required maxlength="12" autocomplete="off" autocapitalize="characters" placeholder="Ex. K7PQ2M9A"></label>
+      <label class="f">Pseudo<input type="text" id="fjPseudo" required minlength="3" maxlength="20" autocomplete="off" placeholder="Ex. Comete_35"></label>
+      <label class="f">Je suis<select id="fjRole"><option value="lyceen">Lycéen·ne</option><option value="etudiant">Étudiant·e (je viens aider)</option></select></label>
+    </div>
+    <label class="checks"><input type="checkbox" id="fjOk" required> J'ai lu la charte ci-dessous et je m'engage à la respecter.</label>
+    <button class="btn primary" type="submit" style="justify-self:start">Rejoindre</button>
+  </form>
+
+  <details class="panel charte" id="fCharte">
+    <summary><strong>La charte de l'entraide</strong></summary>
+    <ol>
+      <li><strong>Bienveillance.</strong> On répond comme on aimerait qu'on nous réponde. Pas de moquerie, même sur une question qui paraît simple.</li>
+      <li><strong>Aucune donnée personnelle.</strong> Pas de nom, de numéro, d'adresse, de réseau social ni de photo. Le forum bloque automatiquement les coordonnées : on s'entraide ici, pas en privé.</li>
+      <li><strong>Pas de messages privés.</strong> Si quelqu'un te demande de continuer ailleurs (Snap, Insta, Discord…), refuse et signale-le.</li>
+      <li><strong>Des conseils, pas des certitudes.</strong> Vérifie toujours une information importante sur parcoursup.fr ou auprès de ton professeur principal.</li>
+      <li><strong>Signaler, c'est protéger.</strong> Un message choquant, du harcèlement, un adulte au comportement bizarre : clique sur « Signaler ». Trois signalements le masquent tout de suite, puis un modérateur décide.</li>
+      <li><strong>Si tu vas mal,</strong> parle à un adulte de confiance, à l'infirmier·ère du lycée, ou appelle Fil Santé Jeunes (0 800 235 236, gratuit et anonyme). En cas d'urgence, le 3114, 24h/24.</li>
+    </ol>
+    <p class="note">Le forum est modéré par l'équipe de Repères et un adulte référent. Un compte qui ne respecte pas la charte peut être bloqué. Les messages sont hébergés par Supabase dans l'Union européenne ; tu peux supprimer tes messages à tout moment.</p>
+  </details>
+
+  <div class="panel" id="fMod" style="display:grid;gap:14px" hidden></div>
+
+  <p class="note" style="text-align:center"><button class="btn ghost small" type="button" id="fModLogin">Espace modération</button></p>
+
+  <dialog id="fReport" class="panel">
+    <form method="dialog" style="display:grid;gap:10px" id="fReportForm">
+      <h3>Signaler ce message</h3>
+      <label class="checks"><input type="radio" name="frr" value="Insulte ou harcèlement" required> Insulte ou harcèlement</label>
+      <label class="checks"><input type="radio" name="frr" value="Demande de contact privé ou coordonnées"> Demande de contact privé ou coordonnées</label>
+      <label class="checks"><input type="radio" name="frr" value="Personne inquiétante (adulte, comportement bizarre)"> Personne inquiétante (adulte, comportement bizarre)</label>
+      <label class="checks"><input type="radio" name="frr" value="Quelqu'un semble en détresse"> Quelqu'un semble en détresse</label>
+      <label class="checks"><input type="radio" name="frr" value="Spam, hors sujet ou fausse information"> Spam, hors sujet ou fausse information</label>
+      <p class="note" id="fReportHelp" hidden>Si cette personne parle de se faire du mal, préviens aussi un adulte de ton lycée. Le 3114 répond 24h/24, y compris aux proches inquiets.</p>
+      <div class="row" style="flex-wrap:wrap"><button class="btn primary" value="ok" style="flex:0 0 auto">Signaler</button><button class="btn" value="cancel" formnovalidate style="flex:0 0 auto">Annuler</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="fModDlg" class="panel">
+    <form id="fModForm" style="display:grid;gap:10px">
+      <h3>Connexion modérateur</h3>
+      <p class="note">Réservé aux modérateurs créés dans Supabase.</p>
+      <label class="f">E-mail<input type="email" id="fmEmail" required autocomplete="username"></label>
+      <label class="f">Mot de passe<input type="password" id="fmPass" required autocomplete="current-password"></label>
+      <div class="row" style="flex-wrap:wrap"><button class="btn primary" type="submit" style="flex:0 0 auto">Se connecter</button><button class="btn" type="button" id="fmCancel" style="flex:0 0 auto">Annuler</button></div>
+    </form>
+  </dialog>
+</section>
+
 </main>
 <div class="toast" id="toast" hidden></div>
 <dialog id="installHelp" class="panel">
@@ -965,16 +1078,17 @@ const mineOf = kind => S.mine.filter(x=>x.kind===kind);
 const newId = p => p+"-"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 
 /* ---------- Navigation ---------- */
-const VIEWS = ["calendrier","voie","carte","jpo","tutoriels","documents","contacts"];
-const ALIAS = {rdv:"contacts", chat:"contacts"};
+const VIEWS = ["calendrier","voie","carte","jpo","tutoriels","documents","contacts","entraide"];
+const ALIAS = {rdv:"contacts", chat:"entraide"};
 function route(){
   const h = ALIAS[location.hash.slice(1)] || location.hash.slice(1);
   const v = VIEWS.includes(h) ? h : "calendrier";
   VIEWS.forEach(n => $("#v-"+n).hidden = n!==v);
-  document.querySelectorAll("nav.tabs a").forEach(a => { if(a.dataset.v===v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  document.querySelectorAll("nav.tabs a, a.chat-link").forEach(a => { if(a.dataset.v===v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
   if (v==="carte"){ loadCarte(); setTimeout(()=>{ if(M.map) M.map.invalidateSize(); },0); }
   if (v==="jpo") loadJpo();
   if (v==="contacts") loadContacts();
+  if (v==="entraide") openForum();
   window.scrollTo(0,0);
 }
 addEventListener("hashchange", route);
@@ -1645,7 +1759,7 @@ const DOMAINS = [{"id": "info", "n": "Informatique et numérique", "w": {"tech":
 const PLAN = [
   ["Semaine 1 · Faire le point", ["Réponds au questionnaire « Ce qui t'attire » ci-dessous.","Note trois activités où tu oublies l'heure, et trois choses que tu ne veux surtout pas faire.","Essaie MonProjetSup, l'outil officiel qui propose des formations selon tes goûts."]],
   ["Semaine 2 · Explorer", ["Ouvre trois pistes proposées et lis la fiche de cinq formations sur la carte : taux d'accès, profil des admis.","Lis deux fiches métiers sur onisep.fr pour voir à quoi ressemble le quotidien."]],
-  ["Semaine 3 · Rencontrer", ["Prends rendez-vous avec ton professeur principal ou le psychologue de l'Éducation nationale.","Va à une porte ouverte ou à une immersion, ou parle à un étudiant de la filière."]],
+  ["Semaine 3 · Rencontrer", ["Prends rendez-vous avec ton professeur principal ou le psychologue de l'Éducation nationale.","Va à une porte ouverte ou à une immersion, ou pose ta question dans le salon « Demande à un étudiant » de l'Entraide."]],
   ["Semaine 4 · Décider assez pour avancer", ["Garde deux ou trois domaines, pas plus.","Ajoute à ta liste au moins deux formations sûres, en plus de celles qui t'attirent le plus.","Note les dates : vœux jusqu'au 11 mars 2027, confirmation jusqu'au 1er avril."]],
 ];
 function renderPlan(){
@@ -1771,6 +1885,189 @@ $("#installBtn").onclick=async ()=>{
 };
 $("#installClose").onclick=()=>$("#installHelp").close();
 if ("serviceWorker" in navigator && (location.protocol==="https:"||location.hostname==="localhost")) addEventListener("load", ()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+
+/* ---------- Entraide (forum Supabase) ---------- */
+// Valeurs publiques du projet Supabase (Project Settings > API) : l'URL et la clé « anon » ou « publishable ».
+// La sécurité ne dépend pas de leur secret mais des règles de supabase/forum.sql.
+const FORUM_CFG = ls.get("reperes-forum-cfg", null) || { url: "", key: "" };
+const SALONS = [
+  ["general","Entraide générale","Tout ce qui ne rentre pas ailleurs"],
+  ["voie","Je ne sais pas quoi faire","Partage tes doutes, compare les pistes"],
+  ["dossier","Lettres, CV, dossier","Conseils et relectures, sans infos perso"],
+  ["courtes","BTS, BUT, études courtes","Formations en 2 ou 3 ans, alternance"],
+  ["longues","Licence, santé, prépa, écoles","Université, PASS/L.AS, CPGE, écoles"],
+  ["jpo","Portes ouvertes et immersions","Raconte ta visite, pose tes questions"],
+  ["resultats","Résultats et phase complémentaire","Juin à septembre : on ne reste pas seul"],
+  ["moral","Stress et motivation","Souffler, s'encourager, s'organiser"],
+  ["etudiants","Demande à un étudiant","Les étudiants répondent sur leur filière"],
+];
+const F = { sb:null, me:null, salon:"general", unanswered:false, topic:null, list:[], counts:{}, more:false, timer:null, loading:false, reportTarget:null };
+const fConfigured = () => !!(FORUM_CFG.url && FORUM_CFG.key);
+const ago = t => { const s=(Date.now()-new Date(t))/1000; if(s<60) return "à l'instant"; if(s<3600) return "il y a "+Math.floor(s/60)+" min"; if(s<86400) return "il y a "+Math.floor(s/3600)+" h"; if(s<7*86400) return "il y a "+Math.floor(s/86400)+" j"; return new Date(t).toLocaleDateString("fr-FR",{day:"numeric",month:"short"}); };
+const roleTag = r => r==="etudiant" ? `<span class="role">Étudiant·e</span>` : "";
+
+function loadSupabaseLib(){
+  if (window.supabase && window.supabase.createClient) return Promise.resolve();
+  return new Promise((ok,ko)=>{ const s=document.createElement("script"); s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js"; s.onload=ok; s.onerror=()=>ko(new Error("bibliothèque indisponible")); document.head.appendChild(s); });
+}
+async function fCall(fn, args){
+  const { data, error } = await F.sb.rpc(fn, args||{});
+  if (error) throw new Error(error.message || "Erreur du serveur");
+  return data;
+}
+async function openForum(){
+  renderSalons();
+  if (!fConfigured()){ renderForumStatus(); renderForumMain(); return; }
+  try{
+    if (!F.sb){ await loadSupabaseLib(); F.sb = window.supabase.createClient(FORUM_CFG.url, FORUM_CFG.key, {auth:{persistSession:true, autoRefreshToken:true, storageKey:"reperes-forum-auth"}}); }
+    const { data } = await F.sb.auth.getSession();
+    F.me = data && data.session ? await fCall("forum_me") : null;
+  }catch(e){ F.me=null; renderForumStatus("Le forum est injoignable pour l'instant ("+e.message+"). Vérifie ta connexion."); return; }
+  renderForumStatus(); await refreshForum();
+  clearTimeout(F.timer); const tick=()=>{ F.timer=setTimeout(async()=>{ if(location.hash==="#entraide" && document.visibilityState==="visible" && !F.topic) await refreshForum(true); tick(); }, 45000); }; tick();
+}
+async function refreshForum(silent){
+  if (!F.sb) return;
+  try{
+    const [counts, list] = await Promise.all([fCall("forum_salon_counts"), F.topic ? null : fCall("forum_topics",{p_salon:F.salon, p_unanswered:F.unanswered, p_limit:30})]);
+    F.counts = counts||{}; if (list){ F.list=list; F.more=list.length===30; }
+    renderSalons(); if (F.topic) await openTopic(F.topic.id, true); else renderForumMain();
+    if (F.me && F.me.is_mod) renderMod();
+  }catch(e){ if(!silent) toast(e.message); }
+}
+function renderForumStatus(err){
+  const box=$("#fStatus");
+  $("#fJoin").hidden = !fConfigured() || !!(F.me && F.me.pseudo) || !!err;
+  if (err){ box.innerHTML=`<div class="callout bad">${esc(err)}</div>`; return; }
+  if (!fConfigured()){ box.innerHTML=`<div class="callout"><strong>L'entraide ouvre bientôt.</strong> Les salons sont prêts : il ne reste qu'à brancher le serveur et à distribuer les codes dans les lycées. En attendant, les autres onglets fonctionnent, et <a href="#contacts">Qui contacter</a> te dit vers qui te tourner.</div>`; return; }
+  if (!F.me || !F.me.pseudo){ box.innerHTML = F.me&&F.me.is_mod ? `<div class="callout ok">Connecté·e en modération. <button class="btn small" type="button" id="fLogout">Se déconnecter</button></div>` : ""; return; }
+  if (F.me.banned){ box.innerHTML=`<div class="callout bad">Ton compte ne peut plus écrire sur l'entraide. Tu peux toujours lire.</div>`; return; }
+  box.innerHTML=`<div class="fme"><span>Connecté·e : <strong>${esc(F.me.pseudo)}</strong>${roleTag(F.me.role)} · ${esc(F.me.lycee||"")}</span>${F.me.is_mod?`<button class="btn small" type="button" id="fLogout">Se déconnecter</button>`:""}</div>`;
+}
+function renderSalons(){
+  $("#fSalons").innerHTML = `<h3 class="sr">Salons</h3>`+SALONS.map(([id,n,d])=>{ const c=F.counts[id]||{};
+    return `<button type="button" data-salon="${id}" aria-pressed="${id===F.salon&&!F.topic}"><span class="sn">${esc(n)}</span><small>${esc(d)}</small>${c.unanswered?`<span class="ua" title="Questions sans réponse">${c.unanswered}</span>`:""}</button>`; }).join("");
+}
+function canWrite(){ return F.me && F.me.pseudo && !F.me.banned && F.me.code_active!==false; }
+function renderForumMain(){
+  const s=SALONS.find(x=>x[0]===F.salon);
+  const moral = F.salon==="moral" ? `<div class="callout">Ici on s'encourage entre élèves, mais on ne remplace pas un adulte. Si tu vas mal : l'infirmier·ère du lycée, Fil Santé Jeunes au <a href="tel:0800235236">0 800 235 236</a> (gratuit, anonyme), ou le <a href="tel:3114">3114</a> en cas d'urgence.</div>` : "";
+  const head = `<div class="res-head"><div><h3>${esc(s[1])}</h3><p class="note">${esc(s[2])}</p></div>${canWrite()?`<button class="btn primary small" type="button" id="fNew">Nouveau sujet</button>`:""}</div>
+    ${moral}
+    <div class="cats"><button class="pill" type="button" data-fun="0" aria-pressed="${!F.unanswered}">Récents</button><button class="pill" type="button" data-fun="1" aria-pressed="${F.unanswered}">Sans réponse : aide quelqu'un</button></div>`;
+  if (!fConfigured()){ $("#fMain").innerHTML = head + `<p class="note">Les discussions apparaîtront ici dès l'ouverture.</p>`; return; }
+  $("#fMain").innerHTML = head + `<div id="fNewBox"></div>` + (F.list.length ? `<div class="flist">${F.list.map(t=>`
+      <button type="button" class="ftopic" data-topic="${t.id}">
+        <span class="tt">${esc(t.title)}</span>
+        <span class="tx">${esc(t.excerpt)}${t.excerpt.length>=180?"…":""}</span>
+        <span class="tm">${esc(t.pseudo)}${roleTag(t.role)} · ${ago(t.created_at)} · ${t.replies?`${t.replies} réponse${t.replies>1?"s":""}`:`<span class="nr">Pas encore de réponse</span>`}</span>
+      </button>`).join("")}</div>${F.more?`<button class="btn" type="button" id="fMore">Plus de sujets</button>`:""}`
+    : `<p class="note">${F.unanswered?"Toutes les questions de ce salon ont une réponse. Merci à vous !":"Aucun sujet pour l'instant."+(canWrite()?" Lance la discussion !":"")}</p>`);
+}
+function newTopicForm(){
+  return `<form class="fform" id="fNewForm"><label class="f">Titre<input type="text" id="fnTitle" required minlength="5" maxlength="120" placeholder="Ex. BUT GEA ou BTS CG avec un bac STMG ?"></label>
+    <label class="f">Ton message<textarea id="fnBody" required minlength="2" maxlength="2000" placeholder="Explique ta situation sans donner d'infos personnelles."></textarea></label>
+    <div class="row" style="flex-wrap:wrap"><button class="btn primary" type="submit" style="flex:0 0 auto">Publier</button><button class="btn" type="button" id="fnCancel" style="flex:0 0 auto">Annuler</button><span class="counter" id="fnCount">0 / 2000</span></div></form>`;
+}
+async function openTopic(id, silent){
+  try{
+    const t = await fCall("forum_topic",{p_id:id});
+    if (!t){ F.topic=null; toast("Ce sujet n'est plus disponible"); await refreshForum(); return; }
+    F.topic=t; renderSalons();
+    const msg=(m,kind)=>`<article class="fmsg ${kind==="topic"?"q":""}">
+        <div class="tm"><strong>${esc(m.pseudo)}</strong>${roleTag(m.role)} · ${ago(m.created_at)}</div>
+        <div class="fb">${esc(m.body)}</div>
+        <div class="jact">${kind==="reply"?`<button class="btn small ${m.i_helpful?"on":""}" type="button" data-help="${m.id}" ${!canWrite()||m.mine?"disabled":""} aria-pressed="${!!m.i_helpful}">Utile${m.helpful?" · "+m.helpful:""}</button>`:""}
+          ${canWrite()&&!m.mine?`<button class="btn ghost small" type="button" data-rep="${kind}:${m.id}">Signaler</button>`:""}
+          ${m.mine?`<button class="btn ghost small" type="button" data-del="${kind}:${m.id}">Supprimer</button>`:""}
+          ${F.me&&F.me.is_mod?`<button class="btn ghost small" type="button" data-modhide="${kind}:${m.id}">Masquer (modération)</button>`:""}</div>
+      </article>`;
+    $("#fMain").innerHTML = `<button class="btn small" type="button" id="fBack">‹ ${esc((SALONS.find(x=>x[0]===t.salon)||["","Retour"])[1])}</button>
+      <h3 class="ftitle">${esc(t.title)}</h3>${msg(t,"topic")}
+      <div class="jsub">${t.replies.length} réponse${t.replies.length>1?"s":""}</div>${t.replies.map(r=>msg(r,"reply")).join("")}
+      ${canWrite()?`<form class="fform" id="fReplyForm"><label class="f">Ta réponse<textarea id="frBody" required minlength="2" maxlength="2000" placeholder="Partage ce que tu sais ou ce que tu as vécu. Tu peux indiquer un lien parcoursup.fr ou onisep.fr."></textarea></label><button class="btn primary" type="submit" style="justify-self:start">Répondre</button></form>`
+        : F.me&&F.me.pseudo ? "" : `<p class="note">Pour répondre, rejoins l'entraide avec le code de ton lycée (en bas de la page).</p>`}`;
+    if (!silent) $("#fMain").scrollIntoView({behavior:"smooth",block:"start"});
+  }catch(e){ toast(e.message); }
+}
+async function renderMod(){
+  if (!(F.me && F.me.is_mod)){ $("#fMod").hidden=true; return; }
+  try{
+    const [q, codes] = await Promise.all([fCall("mod_queue"), fCall("mod_codes")]);
+    $("#fMod").hidden=false;
+    $("#fMod").innerHTML = `<h3>Modération</h3>
+      <div class="jsub">Signalements à traiter (${q.length})</div>
+      ${q.length ? q.map(i=>`<div class="modq"><div class="tm"><strong>${esc(i.pseudo||"?")}</strong> · ${esc(i.lycee||"")} · ${i.reports} signalement${i.reports>1?"s":""} · ${i.hidden?"<span class='nr'>masqué</span>":"visible"}${i.banned?" · compte bloqué":""}</div>
+          <div class="note">Sujet : ${esc(i.topic_title||"")} · Motifs : ${esc(i.reasons||"")}</div><div class="fb">${esc(i.body||"")}</div>
+          <div class="jact"><button class="btn small" data-mod="keep:${i.kind}:${i.item_id}">Garder visible</button><button class="btn small" data-mod="hide:${i.kind}:${i.item_id}">Masquer</button>${i.author&&!i.banned?`<button class="btn small" data-mod="ban:${i.author}:${i.kind}:${i.item_id}">Bloquer l'auteur</button>`:""}</div></div>`).join("") : `<p class="note">Rien à traiter.</p>`}
+      <div class="jsub">Codes des lycées</div>
+      <form class="row" id="fCodeForm"><label class="f">Nom du lycée<input type="text" id="fcLycee" required minlength="2" maxlength="120" placeholder="Ex. Lycée Chateaubriand, Rennes"></label><button class="btn primary" type="submit" style="flex:0 0 auto">Créer un code</button></form>
+      <div class="codes">${codes.map(c=>`<div class="code-r"><code>${esc(c.code)}</code><span>${esc(c.lycee)} · ${c.members} membre${c.members>1?"s":""}</span><button class="btn small" data-code="${esc(c.code)}:${c.active?0:1}">${c.active?"Désactiver":"Réactiver"}</button></div>`).join("")}</div>
+      <p class="note">Si un code circule hors du lycée, désactive-le et crée-en un nouveau : les membres déjà inscrits avec l'ancien ne pourront plus écrire.</p>`;
+  }catch(e){ toast(e.message); }
+}
+
+$("#fSalons").addEventListener("click", async e=>{ const b=e.target.closest("[data-salon]"); if(!b) return; F.salon=b.dataset.salon; F.topic=null; F.list=[]; renderSalons(); renderForumMain(); await refreshForum(); if(innerWidth<760) $("#fMain").scrollIntoView({behavior:"smooth",block:"start"}); });
+$("#fMain").addEventListener("click", async e=>{
+  const t=e.target.closest("[data-topic]"); if(t){ await openTopic(+t.dataset.topic); return; }
+  const u=e.target.closest("[data-fun]"); if(u){ F.unanswered=u.dataset.fun==="1"; await refreshForum(); return; }
+  if (e.target.id==="fBack"){ F.topic=null; await refreshForum(); return; }
+  if (e.target.id==="fMore"){ try{ const more=await fCall("forum_topics",{p_salon:F.salon,p_unanswered:F.unanswered,p_before:F.list[F.list.length-1].last_at,p_limit:30}); F.list=F.list.concat(more); F.more=more.length===30; renderForumMain(); }catch(err){ toast(err.message); } return; }
+  if (e.target.id==="fNew"){ $("#fNewBox").innerHTML=newTopicForm(); $("#fnTitle").focus(); return; }
+  if (e.target.id==="fnCancel"){ $("#fNewBox").innerHTML=""; return; }
+  const h=e.target.closest("[data-help]"); if(h){ try{ await fCall("forum_toggle_helpful",{p_reply:+h.dataset.help}); await openTopic(F.topic.id,true); }catch(err){ toast(err.message); } return; }
+  const r=e.target.closest("[data-rep]"); if(r){ F.reportTarget=r.dataset.rep.split(":"); $("#fReportForm").reset(); $("#fReportHelp").hidden=true; $("#fReport").showModal(); return; }
+  const d=e.target.closest("[data-del]"); if(d){ if(!confirm("Supprimer ce message ?")) return; const [k,id]=d.dataset.del.split(":"); try{ await fCall("forum_delete_mine",{p_kind:k,p_id:+id}); toast("Message supprimé"); if(k==="topic"){ F.topic=null; await refreshForum(); } else await openTopic(F.topic.id,true); }catch(err){ toast(err.message); } return; }
+  const m=e.target.closest("[data-modhide]"); if(m){ const [k,id]=m.dataset.modhide.split(":"); try{ await fCall("mod_hide",{p_kind:k,p_id:+id}); toast("Message masqué"); if(k==="topic"){ F.topic=null; await refreshForum(); } else await openTopic(F.topic.id,true); }catch(err){ toast(err.message); } }
+});
+$("#fMain").addEventListener("input", e=>{ if(e.target.id==="fnBody") $("#fnCount").textContent=e.target.value.length+" / 2000"; });
+$("#fMain").addEventListener("submit", async e=>{
+  e.preventDefault(); const btn=e.target.querySelector("button[type=submit]"); btn.disabled=true;
+  try{
+    if (e.target.id==="fNewForm"){ const id=await fCall("forum_post_topic",{p_salon:F.salon,p_title:$("#fnTitle").value,p_body:$("#fnBody").value}); toast("Sujet publié"); await openTopic(id); }
+    if (e.target.id==="fReplyForm"){ await fCall("forum_post_reply",{p_topic:F.topic.id,p_body:$("#frBody").value}); toast("Réponse publiée, merci !"); await openTopic(F.topic.id,true); }
+  }catch(err){ toast(err.message); btn.disabled=false; }
+});
+$("#fJoin").addEventListener("submit", async e=>{
+  e.preventDefault(); const btn=e.target.querySelector("button[type=submit]"); btn.disabled=true;
+  try{
+    const s=await F.sb.auth.getSession();
+    if (!s.data.session){ const { error } = await F.sb.auth.signInAnonymously(); if (error) throw new Error(error.message.includes("rate")?"Trop d'inscriptions depuis ce réseau : réessaie dans une heure.":"Inscription impossible : "+error.message); }
+    F.me = await fCall("forum_join",{p_code:$("#fjCode").value,p_pseudo:$("#fjPseudo").value,p_role:$("#fjRole").value});
+    toast("Bienvenue "+F.me.pseudo+" !"); renderForumStatus(); $("#fCharte").open=false; await refreshForum();
+  }catch(err){ toast(err.message); }
+  btn.disabled=false;
+});
+$("#fReportForm").addEventListener("change", ()=>{ const v=(document.querySelector('input[name="frr"]:checked')||{}).value||""; $("#fReportHelp").hidden=!/détresse/.test(v); });
+$("#fReport").addEventListener("close", async ()=>{
+  if ($("#fReport").returnValue!=="ok" || !F.reportTarget) return;
+  const v=(document.querySelector('input[name="frr"]:checked')||{}).value; if(!v) return;
+  try{ await fCall("forum_report",{p_kind:F.reportTarget[0],p_id:+F.reportTarget[1],p_reason:v}); toast("Merci, le signalement est transmis aux modérateurs"); await openTopic(F.topic.id,true); }catch(err){ toast(err.message); }
+});
+$("#fModLogin").onclick=()=>{ if(!fConfigured()){ toast("Le forum n'est pas encore branché"); return; } $("#fModDlg").showModal(); };
+$("#fmCancel").onclick=()=>$("#fModDlg").close();
+$("#fModForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  try{ if(!F.sb) await openForum(); const { error } = await F.sb.auth.signInWithPassword({email:$("#fmEmail").value, password:$("#fmPass").value}); if(error) throw new Error("Connexion refusée : "+error.message);
+    F.me = await fCall("forum_me"); if(!(F.me&&F.me.is_mod)){ await F.sb.auth.signOut(); F.me=null; throw new Error("Ce compte n'est pas modérateur."); }
+    $("#fModDlg").close(); $("#fmPass").value=""; renderForumStatus(); await refreshForum(); toast("Mode modération activé"); }
+  catch(err){ toast(err.message); }
+});
+$("#fStatus").addEventListener("click", async e=>{ if(e.target.id!=="fLogout") return; await F.sb.auth.signOut(); F.me=null; $("#fMod").hidden=true; renderForumStatus(); await refreshForum(); });
+$("#fMod").addEventListener("click", async e=>{
+  const b=e.target.closest("[data-mod]"), c=e.target.closest("[data-code]");
+  try{
+    if (b){ const p=b.dataset.mod.split(":");
+      if (p[0]==="keep") await fCall("mod_resolve",{p_kind:p[1],p_id:+p[2],p_hide:false});
+      if (p[0]==="hide") await fCall("mod_resolve",{p_kind:p[1],p_id:+p[2],p_hide:true});
+      if (p[0]==="ban"){ const why=prompt("Motif du blocage (visible seulement par les modérateurs) :","Non-respect de la charte"); if(why===null) return; await fCall("mod_ban",{p_user:p[1],p_banned:true,p_reason:why}); await fCall("mod_resolve",{p_kind:p[2],p_id:+p[3],p_hide:true}); }
+      toast("Fait"); await refreshForum(); }
+    if (c){ const [code,act]=c.dataset.code.split(":"); await fCall("mod_set_code",{p_code:code,p_active:act==="1"}); await renderMod(); }
+  }catch(err){ toast(err.message); }
+});
+$("#fMod").addEventListener("submit", async e=>{ if(e.target.id!=="fCodeForm") return; e.preventDefault();
+  try{ const k=await fCall("mod_create_code",{p_lycee:$("#fcLycee").value}); toast("Code créé : "+k); await renderMod(); }catch(err){ toast(err.message); } });
+renderSalons();
 
 /* ---------- Rendu global ---------- */
 function renderAll(){ renderCountdown(); renderCal(); renderDay(); renderDocs(); if (typeof renderWish==="function") renderWish(); renderJpoMine(); if (J.ready){ renderJpoHero(); renderJpoList(); } }

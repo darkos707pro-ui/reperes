@@ -9,6 +9,7 @@ Application web réalisée pour un projet de Design Thinking sur l'orientation p
 - **Tutoriels** : projet de formation motivé, CV, dossier, liste de vœux, après les résultats
 - **Documents** stockés uniquement dans le navigateur de l'utilisateur
 - **Qui contacter** : professeurs principaux, psychologue de l'Éducation nationale, Crous, assistance Parcoursup, aide psychologique, et le CIO le plus proche (annuaire Onisep)
+- **Entraide** : forum entre élèves par salons (pseudos, code par lycée, signalements, modération). Mise en service : voir [`supabase/README.md`](supabase/README.md)
 - **Application installable** sur téléphone et ordinateur, utilisable hors connexion après la première visite
 
 Données : ministère de l'Enseignement supérieur, « Parcoursup 2025 – vœux de poursuite d'études et de réorientation », licence ouverte. Contours des départements : france-geojson (IGN / OpenStreetMap).
