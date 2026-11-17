@@ -23,7 +23,7 @@
   --accent:#2747b8; --accent-ink:#ffffff; --accent-soft:#e6ebfa;
   --marker:#ffd84d; --marker-ink:#3a2f00;
   --ok:#1f7a4d; --ok-soft:#e1f3ea; --warn:#a65b00; --warn-soft:#fdf0dc; --bad:#b3261e; --bad-soft:#fbe5e3;
-  --ev-ps:#2747b8; --ev-moi:#7a3fb0; --ev-rdv:#1f7a4d;
+  --ev-ps:#2747b8; --ev-moi:#7a3fb0; --ev-rdv:#1f7a4d; --ev-jpo:#c2410c;
   --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --f-body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -34,13 +34,13 @@
   --accent:#8ea6ff; --accent-ink:#0e1424; --accent-soft:#1f2a4a;
   --marker:#ffd84d; --marker-ink:#2a2200;
   --ok:#5fd19a; --ok-soft:#14302a; --warn:#f0a94a; --warn-soft:#33260f; --bad:#ff8a80; --bad-soft:#3a1a1a;
-  --ev-ps:#8ea6ff; --ev-moi:#c79bf2; --ev-rdv:#5fd19a; color-scheme:dark}}
+  --ev-ps:#8ea6ff; --ev-moi:#c79bf2; --ev-rdv:#5fd19a; --ev-jpo:#fb923c; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#0e1424; --card:#161e33; --ink:#e7ecf7; --muted:#9aa6c2; --line:#26304a;
   --accent:#8ea6ff; --accent-ink:#0e1424; --accent-soft:#1f2a4a;
   --marker:#ffd84d; --marker-ink:#2a2200;
   --ok:#5fd19a; --ok-soft:#14302a; --warn:#f0a94a; --warn-soft:#33260f; --bad:#ff8a80; --bad-soft:#3a1a1a;
-  --ev-ps:#8ea6ff; --ev-moi:#c79bf2; --ev-rdv:#5fd19a; color-scheme:dark}
+  --ev-ps:#8ea6ff; --ev-moi:#c79bf2; --ev-rdv:#5fd19a; --ev-jpo:#fb923c; color-scheme:dark}
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -56,11 +56,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* En-tête */
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:20px;padding-block:10px}
+header.top .wrap{display:flex;align-items:center;gap:14px;padding-block:10px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:1.25rem;white-space:nowrap}
 .brand svg{flex:none}
 nav.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
-nav.tabs a{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;color:var(--muted);text-decoration:none;font-weight:500;white-space:nowrap}
+nav.tabs a{display:flex;align-items:center;gap:7px;padding:8px 9px;border-radius:8px;color:var(--muted);text-decoration:none;font-weight:500;white-space:nowrap}
 nav.tabs a:hover{color:var(--ink);background:var(--accent-soft)}
 nav.tabs a[aria-current="page"]{color:var(--accent);background:var(--accent-soft);font-weight:600}
 nav.tabs svg{width:18px;height:18px;flex:none}
@@ -86,7 +86,7 @@ section.view{display:grid;gap:20px}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .btn.small{padding:4px 10px;font-size:.85rem}
 label.f{display:grid;gap:4px;font-size:.85rem;font-weight:500;color:var(--muted)}
-input[type=text],input[type=date],input[type=time],select,textarea{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 10px;color:var(--ink)}
+input[type=text],input[type=url],input[type=date],input[type=time],select,textarea{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 10px;color:var(--ink)}
 textarea{resize:vertical;min-height:90px}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
 .row > *{flex:1 1 150px;min-width:0}
@@ -291,13 +291,68 @@ dl.gloss dd{margin:2px 0 0;color:var(--muted);font-size:.9rem}
 @media (min-width:800px){dl.gloss{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 nav.tabs .sm{display:none}
-@media (max-width:760px){nav.tabs .lg{display:none}nav.tabs .sm{display:inline}}
+@media (max-width:1240px){nav.tabs .lg{display:none}nav.tabs .sm{display:inline}}
+@media (min-width:761px) and (max-width:1000px){.who{display:none}}
 @media (max-width:600px){
   .map-jump{left:54px;right:10px;max-width:none;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}
   .map-jump button{flex:none}
   .map-legend{font-size:.68rem;padding:5px 7px;gap:1px}
   .map-legend strong{display:none}
 }
+/* ---- Portes ouvertes ---- */
+.chip.jpo{background:var(--ev-jpo)}.dots i.jpo{background:var(--ev-jpo)}.legend i.jpo{background:var(--ev-jpo)}
+.jpo-hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.jtile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:4px;align-content:start}
+.jtile .k{font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.jtile b{font-family:var(--f-display);font-size:1.6rem;line-height:1.1}
+.jtile .t{font-weight:600;line-height:1.3}
+.jtile.main{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.jtile.main .k,.jtile.main .note{color:var(--accent-ink);opacity:.85}
+.jtile button.lnk{all:unset;cursor:pointer;text-decoration:underline;font-weight:600}
+.jtile button.lnk:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.jpo-list{display:grid;gap:4px}
+.jday{font-family:var(--f-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:14px 0 4px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px}
+.jday:first-child{padding-top:0}
+.jcard{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+.jday + .jcard{border-top:0}
+.jcard .t{font-weight:600;line-height:1.3}
+.jcard .d{font-size:.84rem;color:var(--muted)}
+.jmeta{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.jmeta span{font-size:.72rem;font-weight:600;padding:1px 7px;border-radius:4px;background:var(--line);color:var(--ink)}
+.jmeta .hrs{font-family:var(--f-mono);font-weight:500}
+.jmeta .virt{background:var(--accent-soft);color:var(--accent)}
+.jmeta .insc{background:var(--warn-soft);color:var(--warn)}
+.jmeta .wish{background:var(--marker);color:var(--marker-ink)}
+.jmeta .km{background:transparent;border:1px solid var(--line);font-family:var(--f-mono);font-weight:500}
+.jcard .jn{font-size:.82rem;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}
+.jact{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.jact a.btn{text-decoration:none;color:var(--ink)}
+.btn.on{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:600}
+.date-tag.range b{font-size:.85rem}
+.jpo-box{display:grid;gap:8px;border:1px solid var(--line);border-left:3px solid var(--ev-jpo);border-radius:0 8px 8px 0;padding:10px 14px}
+.jmini{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:.9rem}
+.jmini .when{font-weight:600}
+.jmine{display:grid;gap:4px}
+.jm{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.jm:first-child{border-top:0;padding-top:0}
+.jm .t{font-weight:600;line-height:1.3}
+.jm .d{font-size:.84rem;color:var(--muted)}
+.jm.past .date-tag{opacity:.6}
+.score{font-family:var(--f-mono);font-size:.75rem;font-weight:700;padding:2px 7px;border-radius:99px;background:var(--ok-soft);color:var(--good);white-space:nowrap}
+.jsub{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:10px}
+.jeval{display:grid;gap:10px;margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.crit{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;font-size:.88rem}
+.stars{display:flex;gap:2px}
+.stars button{width:30px;height:30px;border:1px solid var(--line);background:var(--card);border-radius:6px;cursor:pointer;font-family:var(--f-mono);font-size:.8rem;color:var(--muted);padding:0}
+.stars button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.jnotes{font-size:.85rem;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:4px}
+.jpo-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.jpo-steps h4{margin:0 0 6px;font-family:var(--f-display);font-size:1rem}
+.jpo-steps ul{margin:0;padding-left:1.1em;display:grid;gap:6px;font-size:.9rem}
+.jpo-steps a,.gloss a,.jtile a{color:var(--accent)}
+.jpo-q{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.jpo-q h4{margin:0 0 6px;font-size:.85rem;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500}
+@media (max-width:620px){.jcard{grid-template-columns:auto minmax(0,1fr)}.jcard > .jx{display:none}.stars button{width:34px;height:34px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -310,6 +365,7 @@ nav.tabs .sm{display:none}
     <nav class="tabs" aria-label="Sections">
       <a href="#calendrier" data-v="calendrier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span class="lg">Calendrier</span><span class="sm">Agenda</span></a>
       <a href="#carte" data-v="carte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Carte</a>
+      <a href="#jpo" data-v="jpo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 21V4h12v17"/><path d="M3 21h18"/><path d="M14 12h.01" stroke-width="3" stroke-linecap="round"/></svg><span class="lg">Portes ouvertes</span><span class="sm">JPO</span></a>
       <a href="#tutoriels" data-v="tutoriels"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 1 2-2h13"/></svg><span class="lg">Tutoriels</span><span class="sm">Tutos</span></a>
       <a href="#documents" data-v="documents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="lg">Documents</span><span class="sm">Docs</span></a>
       <a href="#rdv" data-v="rdv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M17 8v6M14 11h6"/></svg><span class="lg">Rendez-vous</span><span class="sm">RDV</span></a>
@@ -345,7 +401,7 @@ nav.tabs .sm{display:none}
       </div>
       <div class="cal" id="cal"></div>
       <div class="legend">
-        <span><i></i>Étape Parcoursup</span><span><i class="moi"></i>Mes échéances</span><span><i class="rdv"></i>Mes rendez-vous</span>
+        <span><i></i>Étape Parcoursup</span><span><i class="moi"></i>Mes échéances</span><span><i class="rdv"></i>Mes rendez-vous</span><span><i class="jpo"></i>Mes portes ouvertes</span>
       </div>
     </div>
 
@@ -444,6 +500,107 @@ nav.tabs .sm{display:none}
     </dl>
     <p class="note">Source : ministère de l'Enseignement supérieur, jeu de données « Parcoursup 2025 – vœux de poursuite d'études et de réorientation » (data.enseignementsup-recherche.gouv.fr), licence ouverte. Fond de carte : contours des départements (OpenStreetMap / IGN via france-geojson).</p>
   </div>
+</section>
+
+<!-- ============ PORTES OUVERTES ============ -->
+<section class="view" id="v-jpo" hidden>
+  <div class="head">
+    <div>
+      <div class="eyebrow">Année 2026-2027 · dates déclarées par les établissements</div>
+      <h2>Journées portes ouvertes</h2>
+    </div>
+    <p>Trouve les portes ouvertes près de chez toi ou celles de tes vœux, ajoute-les à ton agenda, prépare tes questions et note chaque visite pour comparer.</p>
+  </div>
+
+  <div class="jpo-hero" id="jpoHero"></div>
+
+  <div class="panel filters">
+    <label class="f wide">Rechercher<input type="text" id="jQ" placeholder="Ex. IUT, infirmier, Lyon, Polytech, design…"></label>
+    <label class="f">Quand<select id="jWhen"><option value="">Toutes à venir</option></select></label>
+    <label class="f">Région<select id="jRegion"><option value="">Toutes</option></select></label>
+    <label class="f">Établissement<select id="jType"><option value="">Tous</option></select></label>
+    <label class="f">Format<select id="jFmt"><option value="">Tous</option><option value="place">Sur place</option><option value="virt">En ligne</option></select></label>
+    <label class="f">Autour de<input type="text" id="jCity" list="jCities" placeholder="Ta ville" autocomplete="off"><datalist id="jCities"></datalist></label>
+    <label class="f">Distance<select id="jRad"><option value="0">Pas de limite</option><option value="15">15 km</option><option value="30">30 km</option><option value="50">50 km</option><option value="100">100 km</option><option value="200">200 km</option></select></label>
+    <div class="checks" style="grid-column:1/-1">
+      <button class="btn small" type="button" id="jGeo">Me localiser</button>
+      <label><input type="checkbox" id="jWish"> Seulement les établissements de ma liste de vœux</label>
+      <span class="note" id="jPosNote"></span>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel" style="display:grid;gap:10px;align-content:start">
+      <div class="res-head"><strong id="jpoCount">Chargement des dates…</strong><button class="btn small" type="button" id="jReset">Effacer les filtres</button></div>
+      <div class="jpo-list" id="jpoList"></div>
+      <button class="btn" id="jpoMore" hidden>Afficher plus</button>
+    </div>
+
+    <div style="display:grid;gap:20px;align-content:start">
+      <div class="panel" style="display:grid;gap:12px">
+        <div class="res-head"><h3>Mes portes ouvertes</h3><button class="btn small" type="button" id="jIcs">Exporter (.ics)</button></div>
+        <div id="jpoMine"></div>
+        <p class="note">Elles apparaissent aussi dans ton calendrier. Le fichier .ics les ajoute à l'agenda de ton téléphone (Google Agenda, Calendrier Apple, Outlook).</p>
+      </div>
+      <form class="panel" id="jAddForm" style="display:grid;gap:10px">
+        <h3>Une date absente de la liste ?</h3>
+        <label class="f">Établissement<input type="text" id="jaNom" required maxlength="100" placeholder="Ex. IUT de Bordeaux, site de Gradignan"></label>
+        <div class="row">
+          <label class="f">Date<input type="date" id="jaDate" required></label>
+          <label class="f">Horaires<input type="text" id="jaHrs" maxlength="30" placeholder="9h–17h"></label>
+        </div>
+        <div class="row">
+          <label class="f">Ville<input type="text" id="jaVille" maxlength="60"></label>
+          <label class="f">Lien d'inscription<input type="url" id="jaUrl" maxlength="300" placeholder="https://"></label>
+        </div>
+        <button class="btn primary" type="submit">Ajouter à mes portes ouvertes</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="panel" style="display:grid;gap:16px">
+    <h3>Réussir ta journée portes ouvertes</h3>
+    <div class="jpo-steps">
+      <div><h4>Avant</h4><ul>
+        <li>Vise 3 à 5 visites sur l'année. La plupart ont lieu entre fin novembre et mars, souvent le samedi, et plusieurs établissements d'une même ville ouvrent le même jour : repère les conflits ici.</li>
+        <li>Ouvre la formation sur la <a href="#carte">carte</a> : taux d'accès, profil des admis, rang du dernier appelé. Tu poseras des questions plus précises.</li>
+        <li>Vérifie s'il faut s'inscrire (écoles privées, écoles d'ingénieurs, santé) et l'adresse exacte : une université a souvent plusieurs campus.</li>
+        <li>Fais le trajet comme si tu y étudiais. C'est le temps que tu passeras chaque jour, ou le coût d'un logement.</li>
+      </ul></div>
+      <div><h4>Sur place</h4><ul>
+        <li>Parle aux étudiants, pas seulement aux enseignants : eux te diront le vrai rythme, ce qui est dur, l'ambiance.</li>
+        <li>Assiste à la présentation de la formation et, si c'est proposé, à un cours ou un atelier.</li>
+        <li>Visite la bibliothèque, les salles de TP, le restaurant universitaire.</li>
+        <li>Note tout de suite deux ou trois détails précis : un projet, un cours, une rencontre.</li>
+      </ul></div>
+      <div><h4>Après</h4><ul>
+        <li>Note ta visite le soir même dans « Mes portes ouvertes », tant que c'est frais. Le classement de tes visites t'aidera à ordonner tes vœux.</li>
+        <li>Réutilise un détail précis dans ton <a href="#tutoriels">projet de formation motivé</a>. Un échange réel avec un étudiant ou un enseignant montre une vraie démarche.</li>
+        <li>Une question restée sans réponse ? Le contact de la formation figure sur sa fiche Parcoursup.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="panel" style="display:grid;gap:12px">
+    <div class="res-head"><h3>Les questions à poser</h3><span class="counter" id="jqCount"></span></div>
+    <p class="note">Coche celles que tu veux poser, puis copie ta liste dans les notes de ton téléphone avant d'y aller.</p>
+    <div class="jpo-q" id="jpoQ"></div>
+    <div class="row" style="flex-wrap:wrap"><button class="btn primary" type="button" id="jqCopy" style="flex:0 0 auto">Copier mes questions</button><button class="btn" type="button" id="jqClear" style="flex:0 0 auto">Tout décocher</button></div>
+  </div>
+
+  <div class="panel" style="display:grid;gap:12px">
+    <h3>D'autres façons de découvrir une formation</h3>
+    <dl class="gloss">
+      <div><dt>Immersion, « étudiant d'un jour »</dt><dd>Tu suis de vrais cours aux côtés d'un étudiant. Beaucoup d'universités, d'IUT et de lycées avec BTS ou prépa en proposent, souvent sur inscription pendant l'hiver. Cherche « immersion » sur le site de l'établissement.</dd></div>
+      <div><dt>Portes ouvertes en ligne</dt><dd>Filtre « En ligne » ci-dessus. Pratique pour une formation loin de chez toi. Demande à échanger avec un étudiant pendant la session.</dd></div>
+      <div><dt>Salons d'orientation</dt><dd>Des dizaines d'établissements au même endroit : bien pour comparer et repérer, insuffisant pour juger l'ambiance d'un lieu. Le CIO ou ton lycée connaît ceux de ta région.</dd></div>
+      <div><dt>Cours en ligne d'orientation</dt><dd>Sur FUN-MOOC, la série « ProjetSUP » présente les disciplines du supérieur, faite par des enseignants. Gratuit, sans inscription à une formation.</dd></div>
+      <div><dt>Parler à des étudiants</dt><dd>Dans l'onglet <a href="#chat">Discussion</a>, pose tes questions à des étudiants déjà passés par Parcoursup.</dd></div>
+      <div><dt>La fiche Parcoursup</dt><dd>Chaque fiche de formation indique les attendus et un contact, et souvent les dates de portes ouvertes ou d'immersion déclarées par l'établissement.</dd></div>
+    </dl>
+  </div>
+
+  <p class="note" id="jSource">Sources : Onisep, « Idéo-Structures d'enseignement supérieur et secondaire » (licence ODbL) · ministère de l'Agriculture, « RefEA – Les journées portes ouvertes » · MESR, Parcoursup 2025 pour le lien avec les formations. Seuls les établissements qui ont déclaré leurs dates apparaissent : une absence ici ne veut pas dire qu'il n'y a pas de portes ouvertes. Vérifie toujours la date sur le site de l'établissement avant de te déplacer.</p>
 </section>
 
 <!-- ============ TUTORIELS ============ -->
@@ -688,12 +845,13 @@ const mineOf = kind => S.mine.filter(x=>x.kind===kind);
 const newId = p => p+"-"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 
 /* ---------- Navigation ---------- */
-const VIEWS = ["calendrier","carte","tutoriels","documents","rdv","chat"];
+const VIEWS = ["calendrier","carte","jpo","tutoriels","documents","rdv","chat"];
 function route(){
   const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "calendrier";
   VIEWS.forEach(n => $("#v-"+n).hidden = n!==v);
   document.querySelectorAll("nav.tabs a").forEach(a => { if(a.dataset.v===v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
   if (v==="carte"){ loadCarte(); setTimeout(()=>{ if(M.map) M.map.invalidateSize(); },0); }
+  if (v==="jpo") loadJpo();
   if (v==="chat") setTimeout(()=>{ const m=$("#msgs"); m.scrollTop=m.scrollHeight; },0);
 }
 addEventListener("hashchange", route);
@@ -703,6 +861,7 @@ function allEvents(){
   const ev = PS_EVENTS.map(e=>({...e, kind:"ps"}));
   mineOf("event").forEach(e=>ev.push({d:e.date, t:e.title, x:e.type, kind:"moi", id:e.id}));
   mineOf("rdv").forEach(r=>{ const iv=INTERVENANTS.find(i=>i.id===r.interv); ev.push({d:r.date, t:"RDV "+(iv?iv.role:"")+" · "+r.hour, x:r.motif, kind:"rdv", id:r.id}); });
+  mineOf("jpo").forEach(j=>ev.push({d:j.date, t:"Portes ouvertes · "+j.nom, x:[j.hrs,j.ville,j.virt?"en ligne":""].filter(Boolean).join(" · "), kind:"jpo", id:j.id}));
   return ev.sort((a,b)=>a.d.localeCompare(b.d));
 }
 function renderCountdown(){
@@ -730,7 +889,7 @@ function renderCal(){
 function evRow(e){
   const s = fmtShort(e.d), n = daysTo(e.d);
   const jx = n===0?"Aujourd'hui": n>0?"J-"+n : "passé";
-  const del = e.kind==="moi" ? `<button class="btn ghost small" data-delev="${e.id}" aria-label="Supprimer">Supprimer</button>` : "";
+  const del = (e.kind==="moi"||e.kind==="jpo") ? `<button class="btn ghost small" data-delev="${e.id}" aria-label="Supprimer">Supprimer</button>` : "";
   return `<div class="ev"><div class="date-tag"><b>${s.day}</b>${s.mon}</div><div><div class="t">${esc(e.t)}${e.est?'<span class="tag">date estimée</span>':''}</div><div class="d">${esc(e.x||"")}</div>${del}</div><span class="jx ${n>=0&&n<=14?"hot":""}">${jx}</span></div>`;
 }
 function renderDay(){
@@ -956,14 +1115,18 @@ function fRec(i){ const a=M.data.f[i], s=M.data.sites[a[0]], S_=M.data.strs; ret
 function fTitle(r){ const base = r.type==="AUTRE" ? r.form+" – "+r.fil : (r.type==="Licence"||r.type==="LAS"||r.type==="BUT"||r.type==="BTS" ? (TYPES[r.type].split(" (")[0])+" "+r.fil : r.fil || TYPES[r.type]); return base; }
 const psLink = cod => "https://dossierappel.parcoursup.fr/Candidats/public/fiches/afficherFicheFormation?g_ta_cod="+cod+"&typeBac=0&originePc=0";
 
-async function loadCarte(){
-  if (M.ready || M.loading) return; M.loading=true;
+function getFormationsData(){
+  if (!M.dataP) M.dataP = fetch("formations-2025.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).catch(e=>{ M.dataP=null; throw e; });
+  return M.dataP;
+}
+function loadCarte(){ return M.loadP || (M.loadP = loadCarte_()); }
+async function loadCarte_(){
+  M.loading=true;
   $("#fType").innerHTML = `<option value="">Tous les types</option>`+Object.entries(TYPES).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
   $("#guideRows").innerHTML = GUIDE.map(g=>`<tr>${g.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("");
   try{
-    const r = await fetch("formations-2025.json"); if(!r.ok) throw new Error(r.status);
-    M.data = await r.json();
-  }catch(e){ $("#resCount").textContent="Les données des formations n'ont pas pu être chargées. Recharge la page."; M.loading=false; return; }
+    M.data = await getFormationsData();
+  }catch(e){ $("#resCount").textContent="Les données des formations n'ont pas pu être chargées. Recharge la page."; M.loading=false; M.loadP=null; return; }
   const S_=M.data.strs;
   M.search = M.data.f.map(a=>{ const s=M.data.sites[a[0]]; return norm([S_[a[2]],S_[a[3]],S_[a[4]],S_[s[2]],S_[s[3]],s[4],TYPES[a[1]]].join(" ")); });
   const regions=[...new Set(M.data.sites.map(s=>S_[s[5]]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"fr"));
@@ -996,6 +1159,7 @@ function applyFilters(keepSel){
   const out=[];
   for (let i=0;i<F.length;i++){
     const a=F[i], s=Sx[a[0]];
+    if (M.only && !M.only.cods.has(a[21])) continue;
     if (type && a[1]!==type) continue;
     if (reg && S_[s[5]]!==reg) continue;
     if (st && !st.includes(String(s[6]))) continue;
@@ -1031,8 +1195,9 @@ function sortList(arr){
 }
 function renderResults(){
   let list = M.site!=null ? M.filtered.filter(i=>M.data.f[i][0]===M.site) : M.filtered;
-  $("#siteFilter").hidden = M.site==null;
+  $("#siteFilter").hidden = M.site==null && !M.only;
   if (M.site!=null){ const s=M.data.sites[M.site]; $("#siteName").textContent = M.data.strs[s[2]]+" · "+M.data.strs[s[3]]; }
+  else if (M.only) $("#siteName").textContent = M.only.label;
   const nSites=new Set(list.map(i=>M.data.f[i][0])).size;
   $("#resCount").textContent = list.length.toLocaleString("fr-FR")+" formation"+(list.length>1?"s":"")+" · "+nSites.toLocaleString("fr-FR")+" établissement"+(nSites>1?"s":"");
   const sorted = (list.length>3000 && $("#fSort").value==="nom") ? list : sortList(list);
@@ -1044,7 +1209,7 @@ function renderResults(){
 }
 function bar(label, parts){ const tot=parts.reduce((x,p)=>x+Math.max(p[1],0),0);
   return `<div><div class="bar-l"><span>${label}</span></div><div class="stack">${parts.map(p=>p[1]>0?`<i class="${p[2]}" style="width:${p[1]/Math.max(tot,1)*100}%" title="${p[0]} : ${p[1]} %"></i>`:"").join("")}</div><div class="keys">${parts.map(p=>`<span><i class="${p[2]}"></i>${p[0]} ${p[1]<0?"n.c.":p[1]+" %"}</span>`).join("")}</div></div>`; }
-function showDetail(i){
+function showDetail(i, quiet){
   M.sel=i; const r=fRec(i); renderResults();
   const ratio = r.voe>0&&r.capa>0 ? Math.round(r.voe/r.capa) : null;
   const bac=$("#fBac").value, myShare = bac ? r[bac] : null, bacName={gen:"général",tec:"technologique",pro:"professionnel"}[bac];
@@ -1074,12 +1239,14 @@ function showDetail(i){
     </div>
     <p class="note">Parmi les admis : ${r.bours>=0?r.bours+" % de boursiers":"boursiers n.c."} · ${r.fem>=0?r.fem+" % de filles":""} · ${r.aca>=0?r.aca+" % venaient de la même académie":""}.</p>
     ${advice}
+    ${jpoForFormation(r.cod)}
     <div class="callout ok"><strong>Diplôme demandé :</strong> baccalauréat ou équivalent. ${esc((GUIDE.find(g=>g[0]===({LAS:"PASS / L.AS",PASS:"PASS / L.AS",ING:"École d'ingénieurs",COM:"École de commerce",EFTS:"Travail social",CPGE:"CPGE"}[r.type]||r.type))||["","","Les attendus et critères précis sont sur la fiche officielle."])[2])}</div>
     <div class="row" style="flex-wrap:wrap">
       <button class="btn primary" id="wishAdd" style="flex:0 0 auto" ${inWish?"disabled":""}>${inWish?"Dans ma liste de vœux":"Ajouter à ma liste de vœux"}</button>
       <a class="btn" style="flex:0 0 auto;text-decoration:none" href="${psLink(r.cod)}" target="_blank" rel="noopener">Fiche officielle : attendus et critères ↗</a>
     </div>`;
   $("#wishAdd").onclick = async ()=>{ try{ await savePersonal("voeu-"+r.cod,{kind:"voeu",cod:r.cod,added:Date.now()}); toast("Ajouté à ta liste de vœux"); showDetail(i); }catch(e){ toast("Ajout impossible"); } };
+  if (quiet) return;
   if (M.map){ M.map.setView([r.lat,r.lon], Math.max(M.map.getZoom(),9)); }
   if (innerWidth<900) $("#fDetail").scrollIntoView({behavior:"smooth",block:"start"});
 }
@@ -1090,7 +1257,7 @@ function renderWish(){
   const lvl = r => (r.taux>=80) ? ["sur","Sûr"] : (r.taux>=40) ? ["real","Réaliste"] : ["amb","Ambitieux"];
   $("#wishCount").textContent = items.length+" / 10";
   $("#wishList").innerHTML = items.length ? items.sort((a,b)=>b.r.taux-a.r.taux).map(({w,i,r})=>{ const l=lvl(r);
-    return `<div class="wrow"><span class="lvl ${l[0]}">${l[1]}</span><button class="btn ghost" style="justify-content:flex-start;text-align:left;padding:0;color:var(--ink)" data-open="${i}"><span><strong>${esc(fTitle(r))}</strong><br><span class="note">${esc(r.etab)} · ${esc(r.ville)} · ${rateTxt(r.taux)}</span></span></button><button class="btn ghost small" data-unwish="${w.id}">Retirer</button></div>`; }).join("")
+    return `<div class="wrow"><span class="lvl ${l[0]}">${l[1]}</span><button class="btn ghost" style="justify-content:flex-start;text-align:left;padding:0;color:var(--ink)" data-open="${i}"><span><strong>${esc(fTitle(r))}</strong><br><span class="note">${esc(r.etab)} · ${esc(r.ville)} · ${rateTxt(r.taux)}${jpoNextTxt(r.cod)}</span></span></button><button class="btn ghost small" data-unwish="${w.id}">Retirer</button></div>`; }).join("")
     : `<p class="note">Ta liste est vide. Ouvre une formation et clique sur « Ajouter à ma liste de vœux ».</p>`;
   const n={sur:0,real:0,amb:0}; items.forEach(x=>n[lvl(x.r)[0]]++);
   const villes=new Set(items.map(x=>x.r.ville));
@@ -1110,19 +1277,336 @@ $("#wishList").addEventListener("click", async e=>{
 });
 $("#resList").addEventListener("click", e=>{ const b=e.target.closest("[data-f]"); if(b) showDetail(+b.dataset.f); });
 $("#resMore").onclick = ()=>{ M.shown+=60; renderResults(); };
-$("#siteClear").onclick = ()=>{ M.site=null; renderResults(); };
+$("#siteClear").onclick = ()=>{ if (M.only && M.site==null){ M.only=null; applyFilters(); } else { M.site=null; renderResults(); } };
 $("#fSort").addEventListener("change", ()=>renderResults());
 let fT; ["#fQ","#fType","#fRegion","#fStat","#fSel","#fBac","#fTaux","#fInt","#fMyBac","#fZone"].forEach(s=>$(s).addEventListener(s==="#fQ"||s==="#fTaux"?"input":"change",()=>{ clearTimeout(fT); fT=setTimeout(()=>{ M.site=null; applyFilters(); if(M.sel!=null&&s==="#fBac") showDetail(M.sel); },180); }));
 $("#fRegion").addEventListener("change",()=>{ if(!M.map||!M.ready) return; const r=$("#fRegion").value; if(!r){ M.map.fitBounds([[41.3,-5.2],[51.1,9.6]]); return; }
   const pts=M.data.sites.filter(s=>M.data.strs[s[5]]===r).map(s=>[s[0],s[1]]); if(pts.length) M.map.fitBounds(L.latLngBounds(pts).pad(.05)); });
 
+/* ---------- Portes ouvertes ---------- */
+const J = { data:null, ready:false, loading:null, shown:40, pos:null, byEst:null, cnt:null, search:null, evalId:null, draft:null, cities:null };
+const JPO_Q = [
+  ["La formation", ["Combien d'étudiants réussissent la première année ? Et combien obtiennent le diplôme ?","Combien d'heures de cours par semaine, et combien de travail personnel en plus ?","Quelle taille ont les groupes en cours, en TD et en TP ?","Comment se passent les examens : contrôle continu, partiels, oraux ?","Quel accompagnement si je décroche : tutorat, soutien, parcours « oui-si » ?"]],
+  ["L'admission", ["Qu'est-ce qui compte le plus dans le dossier ? Les notes de quelles matières ?","Y a-t-il un entretien, un concours ou des épreuves écrites ?","Les élèves avec mon type de bac réussissent-ils ici ?"]],
+  ["Après", ["Que deviennent les diplômés : poursuite d'études, emploi, quels métiers ?","Les stages sont-ils obligatoires ? Comment les trouve-t-on ?","L'alternance est-elle possible, et à partir de quelle année ?","Peut-on partir à l'étranger (Erasmus, échanges) ?"]],
+  ["La vie pratique", ["Combien coûte l'année : inscription, matériel, sorties ?","Comment se loger : résidence Crous, internat, colocation ?","Le campus est-il bien desservi ? À quelle heure finissent les cours ?","Quelles associations, quels sports, quelle vie étudiante ?"]],
+];
+const JPO_CRIT = [["cours","Contenu des cours"],["accueil","Accueil et ambiance"],["lieux","Locaux et équipements"],["vie","Trajet, logement, vie étudiante"],["envie","Envie d'y étudier"]];
+const cap = s => s.charAt(0).toUpperCase()+s.slice(1);
+const distKm = (a,b) => { const r=Math.PI/180, h=Math.sin((b[0]-a[0])*r/2)**2+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin((b[1]-a[1])*r/2)**2; return 12742*Math.asin(Math.sqrt(h)); };
+const addDays = (d,n) => { const x=new Date(d); x.setDate(x.getDate()+n); return x; };
+
+function loadJpo(){
+  if (J.loading) return J.loading;
+  J.loading = fetch("jpo.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
+    J.data=d; J.byEst=new Map(); J.cnt=new Map();
+    d.events.forEach((e,k)=>{ let l=J.byEst.get(e[0]); if(!l){ l=[]; J.byEst.set(e[0],l); } l.push(k); });
+    Object.values(d.link).forEach(l=>J.cnt.set(l[0],(J.cnt.get(l[0])||0)+1));
+    J.search = d.ests.map(e=>norm([e[0],e[1],e[2],e[3],e[8]].join(" ")));
+    J.ready=true; initJpoFilters(); renderAll();
+    if (M.sel!=null && M.ready) showDetail(M.sel, true);
+  }).catch(()=>{ $("#jpoCount").textContent="Les dates n'ont pas pu être chargées. Recharge la page."; J.loading=null; });
+  return J.loading;
+}
+function jEv(k){ const e=J.data.events[k], s=J.data.ests[e[0]];
+  return {k, est:e[0], d1:e[1], d2:e[2], hrs:e[3], note:e[4], url:e[5], virt:!!e[6], nom:s[0], ville:s[1], dep:s[2], region:s[3], lat:s[4], lon:s[5], statut:s[6], onisep:s[7], type:s[8], uai:s[9]}; }
+const jKey = e => (e.uai||norm(e.nom))+"|"+e.d1+"|"+e.hrs;
+const jSaved = e => S.mine.find(x=>x.kind==="jpo"&&x.key===jKey(e));
+const jMulti = e => e.d1!==e.d2;
+const jLong = e => daysBetween(e.d1,e.d2)>3;
+function daysBetween(a,b){ return Math.round((parse(b)-parse(a))/86400000); }
+function jWhenTxt(e){
+  if (!jMulti(e)) return fmtLong(e.d1);
+  return "du "+parse(e.d1).toLocaleDateString("fr-FR",{day:"numeric",month:"long"})+" au "+parse(e.d2).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
+}
+function wishEsts(){
+  const m=new Map(); if(!J.ready) return m;
+  mineOf("voeu").forEach(w=>{ const l=J.data.link[w.cod]; if(l) m.set(l[0], l[1]); });
+  return m;
+}
+function jUpcoming(est){ const t=iso(TODAY); return (J.byEst.get(est)||[]).filter(k=>J.data.events[k][2]>=t); }
+
+function initJpoFilters(){
+  const d=J.data, t=iso(TODAY);
+  const regs=[...new Set(d.ests.map(e=>e[3]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"fr"));
+  $("#jRegion").innerHTML=`<option value="">Toutes</option>`+regs.map(r=>`<option>${esc(r)}</option>`).join("");
+  const types=[...new Set(d.ests.map(e=>e[8]))].sort((a,b)=>a.localeCompare(b,"fr"));
+  $("#jType").innerHTML=`<option value="">Tous</option>`+types.map(r=>`<option>${esc(r)}</option>`).join("");
+  const months=[...new Set(d.events.filter(e=>e[2]>=t&&daysBetween(e[1],e[2])<=3).map(e=>(e[1]<t?t:e[1]).slice(0,7)))].sort();
+  $("#jWhen").innerHTML=`<option value="">Toutes à venir</option><option value="we">Ce week-end</option><option value="7">Les 7 prochains jours</option><option value="30">Les 30 prochains jours</option>`
+    +months.map(m=>`<option value="m${m}">${cap(new Date(m+"-15T12:00").toLocaleDateString("fr-FR",{month:"long",year:"numeric"}))}</option>`).join("");
+  const p=ls.get("reperes-jpo-f",{});
+  ["jRegion","jType","jFmt","jRad","jWhen"].forEach(id=>{ if(p[id]!=null && [...$("#"+id).options].some(o=>o.value===p[id])) $("#"+id).value=p[id]; });
+  if (p.jWish) $("#jWish").checked=true;
+  const pos=ls.get("reperes-jpo-pos",null); if(pos&&pos.lat){ J.pos=[pos.lat,pos.lon]; $("#jCity").value=pos.label||""; }
+  const cities=new Map(); d.ests.forEach(e=>{ if(e[4]!=null&&e[1]) cities.set(norm(e[1])+"|"+e[2], [e[4],e[5],e[1],e[2]]); });
+  J.cities=cities; fillCities();
+  $("#jSource").insertAdjacentHTML("beforeend", ` Données téléchargées le ${fmtLong(d.generated)} : ${d.events.length.toLocaleString("fr-FR")} journées dans ${d.ests.length.toLocaleString("fr-FR")} établissements.`);
+}
+function fillCities(){
+  const byName=new Map(); J.cities.forEach(c=>{ const k=norm(c[2]); byName.set(k,(byName.get(k)||0)+1); });
+  $("#jCities").innerHTML=[...J.cities.values()].sort((a,b)=>a[2].localeCompare(b[2],"fr")).map(c=>`<option value="${esc(byName.get(norm(c[2]))>1?c[2]+" ("+c[3]+")":c[2])}">`).join("");
+}
+async function addFormationCities(){
+  if (J.citiesFull) return; J.citiesFull=true;
+  try{ const d=await getFormationsData(); const S_=d.strs;
+    d.sites.forEach(s=>{ const v=S_[s[3]]; if(!v) return; const k=norm(v)+"|"+s[4]; if(!J.cities.has(k)) J.cities.set(k,[s[0],s[1],v,s[4]]); });
+    fillCities();
+  }catch(e){ J.citiesFull=false; }
+}
+function resolveCity(v){
+  const m=/^(.*?)\s*\((\w+)\)\s*$/.exec(v), name=norm(m?m[1]:v).trim(), dep=m?m[2]:null;
+  if (!name) return null;
+  for (const c of J.cities.values()) if (norm(c[2])===name && (!dep||c[3]===dep)) return c;
+  return null;
+}
+
+function jpoFiltered(){
+  const q=norm($("#jQ").value).split(/\s+/).filter(Boolean), reg=$("#jRegion").value, type=$("#jType").value, when=$("#jWhen").value,
+        fmt=$("#jFmt").value, wish=$("#jWish").checked, rad=+$("#jRad").value;
+  ls.set("reperes-jpo-f",{jRegion:reg,jType:type,jFmt:fmt,jRad:String(rad),jWhen:when,jWish:wish});
+  const t=iso(TODAY); let a=t, b="9999-12-31";
+  if (when==="we"){ const dw=TODAY.getDay(); const sat=dw===0?addDays(TODAY,-1):addDays(TODAY,(6-dw+7)%7); a=dw===0?t:iso(sat); b=iso(addDays(sat,1)); }
+  else if (when==="7"||when==="30"){ b=iso(addDays(TODAY,+when)); }
+  else if (when.startsWith("m")){ const m=when.slice(1); a=(m+"-01")<t?t:m+"-01"; b=m+"-31"; }
+  const W = wish ? wishEsts() : null, useDist = J.pos && rad>0, out=[];
+  J.data.events.forEach((e,k)=>{
+    if (e[2]<a || e[1]>b) return;
+    if (when && when!=="" && daysBetween(e[1],e[2])>3) return;
+    const s=J.data.ests[e[0]];
+    if (reg && s[3]!==reg) return;
+    if (type && s[8]!==type) return;
+    if (fmt==="place" && e[6]) return;
+    if (fmt==="virt" && !e[6]) return;
+    if (W && !W.has(e[0])) return;
+    let km=null;
+    if (J.pos && s[4]!=null) km=distKm(J.pos,[s[4],s[5]]);
+    if (useDist && !e[6] && (km==null || km>rad)) return;
+    if (q.length){ const tx=J.search[e[0]]+" "+norm(e[4]); if(!q.every(w=>tx.includes(w))) return; }
+    out.push({k,km});
+  });
+  return out;
+}
+function jCard(k, km, W){
+  const e=jEv(k), n=daysTo(e.d1<iso(TODAY)?iso(TODAY):e.d1), saved=jSaved(e), s=fmtShort(e.d1);
+  const insc=/inscri/i.test(e.note), nf=J.cnt.get(e.est)||0;
+  const tag = jMulti(e) ? `<div class="date-tag range"><b>${s.day}–${fmtShort(e.d2).day}</b>${fmtShort(e.d2).mon}</div>` : `<div class="date-tag"><b>${s.day}</b>${s.mon}</div>`;
+  return `<div class="jcard">${tag}<div>
+    <div class="t">${esc(e.nom)}</div>
+    <div class="d">${esc(e.ville)}${e.dep?" ("+esc(e.dep)+")":""} · ${esc(e.type)}${e.statut?" · "+esc(e.statut):""}</div>
+    <div class="jmeta">${jMulti(e)?`<span>${esc(jWhenTxt(e))}</span>`:""}${e.hrs?`<span class="hrs">${esc(e.hrs)}</span>`:""}${e.virt?'<span class="virt">En ligne</span>':""}${insc?'<span class="insc">Sur inscription</span>':""}${W&&W.has(e.est)?`<span class="wish">${W.get(e.est)?"Même adresse qu'un de tes vœux":"Un de tes vœux"}</span>`:""}${km!=null&&!e.virt?`<span class="km">${km<1?"< 1":Math.round(km)} km</span>`:""}</div>
+    ${e.note?`<div class="jn">${esc(e.note)}</div>`:""}
+    <div class="jact">
+      <button class="btn small ${saved?"on":"primary"}" data-jadd="${k}" aria-pressed="${!!saved}">${saved?"✓ Dans mon agenda":"Ajouter à mon agenda"}</button>
+      ${e.url?`<a class="btn small" href="${esc(e.url)}" target="_blank" rel="noopener">${insc?"S'inscrire":"Site"} ↗</a>`:""}
+      ${e.onisep?`<a class="btn small" href="${esc(e.onisep)}" target="_blank" rel="noopener">Fiche Onisep ↗</a>`:""}
+      ${nf?`<button class="btn small" data-jcarte="${e.est}">${nf} formation${nf>1?"s":""} sur la carte</button>`:""}
+    </div></div>
+    <span class="jx ${n<=14?"hot":""}">${n===0?"Aujourd'hui":"J-"+n}</span></div>`;
+}
+function renderJpoList(){
+  if (!J.ready) return;
+  const list=jpoFiltered(), W=wishEsts(), t=iso(TODAY);
+  const nEst=new Set(list.map(x=>J.data.events[x.k][0])).size;
+  $("#jpoCount").textContent = list.length ? `${list.length.toLocaleString("fr-FR")} journée${list.length>1?"s":""} · ${nEst.toLocaleString("fr-FR")} établissement${nEst>1?"s":""}` : "Aucune date";
+  const near=[], long=[]; list.forEach(x=>(jLong(jEv(x.k))?long:near).push(x));
+  const ordered=near.concat(long), page=ordered.slice(0,J.shown);
+  let h="", last=null;
+  page.forEach(x=>{ const e=jEv(x.k), g=jLong(e)?"long":(e.d1<t?t:e.d1);
+    if (g!==last){ const cnt=g==="long"?long.length:near.filter(y=>{ const f=J.data.events[y.k][1]; return (f<t?t:f)===g; }).length;
+      h+=`<div class="jday"><span>${g==="long"?"Sur plusieurs semaines : vérifie les dates sur le site":esc(cap(fmtLong(g)))}</span><span>${cnt}</span></div>`; last=g; }
+    h+=jCard(x.k,x.km,W); });
+  $("#jpoList").innerHTML = h || `<p class="note">Rien ne correspond. Élargis la période ou la distance, change de région, ou retire le filtre « ma liste de vœux ».${$("#jWish").checked&&!mineOf("voeu").length?" Ta liste de vœux est vide : ajoute des formations depuis la <a href=\"#carte\">carte</a>.":""}</p>`;
+  $("#jpoMore").hidden = ordered.length<=J.shown;
+  $("#jPosNote").textContent = J.pos ? (+$("#jRad").value ? `Distances depuis ${$("#jCity").value||"ta position"}.` : `Choisis une distance pour limiter autour de ${$("#jCity").value||"ta position"}.`) : "";
+}
+function renderJpoHero(){
+  if (!J.ready){ $("#jpoHero").innerHTML=""; return; }
+  const t=iso(TODAY), W=wishEsts();
+  const mine=mineOf("jpo").filter(x=>(x.d2||x.date)>=t).sort((a,b)=>a.date.localeCompare(b.date));
+  const nx=mine[0];
+  const wishK=[...W.keys()].flatMap(jUpcoming).sort((a,b)=>J.data.events[a][1].localeCompare(J.data.events[b][1]));
+  const dw=TODAY.getDay(), sat=dw===0?addDays(TODAY,-1):addDays(TODAY,(6-dw+7)%7), a=dw===0?t:iso(sat), b=iso(addDays(sat,1));
+  const we=J.data.events.filter(e=>e[1]<=b&&e[2]>=a&&daysBetween(e[1],e[2])<=3).length;
+  const tiles=[];
+  tiles.push(nx ? `<div class="jtile main"><span class="k">Ta prochaine visite</span><b>${daysTo(nx.date<t?t:nx.date)===0?"Aujourd'hui":"J-"+daysTo(nx.date<t?t:nx.date)}</b><span class="t">${esc(nx.nom)}</span><span class="note">${esc(cap(fmtLong(nx.date)))}${nx.hrs?" · "+esc(nx.hrs):""}</span></div>`
+    : `<div class="jtile main"><span class="k">Ta prochaine visite</span><span class="t">Aucune pour l'instant</span><span class="note">Clique sur « Ajouter à mon agenda » dans la liste.</span></div>`);
+  if (!mineOf("voeu").length) tiles.push(`<div class="jtile"><span class="k">Tes vœux</span><span class="t">Ajoute des formations à ta liste de vœux</span><span class="note">Leurs portes ouvertes apparaîtront ici. <a href="#carte">Ouvrir la carte</a></span></div>`);
+  else if (wishK.length){ const e=jEv(wishK[0]); tiles.push(`<div class="jtile"><span class="k">Tes vœux</span><b>${wishK.length}</b><span class="t">date${wishK.length>1?"s":""} à venir dans ${W.size} établissement${W.size>1?"s":""}</span><span class="note">Prochaine : ${esc(e.nom)}, ${esc(fmtLong(e.d1<t?t:e.d1))}. <button class="lnk" type="button" id="jShowWish">Voir</button></span></div>`); }
+  else tiles.push(`<div class="jtile"><span class="k">Tes vœux</span><span class="t">Pas de date connue pour tes vœux</span><span class="note">${mineOf("voeu").length>1?mineOf("voeu").length+" formations dans ta liste, mais leurs établissements n'ont pas déclaré de date à l'Onisep. Regarde leur site ou leur fiche Parcoursup.":"Son établissement n'a pas déclaré de date à l'Onisep. Regarde son site ou sa fiche Parcoursup."}</span></div>`);
+  tiles.push(`<div class="jtile"><span class="k">${dw===0||dw===6?"Ce week-end":"Le week-end prochain"}</span><b>${we}</b><span class="t">portes ouvertes en France</span><span class="note">${we?`<button class="lnk" type="button" id="jShowWe">Les voir</button>`:"Les grosses dates sont en janvier, février et mars."}</span></div>`);
+  $("#jpoHero").innerHTML=tiles.join("");
+}
+function evalScore(ev){ const v=JPO_CRIT.map(c=>ev&&ev[c[0]]).filter(Boolean); return v.length?v.reduce((x,y)=>x+y,0)/v.length:null; }
+function renderJpoMine(){
+  const t=iso(TODAY), all=mineOf("jpo");
+  const up=all.filter(x=>(x.d2||x.date)>=t&&x.status!=="fait").sort((a,b)=>a.date.localeCompare(b.date));
+  const todo=all.filter(x=>(x.d2||x.date)<t&&x.status!=="fait").sort((a,b)=>b.date.localeCompare(a.date));
+  const done=all.filter(x=>x.status==="fait").sort((a,b)=>(evalScore(b.eval)||0)-(evalScore(a.eval)||0));
+  const row=(x,cls)=>{ const s=fmtShort(x.date), sc=evalScore(x.eval);
+    return `<div class="jm ${cls}"><div class="date-tag"><b>${s.day}</b>${s.mon}</div><div>
+      <div class="t">${esc(x.nom)} ${sc!=null?`<span class="score">${sc.toFixed(1).replace(".",",")} / 5</span>`:""}</div>
+      <div class="d">${esc([x.ville,x.hrs,x.virt?"en ligne":""].filter(Boolean).join(" · "))}</div>
+      ${x.notes&&J.evalId!==x.id?`<div class="jnotes">${esc(x.notes)}</div>`:""}
+      <div class="jact">
+        ${x.url?`<a class="btn small" href="${esc(x.url)}" target="_blank" rel="noopener">Site ↗</a>`:""}
+        ${cls==="past"?`<button class="btn small primary" data-jeval="${esc(x.id)}">J'y suis allé·e : noter</button>`:""}
+        ${cls==="done"?`<button class="btn small" data-jeval="${esc(x.id)}">Modifier ma note</button>`:""}
+        ${cls==="up"&&daysTo(x.date)<=0?`<button class="btn small" data-jeval="${esc(x.id)}">Noter ma visite</button>`:""}
+        <button class="btn ghost small" data-jdel="${esc(x.id)}">Retirer</button>
+      </div>
+      ${J.evalId===x.id?evalForm(x):""}
+    </div></div>`; };
+  let h="";
+  if (up.length) h+=up.map(x=>row(x,"up")).join("");
+  if (todo.length) h+=`<div class="jsub">À noter</div>`+todo.map(x=>row(x,"past")).join("");
+  if (done.length) h+=`<div class="jsub">${done.length>1?"Ton classement":"Visite notée"}</div>`+done.map(x=>row(x,"done")).join("");
+  $("#jpoMine").innerHTML = h ? `<div class="jmine">${h}</div>` : `<p class="note">Aucune pour l'instant. Ajoute des portes ouvertes depuis la liste : tu pourras ensuite noter chaque visite et comparer.</p>`;
+  $("#jIcs").disabled = !up.length;
+}
+function evalForm(x){
+  const d=J.draft||{};
+  return `<form class="jeval" data-jevalform="${esc(x.id)}">
+    ${JPO_CRIT.map(c=>`<div class="crit"><span>${c[1]}</span><div class="stars" role="group" aria-label="${c[1]}">${[1,2,3,4,5].map(n=>`<button type="button" data-star="${c[0]}:${n}" aria-pressed="${d[c[0]]===n}" aria-label="${n} sur 5">${n}</button>`).join("")}</div></div>`).join("")}
+    <label class="f">Ce que je retiens<textarea id="jNotes" maxlength="1500" placeholder="Ex. Échange avec une étudiante de 2e année sur le projet tutoré ; 25 par TD ; résidence Crous à 10 min. À citer dans mon projet motivé.">${esc(x.notes||"")}</textarea></label>
+    <div class="row" style="flex-wrap:wrap"><button class="btn primary" type="submit" style="flex:0 0 auto">Enregistrer</button><button class="btn" type="button" data-jevalcancel style="flex:0 0 auto">Annuler</button></div>
+  </form>`;
+}
+function renderJpoQ(){
+  const chk=new Set(ls.get("reperes-jpo-q",[]));
+  let i=0;
+  $("#jpoQ").innerHTML = JPO_Q.map(([g,qs])=>`<div><h4>${g}</h4><div class="checklist">${qs.map(q=>{ const id=i++; return `<label><input type="checkbox" data-jq="${id}" ${chk.has(id)?"checked":""}><span>${esc(q)}</span></label>`; }).join("")}</div></div>`).join("");
+  $("#jqCount").textContent = chk.size+" cochée"+(chk.size>1?"s":"");
+}
+function jpoQuestions(){ const chk=new Set(ls.get("reperes-jpo-q",[])); let i=0; const out=[];
+  JPO_Q.forEach(([g,qs])=>{ const sel=qs.filter(()=>chk.has(i++)); if(sel.length) out.push(g.toUpperCase()+"\n"+sel.map(q=>"- "+q).join("\n")); }); return out.join("\n\n"); }
+function jpoForFormation(cod){
+  if (!J.ready) return "";
+  const l=J.data.link[cod];
+  if (!l) return `<div class="jpo-box"><strong>Portes ouvertes</strong><p class="note">Pas de date déclarée à l'Onisep pour cet établissement. Regarde son site ou la fiche Parcoursup ci-dessous.</p></div>`;
+  const s=J.data.ests[l[0]], ks=jUpcoming(l[0]);
+  const head = l[1] ? `Portes ouvertes à la même adresse : ${esc(s[0])}` : `Portes ouvertes de l'établissement`;
+  if (!ks.length) return `<div class="jpo-box"><strong>${head}</strong><p class="note">Les dates déclarées sont passées. Les prochaines seront publiées sur le site de l'établissement.</p></div>`;
+  return `<div class="jpo-box"><strong>${head}</strong>${ks.slice(0,3).map(k=>{ const e=jEv(k), sv=jSaved(e);
+    return `<div class="jmini"><span class="when">${esc(cap(jWhenTxt(e)))}</span>${e.hrs?`<span class="note">${esc(e.hrs)}</span>`:""}${e.virt?'<span class="badge">En ligne</span>':""}<button class="btn small ${sv?"on":""}" data-jadd="${k}" aria-pressed="${!!sv}">${sv?"✓ Dans mon agenda":"Ajouter à mon agenda"}</button></div>`; }).join("")}
+    ${l[1]?`<p class="note">Établissement différent installé à la même adresse : vérifie sur son site que la formation est présentée ce jour-là.</p>`:""}</div>`;
+}
+function jpoNextTxt(cod){
+  if (!J.ready) return ""; const l=J.data.link[cod]; if(!l) return "";
+  const k=jUpcoming(l[0])[0]; if(k==null) return "";
+  const e=jEv(k), t=iso(TODAY), s=fmtShort(e.d1<t?t:e.d1);
+  return ` · <span style="color:var(--ev-jpo);font-weight:600">JPO ${s.day} ${s.mon}</span>`;
+}
+async function toggleJpo(k){
+  const e=jEv(k), sv=jSaved(e);
+  try{
+    if (sv){ await deletePersonal(sv.id); toast("Retiré de ton agenda"); }
+    else { await savePersonal(newId("jpo"), {kind:"jpo", key:jKey(e), nom:e.nom, ville:e.ville, date:e.d1, d2:e.d2, hrs:e.hrs, note:e.note, url:e.url, virt:e.virt, status:"prevu", created:Date.now()}); toast("Ajouté à ton agenda et à ton calendrier"); }
+  }catch(err){ toast("Enregistrement impossible : "+(err.message||err.code)); }
+  if (S.db) setTimeout(()=>{ renderJpoList(); if(M.sel!=null&&M.ready) showDetail(M.sel,true); }, 400);
+  else if (M.sel!=null && M.ready) showDetail(M.sel,true);
+}
+async function openCarteFor(ei){
+  const cods=new Set(Object.entries(J.data.link).filter(([,l])=>l[0]===ei).map(([c])=>c));
+  location.hash="#carte";
+  await loadCarte(); if (!M.ready) return;
+  ["#fQ"].forEach(s=>$(s).value=""); ["#fType","#fRegion","#fStat","#fSel"].forEach(s=>$(s).value=""); $("#fTaux").value=0; ["#fInt","#fMyBac","#fZone"].forEach(s=>$(s).checked=false);
+  M.only={cods, label:"Formations liées aux portes ouvertes de "+J.data.ests[ei][0]}; M.site=null; applyFilters();
+  if (M.map && M.filtered.length){ const pts=M.filtered.map(i=>{ const s=M.data.sites[M.data.f[i][0]]; return [s[0],s[1]]; }); M.map.fitBounds(L.latLngBounds(pts).pad(.3),{maxZoom:13}); }
+}
+function icsText(items){
+  const e=s=>String(s||"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\r?\n/g,"\\n");
+  const d=s=>s.replace(/-/g,""), now=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Reperes//Portes ouvertes//FR","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:Portes ouvertes"];
+  items.forEach(x=>{
+    const m=/^(\d{1,2})h(\d\d)?[–-](\d{1,2})h(\d\d)?$/.exec((x.hrs||"").replace(/\s/g,""));
+    L.push("BEGIN:VEVENT","UID:"+x.id+"@reperes","DTSTAMP:"+now);
+    if (m && x.date===(x.d2||x.date)){ L.push("DTSTART:"+d(x.date)+"T"+pad(m[1])+(m[2]||"00")+"00","DTEND:"+d(x.date)+"T"+pad(m[3])+(m[4]||"00")+"00"); }
+    else { L.push("DTSTART;VALUE=DATE:"+d(x.date),"DTEND;VALUE=DATE:"+d(iso(addDays(parse(x.d2||x.date),1)))); }
+    L.push("SUMMARY:"+e("Portes ouvertes – "+x.nom));
+    if (x.ville) L.push("LOCATION:"+e(x.ville));
+    L.push("DESCRIPTION:"+e([x.hrs,x.virt?"En ligne":"",x.note,x.url].filter(Boolean).join("\n")));
+    if (x.url) L.push("URL:"+x.url);
+    L.push("BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+e("Portes ouvertes – "+x.nom),"TRIGGER:-P1D","END:VALARM","END:VEVENT");
+  });
+  L.push("END:VCALENDAR");
+  return L.map(l=>l.length>60 ? l.match(/.{1,60}/gu).join("\r\n ") : l).join("\r\n");
+}
+
+$("#jpoMore").onclick=()=>{ J.shown+=40; renderJpoList(); };
+let jT; ["#jQ","#jRegion","#jType","#jFmt","#jRad","#jWhen","#jWish"].forEach(s=>$(s).addEventListener(s==="#jQ"?"input":"change",()=>{ clearTimeout(jT); jT=setTimeout(()=>{ J.shown=40; renderJpoList(); },150); }));
+$("#jReset").onclick=()=>{ $("#jQ").value=""; ["#jRegion","#jType","#jFmt","#jWhen"].forEach(s=>$(s).value=""); $("#jRad").value="0"; $("#jWish").checked=false; J.shown=40; renderJpoList(); };
+$("#jCity").addEventListener("focus", addFormationCities, {once:true});
+$("#jCity").addEventListener("change", ()=>{
+  const v=$("#jCity").value.trim();
+  if (!v){ J.pos=null; ls.set("reperes-jpo-pos",null); renderJpoList(); return; }
+  const c=resolveCity(v);
+  if (!c){ toast("Ville introuvable : choisis-la dans la liste proposée"); return; }
+  J.pos=[c[0],c[1]]; ls.set("reperes-jpo-pos",{lat:c[0],lon:c[1],label:v});
+  if ($("#jRad").value==="0") $("#jRad").value="50";
+  J.shown=40; renderJpoList();
+});
+$("#jGeo").onclick=()=>{
+  if (!navigator.geolocation){ toast("Ton navigateur ne permet pas la localisation : tape ta ville"); return; }
+  $("#jGeo").disabled=true;
+  navigator.geolocation.getCurrentPosition(p=>{ $("#jGeo").disabled=false;
+    J.pos=[p.coords.latitude,p.coords.longitude]; $("#jCity").value="ma position";
+    ls.set("reperes-jpo-pos",{lat:J.pos[0],lon:J.pos[1],label:"ma position"});
+    if ($("#jRad").value==="0") $("#jRad").value="50"; J.shown=40; renderJpoList();
+  }, ()=>{ $("#jGeo").disabled=false; toast("Localisation refusée : tape ta ville à la place"); }, {timeout:10000, maximumAge:600000});
+};
+$("#jpoHero").addEventListener("click", e=>{
+  if (e.target.id==="jShowWish"){ $("#jReset").click(); $("#jWish").checked=true; renderJpoList(); $("#jpoList").scrollIntoView({behavior:"smooth",block:"start"}); }
+  if (e.target.id==="jShowWe"){ $("#jReset").click(); $("#jWhen").value="we"; renderJpoList(); $("#jpoList").scrollIntoView({behavior:"smooth",block:"start"}); }
+});
+document.addEventListener("click", e=>{
+  const a=e.target.closest("[data-jadd]"); if(a){ toggleJpo(+a.dataset.jadd); return; }
+  const c=e.target.closest("[data-jcarte]"); if(c){ openCarteFor(+c.dataset.jcarte); return; }
+});
+$("#jpoMine").addEventListener("click", async e=>{
+  const del=e.target.closest("[data-jdel]"); if(del){ try{ await deletePersonal(del.dataset.jdel); toast("Retiré"); }catch(err){ toast("Suppression impossible"); } return; }
+  const ev=e.target.closest("[data-jeval]"); if(ev){ const x=S.mine.find(m=>m.id===ev.dataset.jeval); J.evalId=x.id; J.draft={...(x.eval||{})}; renderJpoMine(); const f=$(`[data-jevalform="${CSS.escape(x.id)}"]`); if(f) f.scrollIntoView({behavior:"smooth",block:"nearest"}); return; }
+  const st=e.target.closest("[data-star]"); if(st){ const [c,n]=st.dataset.star.split(":"); J.draft[c]=+n; st.parentElement.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", b===st)); return; }
+  if (e.target.closest("[data-jevalcancel]")){ J.evalId=null; J.draft=null; renderJpoMine(); }
+});
+$("#jpoMine").addEventListener("submit", async e=>{
+  const f=e.target.closest("[data-jevalform]"); if(!f) return; e.preventDefault();
+  const x=S.mine.find(m=>m.id===f.dataset.jevalform); if(!x) return;
+  const {id, ...rest}=x;
+  try{ J.evalId=null; await savePersonal(id, {...rest, status:"fait", eval:{...J.draft}, notes:$("#jNotes").value.trim()}); J.draft=null; toast("Visite notée"); renderJpoMine(); }
+  catch(err){ toast("Enregistrement impossible : "+(err.message||err.code)); }
+});
+$("#jIcs").onclick=()=>{
+  const t=iso(TODAY), items=mineOf("jpo").filter(x=>(x.d2||x.date)>=t).sort((a,b)=>a.date.localeCompare(b.date));
+  if (!items.length) return;
+  const url=URL.createObjectURL(new Blob([icsText(items)],{type:"text/calendar;charset=utf-8"}));
+  const a=document.createElement("a"); a.href=url; a.download="portes-ouvertes.ics"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),2000);
+  toast(items.length+" date"+(items.length>1?"s":"")+" exportée"+(items.length>1?"s":""));
+};
+$("#jAddForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const nom=$("#jaNom").value.trim(), date=$("#jaDate").value; if(!nom||!date) return;
+  const url=$("#jaUrl").value.trim();
+  try{ await savePersonal(newId("jpo"), {kind:"jpo", key:"perso|"+Date.now(), nom, ville:$("#jaVille").value.trim(), date, d2:date, hrs:$("#jaHrs").value.trim(), note:"", url:/^https?:\/\//.test(url)?url:"", virt:false, status:"prevu", created:Date.now()});
+    ["#jaNom","#jaDate","#jaHrs","#jaVille","#jaUrl"].forEach(s=>$(s).value=""); toast("Ajouté à tes portes ouvertes"); }
+  catch(err){ toast("Enregistrement impossible : "+(err.message||err.code)); }
+});
+$("#jpoQ").addEventListener("change", e=>{ const c=e.target.closest("[data-jq]"); if(!c) return; const s=new Set(ls.get("reperes-jpo-q",[])); c.checked?s.add(+c.dataset.jq):s.delete(+c.dataset.jq); ls.set("reperes-jpo-q",[...s]); $("#jqCount").textContent=s.size+" cochée"+(s.size>1?"s":""); });
+$("#jqClear").onclick=()=>{ ls.set("reperes-jpo-q",[]); renderJpoQ(); };
+$("#jqCopy").onclick=async ()=>{
+  const txt=jpoQuestions(); if(!txt){ toast("Coche d'abord quelques questions"); return; }
+  try{ await navigator.clipboard.writeText("Mes questions pour les portes ouvertes\n\n"+txt); toast("Questions copiées"); }
+  catch(_){ const w=document.createElement("textarea"); w.value=txt; document.body.appendChild(w); w.select(); try{ document.execCommand("copy"); toast("Questions copiées"); }catch(__){ toast("Copie impossible"); } w.remove(); }
+};
+renderJpoQ();
+
 /* ---------- Rendu global ---------- */
-function renderAll(){ renderCountdown(); renderCal(); renderDay(); renderDocs(); renderMyRdv(); renderSlots(); if (typeof renderWish==="function") renderWish(); }
+function renderAll(){ renderCountdown(); renderCal(); renderDay(); renderDocs(); renderMyRdv(); renderSlots(); if (typeof renderWish==="function") renderWish(); renderJpoMine(); if (J.ready){ renderJpoHero(); renderJpoList(); } }
 
 /* ---------- Démarrage ---------- */
 function boot(){
   S.mine = localMine();
-  route(); renderTutos(); renderPeople(); renderChans(); renderAll(); renderMsgs();
+  route(); loadJpo(); renderTutos(); renderPeople(); renderChans(); renderAll(); renderMsgs();
   const tag=$("#modeTag"); tag.textContent="Sur cet appareil";
   if (!window.claude || !window.claude.use) { tag.title="Données enregistrées dans ce navigateur"; return; }
   (async ()=>{
