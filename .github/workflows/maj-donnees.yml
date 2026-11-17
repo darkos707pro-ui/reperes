@@ -1,0 +1,44 @@
+# Met à jour chaque mois les portes ouvertes (jpo.json) et l'annuaire des CIO (orientation.json).
+# Lancement manuel possible : onglet Actions > « Mise à jour des données » > Run workflow.
+name: Mise à jour des données
+
+on:
+  schedule:
+    - cron: "23 5 1 * *"      # le 1er de chaque mois, 5 h 23 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: maj-donnees
+  cancel-in-progress: false
+
+jobs:
+  maj:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Régénérer jpo.json et orientation.json
+        run: python3 scripts/build_jpo.py
+      - name: Vérifier les fichiers produits
+        run: |
+          python3 - <<'PY'
+          import json
+          j = json.load(open("jpo.json")); o = json.load(open("orientation.json"))
+          assert len(j["events"]) > 300 and len(j["ests"]) > 200, "jpo.json anormalement petit"
+          assert len(o["orgs"]) > 300, "orientation.json anormalement petit"
+          print(len(j["events"]), "journées,", len(o["orgs"]), "centres")
+          PY
+      - name: Publier si les données ont changé
+        run: |
+          git diff --quiet -- jpo.json orientation.json && { echo "Aucun changement."; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add jpo.json orientation.json
+          git commit -m "Mise à jour mensuelle des portes ouvertes et des CIO"
+          git push

@@ -4,7 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Repères Orientation</title>
-<meta name="description" content="Calendrier Parcoursup, carte des formations avec taux d'accès, tutoriels pour le dossier, rendez-vous et entraide pour l'orientation post-bac.">
+<meta name="description" content="Calendrier Parcoursup, carte des formations avec taux d'accès, portes ouvertes, aide pour trouver sa voie et tutoriels pour le dossier.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2747b8">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Repères">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='12.5' fill='white' stroke='%232747b8' stroke-width='2.5'/%3E%3Cpath d='M14 5 L17 14 L14 23 L11 14 Z' fill='%232747b8'/%3E%3C/svg%3E">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -353,6 +359,45 @@ nav.tabs .sm{display:none}
 .jpo-q{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .jpo-q h4{margin:0 0 6px;font-size:.85rem;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500}
 @media (max-width:620px){.jcard{grid-template-columns:auto minmax(0,1fr)}.jcard > .jx{display:none}.stars button{width:34px;height:34px}}
+/* ---- Ma voie ---- */
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.plan h4,.doms h4,.cio h4{margin:0 0 6px;font-family:var(--f-display);font-size:1rem}
+.quiz{display:grid;gap:10px}
+fieldset.qi{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0;display:grid;gap:8px}
+fieldset.qi legend{padding:0;font-weight:500;float:left;width:100%}
+.seg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;clear:both}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:block;text-align:center;font-size:.82rem;padding:7px 4px;border:1px solid var(--line);border-radius:6px;background:var(--card);cursor:pointer;line-height:1.2}
+.seg input:checked + span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.seg input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.quiz-cond{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.dims{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 18px;font-size:.85rem}
+.dims > div{display:grid;gap:3px}
+.dims .progress i{background:var(--accent)}
+.doms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.dom{border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:8px;align-content:start}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips .pill{text-align:left}
+details summary{cursor:pointer;font-weight:600;color:var(--accent)}
+ol.prompts{margin:0;padding-left:1.3em;display:grid;gap:6px}
+/* ---- Qui contacter ---- */
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.ct{display:grid;gap:8px;align-content:start}
+.ct p{font-size:.92rem}
+.ct .how{font-size:.86rem;color:var(--muted)}
+.ct a,.how a{color:var(--accent);font-weight:600}
+.cio{display:grid;gap:4px}
+.cio h4{margin-top:10px}
+.cio-c{padding:10px 0;border-top:1px solid var(--line)}
+.cio-c .t{font-weight:600}
+.cio-c .d{font-size:.84rem;color:var(--muted)}
+.cio-c .jmeta{display:inline-flex;margin:0}
+dialog#installHelp{max-width:min(420px,calc(100% - 32px));color:var(--ink);display:none}
+dialog#installHelp[open]{display:grid;gap:10px}
+dialog#installHelp ol{margin:0;padding-left:1.2em;display:grid;gap:6px}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+@media (max-width:620px){.seg span{font-size:.75rem;padding:8px 2px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -364,14 +409,14 @@ nav.tabs .sm{display:none}
     </div>
     <nav class="tabs" aria-label="Sections">
       <a href="#calendrier" data-v="calendrier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span class="lg">Calendrier</span><span class="sm">Agenda</span></a>
+      <a href="#voie" data-v="voie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20c4-1 5-5 8-8s6-4 8-8"/><circle cx="20" cy="4" r="1.5"/><path d="M4 20h5"/></svg><span class="lg">Ma voie</span><span class="sm">Ma voie</span></a>
       <a href="#carte" data-v="carte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Carte</a>
       <a href="#jpo" data-v="jpo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 21V4h12v17"/><path d="M3 21h18"/><path d="M14 12h.01" stroke-width="3" stroke-linecap="round"/></svg><span class="lg">Portes ouvertes</span><span class="sm">JPO</span></a>
       <a href="#tutoriels" data-v="tutoriels"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 1 2-2h13"/></svg><span class="lg">Tutoriels</span><span class="sm">Tutos</span></a>
       <a href="#documents" data-v="documents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="lg">Documents</span><span class="sm">Docs</span></a>
-      <a href="#rdv" data-v="rdv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M17 8v6M14 11h6"/></svg><span class="lg">Rendez-vous</span><span class="sm">RDV</span></a>
-      <a href="#chat" data-v="chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="lg">Discussion</span><span class="sm">Chat</span></a>
+      <a href="#contacts" data-v="contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg><span class="lg">Qui contacter</span><span class="sm">Contacts</span></a>
     </nav>
-    <div class="who" id="who"><span class="mode" id="modeTag">Chargement…</span></div>
+    <div class="who" id="who"><button class="btn small primary" type="button" id="installBtn" hidden>Installer l'appli</button> <span class="mode" id="modeTag">Chargement…</span></div>
   </div>
 </header>
 
@@ -384,7 +429,7 @@ nav.tabs .sm{display:none}
       <div class="eyebrow">Terminale 2026-2027 · Parcoursup 2027</div>
       <h2>Ton calendrier d'orientation</h2>
     </div>
-    <p>Les grandes étapes nationales, tes rendez-vous et tes propres échéances au même endroit.</p>
+    <p>Les grandes étapes nationales, tes portes ouvertes et tes propres échéances au même endroit.</p>
   </div>
 
   <div class="countdown" id="countdown"></div>
@@ -401,7 +446,7 @@ nav.tabs .sm{display:none}
       </div>
       <div class="cal" id="cal"></div>
       <div class="legend">
-        <span><i></i>Étape Parcoursup</span><span><i class="moi"></i>Mes échéances</span><span><i class="rdv"></i>Mes rendez-vous</span><span><i class="jpo"></i>Mes portes ouvertes</span>
+        <span><i></i>Étape Parcoursup</span><span><i class="moi"></i>Mes échéances</span><span><i class="jpo"></i>Mes portes ouvertes</span>
       </div>
     </div>
 
@@ -595,7 +640,7 @@ nav.tabs .sm{display:none}
       <div><dt>Portes ouvertes en ligne</dt><dd>Filtre « En ligne » ci-dessus. Pratique pour une formation loin de chez toi. Demande à échanger avec un étudiant pendant la session.</dd></div>
       <div><dt>Salons d'orientation</dt><dd>Des dizaines d'établissements au même endroit : bien pour comparer et repérer, insuffisant pour juger l'ambiance d'un lieu. Le CIO ou ton lycée connaît ceux de ta région.</dd></div>
       <div><dt>Cours en ligne d'orientation</dt><dd>Sur FUN-MOOC, la série « ProjetSUP » présente les disciplines du supérieur, faite par des enseignants. Gratuit, sans inscription à une formation.</dd></div>
-      <div><dt>Parler à des étudiants</dt><dd>Dans l'onglet <a href="#chat">Discussion</a>, pose tes questions à des étudiants déjà passés par Parcoursup.</dd></div>
+      <div><dt>Parler à des étudiants</dt><dd>Pendant les portes ouvertes et les immersions, ou auprès du service d'orientation de l'université (SCUIO) : voir <a href="#contacts">Qui contacter</a>.</dd></div>
       <div><dt>La fiche Parcoursup</dt><dd>Chaque fiche de formation indique les attendus et un contact, et souvent les dates de portes ouvertes ou d'immersion déclarées par l'établissement.</dd></div>
     </dl>
   </div>
@@ -649,79 +694,163 @@ nav.tabs .sm{display:none}
   </div>
 </section>
 
-<!-- ============ RDV ============ -->
-<section class="view" id="v-rdv" hidden>
+<!-- ============ MA VOIE ============ -->
+<section class="view" id="v-voie" hidden>
   <div class="head">
     <div>
-      <div class="eyebrow">Accompagnement</div>
-      <h2>Prendre rendez-vous</h2>
+      <div class="eyebrow">Pas encore d'idée ? C'est fréquent</div>
+      <h2>Trouver ma voie</h2>
     </div>
-    <p>Choisis la personne qui correspond à ta question, puis un créneau. Les créneaux affichés sont des exemples sur les 14 prochains jours.</p>
+    <p>Beaucoup d'élèves de terminale ne savent pas encore quoi faire après le bac. Tu n'es pas en retard : tu as jusqu'au 11 mars 2027 pour formuler tes vœux. Voici une méthode en quatre semaines, un questionnaire pour savoir par où commencer, et des solutions si tu restes sans idée.</p>
   </div>
-  <div class="people" id="people"></div>
-  <div class="grid2">
-    <div class="panel" style="display:grid;gap:14px">
-      <h3 id="slotTitle">Créneaux disponibles</h3>
-      <div class="slots-days" id="slots"></div>
-      <form id="rdvForm" style="display:grid;gap:10px" hidden>
-        <label class="f">Motif du rendez-vous<textarea id="rdvMotif" required maxlength="400" placeholder="Ex. Comprendre pourquoi j'ai été refusé en licence de droit et préparer la phase complémentaire."></textarea></label>
-        <button class="btn primary" type="submit" id="rdvBtn">Réserver</button>
-      </form>
+
+  <div class="panel" style="display:grid;gap:12px">
+    <div class="res-head"><h3>Ton plan en quatre semaines</h3><span class="counter" id="planCount"></span></div>
+    <div class="progress"><i id="planBar" style="width:0"></i></div>
+    <div class="plan" id="voiePlan"></div>
+  </div>
+
+  <form class="panel" id="voieQuiz" style="display:grid;gap:16px">
+    <div>
+      <h3>Ce qui t'attire</h3>
+      <p class="note">12 phrases, environ 5 minutes. Réponds selon ce que tu ressens, pas selon ce qui « rapporte » ou ce que les autres attendent. Il n'y a pas de bonne réponse.</p>
     </div>
-    <div class="panel" style="display:grid;gap:10px">
-      <h3>Mes rendez-vous</h3>
-      <div class="myrdv" id="myRdv"></div>
+    <div class="quiz" id="quizItems"></div>
+    <div>
+      <h3>Tes conditions</h3>
+      <p class="note">Elles servent à choisir le type de formation, pas le domaine.</p>
     </div>
+    <div class="quiz-cond">
+      <label class="f">Ton bac<select id="qBac"><option value="gen">Général</option><option value="tec">Technologique</option><option value="pro">Professionnel</option></select></label>
+      <label class="f">Durée d'études envisagée<select id="qDur"><option value="court">Courte (2 à 3 ans), je veux vite travailler</option><option value="moyen">Environ 3 ans</option><option value="long">Longue (5 ans ou plus)</option><option value="nsp" selected>Je ne sais pas</option></select></label>
+      <label class="f">Façon d'apprendre<select id="qStyle"><option value="concret">Concrète : pratique, petits groupes, encadrement</option><option value="theorie">Théorique : cours magistraux, autonomie</option><option value="mixte" selected>Les deux me vont</option></select></label>
+      <label class="f">Alternance (payé·e en te formant)<select id="qAlt"><option value="oui">Oui, ça m'intéresse</option><option value="peut" selected>Peut-être</option><option value="non">Non</option></select></label>
+    </div>
+    <div class="row" style="flex-wrap:wrap"><button class="btn primary" type="submit" style="flex:0 0 auto">Voir mes pistes</button><span class="note" id="quizMissing"></span></div>
+  </form>
+
+  <div class="panel" id="voieRes" style="display:grid;gap:16px" hidden></div>
+
+  <div class="panel" style="display:grid;gap:12px">
+    <h3>Si tu restes sans idée</h3>
+    <dl class="gloss">
+      <div><dt>Des vœux qui gardent des portes ouvertes</dt><dd>Une licence généraliste, un BUT ou une classe prépa mènent à beaucoup de poursuites d'études et de métiers. Choisir l'une d'elles ne t'enferme pas.</dd></div>
+      <div><dt>Une année de césure</dt><dd>Sur Parcoursup, tu peux cocher « césure » en formulant tes vœux. La demande n'est transmise qu'une fois une proposition acceptée, donc elle ne joue pas sur l'examen de ton dossier. L'établissement peut l'accepter et te garder ta place un an : travail, voyage, engagement.</dd></div>
+      <div><dt>Le service civique</dt><dd>De 16 à 25 ans, 6 à 12 mois de mission d'intérêt général, indemnisée, sans condition de diplôme. Une bonne façon d'essayer un milieu : service-civique.gouv.fr.</dd></div>
+      <div><dt>L'alternance</dt><dd>Tu te formes en étant payé·e par une entreprise. Sur Parcoursup, tu peux ajouter jusqu'à 10 vœux en apprentissage en plus des 10 vœux habituels, et en formuler après le 1er avril.</dd></div>
+      <div><dt>Se tromper n'est pas grave</dt><dd>On peut changer de voie après un semestre ou une année, refaire Parcoursup l'année suivante, ou passer d'un BTS à une licence. Beaucoup d'étudiants le font.</dd></div>
+      <div><dt>Sans proposition cet été</dt><dd>La phase complémentaire est ouverte du 10 juin au 9 septembre 2027. Si tu n'as rien, saisis la commission d'accès à l'enseignement supérieur (CAES) de ton académie depuis ton dossier. Après le bac, la Mission locale aide les 16-25 ans sans solution.</dd></div>
+    </dl>
+  </div>
+
+  <div class="panel" style="display:grid;gap:12px">
+    <h3>Des questions pour y voir plus clair</h3>
+    <p class="note">Écris tes réponses, même courtes. Montre-les à ton professeur principal ou au psychologue de l'Éducation nationale : c'est le meilleur point de départ pour un rendez-vous.</p>
+    <ol class="prompts">
+      <li>Dans quelles matières ou activités est-ce que tu oublies l'heure ?</li>
+      <li>Qu'est-ce que tu détesterais faire tous les jours ?</li>
+      <li>Qu'est-ce qu'on te demande souvent parce que tu le fais bien ?</li>
+      <li>Seul·e, en équipe ou face à du public : où es-tu le plus à l'aise ?</li>
+      <li>Dehors, dans un bureau, un atelier, un labo, un hôpital, une école : où te vois-tu ?</li>
+      <li>Combien d'années d'études te semblent supportables, et finançables ?</li>
+      <li>Es-tu prêt·e à déménager ? Jusqu'où ?</li>
+    </ol>
+  </div>
+
+  <div class="panel" style="display:grid;gap:12px">
+    <h3>Les outils officiels</h3>
+    <dl class="gloss">
+      <div><dt>MonProjetSup</dt><dd>L'outil du ministère, recommandé par Parcoursup : il te propose des formations à partir de tes goûts et de tes spécialités. <a href="https://www.monprojetsup.fr" target="_blank" rel="noopener">monprojetsup.fr ↗</a></dd></div>
+      <div><dt>Onisep</dt><dd>Des fiches sur des centaines de métiers et de formations, avec des vidéos de professionnels. <a href="https://www.onisep.fr" target="_blank" rel="noopener">onisep.fr ↗</a></dd></div>
+      <div><dt>Le simulateur Parcoursup</dt><dd>Sur la fiche de chaque formation, à partir du 17 décembre 2026 : il estime tes possibilités d'admission à partir de ton profil.</dd></div>
+      <div><dt>Un psychologue de l'Éducation nationale</dt><dd>Gratuit et confidentiel, au lycée ou au CIO. Voir <a href="#contacts">Qui contacter</a>.</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- ============ CHAT ============ -->
-<section class="view" id="v-chat" hidden>
+<!-- ============ QUI CONTACTER ============ -->
+<section class="view" id="v-contacts" hidden>
   <div class="head">
     <div>
-      <div class="eyebrow">Entraide</div>
-      <h2>Discussion</h2>
+      <div class="eyebrow">Accompagnement gratuit</div>
+      <h2>Qui contacter</h2>
     </div>
-    <p>Pose tes questions aux autres lycéens et aux étudiants passés par Parcoursup. Ne partage jamais ton numéro de dossier, ton mot de passe ou ton adresse.</p>
+    <p>Les personnes qui peuvent t'aider, et comment les joindre. Contacte-les directement : ce site ne transmet aucune demande à ta place.</p>
   </div>
-  <div class="panel me-bar">
-    <label class="f">Je suis<select id="meRole"><option>Lycéen·ne</option><option>Étudiant·e tuteur</option><option>Parent</option><option>Personnel éducatif</option></select></label>
-    <label class="f">Ma région<select id="meRegion"></select></label>
+
+  <div class="contacts">
+    <article class="panel ct">
+      <h3>Tes professeurs principaux</h3>
+      <p>En terminale, tu en as deux. Ils suivent ton projet, rédigent ta fiche Avenir (les appréciations et l'avis envoyés aux formations) et organisent les semaines de l'orientation.</p>
+      <p class="how"><strong>Comment :</strong> à la fin d'un cours ou par la messagerie de l'ENT. Apporte ta liste de vœux, même provisoire.</p>
+    </article>
+    <article class="panel ct">
+      <h3>Le psychologue de l'Éducation nationale</h3>
+      <p>Spécialiste de l'orientation : il t'aide à faire le point sur tes goûts, tes résultats et tes options, sans te juger. Gratuit et confidentiel.</p>
+      <p class="how"><strong>Comment :</strong> au lycée, demande ses jours de permanence à la vie scolaire ou au CDI. Sinon au CIO le plus proche (ci-dessous), y compris pendant une partie des vacances.</p>
+    </article>
+    <article class="panel ct">
+      <h3>L'assistant·e social·e et le Crous</h3>
+      <p>Pour les bourses, le logement étudiant et les difficultés financières. La demande de bourse et de logement se fait au printemps, sans attendre tes résultats Parcoursup.</p>
+      <p class="how"><strong>Comment :</strong> l'assistant·e social·e du lycée sur rendez-vous ; le dossier social étudiant sur <a href="https://www.messervices.etudiant.gouv.fr" target="_blank" rel="noopener">messervices.etudiant.gouv.fr ↗</a>.</p>
+    </article>
+    <article class="panel ct">
+      <h3>L'assistance Parcoursup</h3>
+      <p>Pour une question sur la plateforme, les dates ou ton dossier.</p>
+      <p class="how"><strong>Comment :</strong> numéro vert <a href="tel:0800400070">0 800 400 070</a> (gratuit, du lundi au vendredi, 10h-16h), ou la rubrique « Contact » de ton dossier pour une question sur ta situation.</p>
+    </article>
+    <article class="panel ct">
+      <h3>En situation de handicap</h3>
+      <p>Chaque formation a un référent handicap, dont le contact figure sur sa fiche Parcoursup. Tu peux aussi décrire tes besoins dans la fiche de liaison de ton dossier.</p>
+      <p class="how"><strong>Comment :</strong> au lycée, parle-en à l'infirmier·ère scolaire ou à ton professeur principal.</p>
+    </article>
+    <article class="panel ct">
+      <h3>Si tu ne vas pas bien</h3>
+      <p>Le stress de l'orientation est réel. En parler aide.</p>
+      <p class="how"><strong>Comment :</strong> l'infirmier·ère du lycée ; Fil Santé Jeunes au <a href="tel:0800235236">0 800 235 236</a> (gratuit, anonyme, tous les jours de 9h à 23h) ; en cas de détresse, le <a href="tel:3114">3114</a>, 24h/24.</p>
+    </article>
   </div>
-  <div class="chat">
-    <div class="chans" id="chans"></div>
-    <div class="conv">
-      <div class="conv-h"><h3 id="chanTitle"></h3><p class="note" id="chanDesc"></p></div>
-      <div class="msgs" id="msgs" aria-live="polite"></div>
-      <form class="compose" id="compose">
-        <textarea id="msgIn" maxlength="800" placeholder="Écris ton message…" aria-label="Message"></textarea>
-        <button class="btn primary" type="submit" id="msgBtn">Envoyer</button>
-      </form>
+
+  <div class="panel" style="display:grid;gap:12px">
+    <div class="res-head"><h3>Le CIO le plus proche</h3><span class="note" id="cioCount"></span></div>
+    <p class="note">Les centres d'information et d'orientation (CIO) reçoivent gratuitement les élèves et leurs parents, avec ou sans rendez-vous selon les centres. Les services d'orientation des universités (SCUIO) renseignent sur leurs formations.</p>
+    <div class="row">
+      <label class="f">Ta ville<input type="text" id="cCity" list="jCities" placeholder="Ex. Rennes" autocomplete="off"></label>
+      <label class="f">Ou ton département<select id="cDep"><option value="">Choisir</option></select></label>
+      <button class="btn" type="button" id="cGeo" style="flex:0 0 auto">Me localiser</button>
     </div>
+    <div class="cio" id="cioList"><p class="note">Indique ta ville ou ton département.</p></div>
+    <p class="note">Source : Onisep, « Idéo-Organismes d'information et d'orientation » (licence ODbL). Les horaires sont sur la fiche Onisep de chaque centre : vérifie-les avant de te déplacer.</p>
   </div>
 </section>
 
 </main>
 <div class="toast" id="toast" hidden></div>
+<dialog id="installHelp" class="panel">
+  <h3>Installer Repères sur ton iPhone</h3>
+  <ol>
+    <li>Ouvre ce site dans <strong>Safari</strong>.</li>
+    <li>Touche le bouton <strong>Partager</strong> (le carré avec une flèche vers le haut).</li>
+    <li>Choisis <strong>« Sur l'écran d'accueil »</strong>, puis <strong>Ajouter</strong>.</li>
+  </ol>
+  <p class="note">L'application s'ouvre ensuite en plein écran et fonctionne sans connexion. Attention : ses données (vœux, échéances, documents) sont séparées de celles de Safari.</p>
+  <button class="btn primary" type="button" id="installClose">Compris</button>
+</dialog>
 
 <script>
 /* ---------- Données de référence ---------- */
 const PS_EVENTS = [
-  {d:"2026-12-16", t:"Ouverture du site d'information Parcoursup", x:"Les fiches des formations 2027 sont en ligne : attendus, critères d'examen, taux d'accès.", est:true},
-  {d:"2027-01-18", t:"Inscription et formulation des vœux", x:"Création du dossier, saisie des vœux (10 maximum + sous-vœux).", est:true},
-  {d:"2027-02-01", t:"Semaine conseillée : premier brouillon de tes lettres", x:"Un projet de formation motivé par vœu, 1 500 caractères maximum.", est:false},
-  {d:"2027-03-11", t:"Dernier jour pour formuler tes vœux", x:"Après cette date, aucun nouveau vœu sur la phase principale.", est:true},
+  {d:"2026-12-17", t:"Ouverture de la carte des formations 2027", x:"Les fiches des formations sont en ligne sur parcoursup.gouv.fr : attendus, critères d'examen, taux d'accès, simulateur d'admission."},
+  {d:"2027-01-18", t:"Inscription et formulation des vœux", x:"Création du dossier, saisie des vœux : jusqu'à 10 vœux sans les classer, plus 10 vœux en apprentissage."},
+  {d:"2027-02-01", t:"Semaine conseillée : premier brouillon de tes lettres", x:"Un projet de formation motivé par vœu, 1 500 caractères maximum."},
+  {d:"2027-03-11", t:"Dernier jour pour formuler tes vœux", x:"Après cette date, aucun nouveau vœu sur la phase principale (sauf apprentissage)."},
   {d:"2027-03-16", t:"Conseils de classe du 2e trimestre", x:"Tes profs remplissent la fiche Avenir (appréciations et avis du chef d'établissement). Date propre à ton lycée.", est:true},
-  {d:"2027-04-01", t:"Dernier jour pour compléter le dossier et confirmer les vœux", x:"Un vœu non confirmé n'est pas examiné.", est:true},
-  {d:"2027-06-01", t:"Premières réponses des formations", x:"Début de la phase d'admission principale.", est:true},
-  {d:"2027-06-10", t:"Ouverture de la phase complémentaire", x:"Nouveaux vœux possibles sur les places restantes.", est:true},
-  {d:"2027-07-09", t:"Fin de la phase principale", x:"Sans proposition ? Saisis la CAES de ton académie.", est:true},
-];
-const INTERVENANTS = [
-  {id:"pp", role:"Prof principal·e", what:"Vérifier ta liste de vœux et la fiche Avenir", where:"Au lycée · 20 min", days:[1,4], hours:["12:30","13:00","17:00"]},
-  {id:"psy", role:"Psy-EN (conseiller·ère d'orientation)", what:"Construire ton projet, comparer des formations", where:"CIO ou lycée · 45 min", days:[2,5], hours:["09:00","10:00","14:00","15:00"]},
-  {id:"as", role:"Assistant·e social·e", what:"Bourses, logement étudiant, frais de scolarité", where:"Au lycée · 30 min", days:[3], hours:["10:00","11:00","14:00"]},
-  {id:"tut", role:"Tuteur·rice étudiant·e", what:"Relire ton dossier, préparer un plan B", where:"En visio · 30 min", days:[1,2,3,4,5], hours:["18:00","18:30","19:00"]},
+  {d:"2027-04-01", t:"Dernier jour pour compléter le dossier et confirmer les vœux", x:"Un vœu non confirmé n'est pas examiné."},
+  {d:"2027-06-01", t:"Début de la phase d'admission : premières réponses", x:"Les propositions (Oui ou Oui-si) arrivent au fur et à mesure : réponds dans les délais."},
+  {d:"2027-06-04", t:"Classement de tes vœux en attente (4 au 7 juin)", x:"Entre le vendredi 4 et le lundi 7 juin inclus, classe tes vœux en attente par ordre de préférence."},
+  {d:"2027-06-10", t:"Ouverture de la phase complémentaire", x:"Jusqu'à 10 nouveaux vœux sur des formations qui ont encore des places."},
+  {d:"2027-07-10", t:"Fin de la phase principale", x:"Sans proposition ? Saisis la CAES de ton académie depuis ton dossier."},
+  {d:"2027-09-09", t:"Fin de la phase complémentaire", x:"Dernier jour pour obtenir une place via Parcoursup cette année."},
 ];
 const DOC_CATS = ["Bulletins","CV","Lettres de motivation","Pièces administratives","Attestations","Autre"];
 const CHECKS = [
@@ -736,15 +865,6 @@ const CHECKS = [
   "Avis d'imposition des parents (dossier de bourse sur messervices.etudiant.gouv.fr)",
   "Au moins un vœu à la fois sûr et souhaité",
 ];
-const REGIONS = ["Auvergne-Rhône-Alpes","Bourgogne-Franche-Comté","Bretagne","Centre-Val de Loire","Corse","Grand Est","Hauts-de-France","Île-de-France","Normandie","Nouvelle-Aquitaine","Occitanie","Pays de la Loire","Provence-Alpes-Côte d'Azur","Guadeloupe","Martinique","Guyane","La Réunion","Mayotte","Autre / étranger"];
-const CHANNELS = [
-  {id:"general", t:"Général", d:"Toutes les questions sur l'orientation"},
-  {id:"voeux", t:"Liste de vœux", d:"Équilibrer ses vœux, vœux sûrs, sous-vœux"},
-  {id:"lettres", t:"Lettres et CV", d:"Relectures et conseils de rédaction"},
-  {id:"refus", t:"Refus et plan B", d:"Comprendre un refus, phase complémentaire, CAES"},
-  {id:"tuteurs", t:"Demander un tuteur", d:"Trouver un étudiant de ta filière"},
-  {id:"vie", t:"Logement et bourses", d:"CROUS, budget, déménagement"},
-];
 
 /* ---------- Tutoriels ---------- */
 const TUTOS = [
@@ -756,7 +876,7 @@ const TUTOS = [
    <li><strong>Pourquoi cette formation</strong> : cite un contenu réel (une matière, un projet, un stage obligatoire), pas la réputation de l'école.</li>
    <li><strong>La preuve que tu es prêt·e</strong> : pour chaque attendu noté, un fait vérifiable (une note, un projet, un stage, un engagement).</li>
    <li><strong>Ton projet</strong> : ce que la formation t'apporte pour la suite, en une ou deux phrases.</li>
-   <li>Relis à voix haute, puis fais relire par ton tuteur ou ton prof principal.</li>
+   <li>Relis à voix haute, puis fais relire par ton prof principal ou un proche.</li>
   </ol>
   <div class="callout bad"><strong>Ce qui coûte des points :</strong> le même texte copié-collé partout, les phrases vides (« je suis motivé et sérieux »), les fautes, raconter sa vie sans lien avec la formation.</div>
   <div class="example"><strong>Exemple de phrase qui fonctionne :</strong> « La fiche de la licence demande une aisance à l'écrit argumenté : j'ai 15 de moyenne en philosophie et j'ai rédigé les articles du journal du lycée pendant deux ans. »</div>
@@ -795,7 +915,7 @@ const TUTOS = [
    <li>Classe tes vœux en trois groupes : <strong>ambitieux</strong>, <strong>réalistes</strong>, <strong>sûrs</strong>.</li>
    <li>Vérifie qu'au moins un vœu est <strong>à la fois sûr et souhaité</strong> : une formation que tu suivrais vraiment, pas seulement un filet.</li>
    <li>Une licence près de chez toi n'est pas automatiquement sûre : les formations très demandées (droit, psychologie, STAPS…) refusent aussi de bons dossiers.</li>
-   <li>Fais relire ta liste par un tuteur ou le Psy-EN avant le 11 mars.</li>
+   <li>Fais relire ta liste par ton prof principal ou le psychologue de l'Éducation nationale avant le 11 mars.</li>
   </ol>
   <div class="callout ok">Si ta liste ne contient que des vœux ambitieux, ajoute un vœu réaliste dans un autre établissement ou en BUT/BTS de la même filière.</div>`},
  {id:"apres", k:"Juin → juillet", t:"Après les résultats", s:"Répondre, comprendre un refus, rebondir", html:`
@@ -813,7 +933,7 @@ const TUTOS = [
    <li><strong>Phase complémentaire</strong> (dès mi-juin) : nouveaux vœux sur les places restantes.</li>
    <li><strong>Aucune proposition début juillet ?</strong> Saisis la CAES (commission d'accès à l'enseignement supérieur) de ton académie depuis ton dossier.</li>
   </ol>
-  <div class="callout">Prends rendez-vous avec ton prof principal ou un tuteur dans la semaine qui suit les résultats : analyser un refus seul est difficile. <a href="#rdv">Réserver un créneau</a></div>`},
+  <div class="callout">Prends rendez-vous avec ton prof principal ou le psychologue de l'Éducation nationale dans la semaine qui suit les résultats : analyser un refus seul est difficile. <a href="#contacts">Qui contacter</a></div>`},
 ];
 
 /* ---------- Utilitaires ---------- */
@@ -845,14 +965,17 @@ const mineOf = kind => S.mine.filter(x=>x.kind===kind);
 const newId = p => p+"-"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 
 /* ---------- Navigation ---------- */
-const VIEWS = ["calendrier","carte","jpo","tutoriels","documents","rdv","chat"];
+const VIEWS = ["calendrier","voie","carte","jpo","tutoriels","documents","contacts"];
+const ALIAS = {rdv:"contacts", chat:"contacts"};
 function route(){
-  const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "calendrier";
+  const h = ALIAS[location.hash.slice(1)] || location.hash.slice(1);
+  const v = VIEWS.includes(h) ? h : "calendrier";
   VIEWS.forEach(n => $("#v-"+n).hidden = n!==v);
   document.querySelectorAll("nav.tabs a").forEach(a => { if(a.dataset.v===v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
   if (v==="carte"){ loadCarte(); setTimeout(()=>{ if(M.map) M.map.invalidateSize(); },0); }
   if (v==="jpo") loadJpo();
-  if (v==="chat") setTimeout(()=>{ const m=$("#msgs"); m.scrollTop=m.scrollHeight; },0);
+  if (v==="contacts") loadContacts();
+  window.scrollTo(0,0);
 }
 addEventListener("hashchange", route);
 
@@ -860,7 +983,6 @@ addEventListener("hashchange", route);
 function allEvents(){
   const ev = PS_EVENTS.map(e=>({...e, kind:"ps"}));
   mineOf("event").forEach(e=>ev.push({d:e.date, t:e.title, x:e.type, kind:"moi", id:e.id}));
-  mineOf("rdv").forEach(r=>{ const iv=INTERVENANTS.find(i=>i.id===r.interv); ev.push({d:r.date, t:"RDV "+(iv?iv.role:"")+" · "+r.hour, x:r.motif, kind:"rdv", id:r.id}); });
   mineOf("jpo").forEach(j=>ev.push({d:j.date, t:"Portes ouvertes · "+j.nom, x:[j.hrs,j.ville,j.virt?"en ligne":""].filter(Boolean).join(" · "), kind:"jpo", id:j.id}));
   return ev.sort((a,b)=>a.d.localeCompare(b.d));
 }
@@ -902,7 +1024,7 @@ function renderDay(){
   } else {
     $("#dayTitle").textContent = "Prochaines échéances";
     const up = ev.filter(e=>daysTo(e.d)>=0).slice(0,6);
-    $("#dayList").innerHTML = up.map(evRow).join("") + `<p class="note" style="margin-top:6px">Dates 2027 estimées d'après le calendrier 2026 : vérifie-les sur parcoursup.gouv.fr dès leur publication.</p>`;
+    $("#dayList").innerHTML = up.map(evRow).join("") + `<p class="note" style="margin-top:6px">Calendrier officiel Parcoursup 2027 (publié en octobre 2026 sur parcoursup.gouv.fr). Seules les dates marquées « date estimée » dépendent de ton lycée.</p>`;
   }
 }
 $("#cal").addEventListener("click", e=>{ const b=e.target.closest("[data-day]"); if(!b) return; S.selDay = S.selDay===b.dataset.day?null:b.dataset.day; renderCal(); renderDay(); });
@@ -989,104 +1111,6 @@ $("#docList").addEventListener("click", async e=>{
   try{ if (d && d.local) { try{ await IDB.del(d.id); }catch(_){} } else if (S.assets && d && d.asset) { try{ await S.assets.delete(d.asset); }catch(_){} } await deletePersonal(b.dataset.deldoc); toast("Document supprimé"); }
   catch(err){ toast("Suppression impossible"); }
 });
-
-/* ---------- Rendez-vous ---------- */
-function slotKey(iv,date,hour){ return iv+"_"+date.replace(/-/g,"")+"_"+hour.replace(":",""); }
-function renderPeople(){
-  $("#people").innerHTML = INTERVENANTS.map(i=>`<button class="person" data-iv="${i.id}" aria-pressed="${i.id===S.interv}"><span class="r">${i.role}</span><span>${i.what}</span><span class="m">${i.where}</span></button>`).join("");
-}
-function renderSlots(){
-  const iv = INTERVENANTS.find(i=>i.id===S.interv);
-  $("#slotTitle").textContent = "Créneaux · "+iv.role;
-  const now = new Date(); let h="";
-  for (let k=1;k<=14;k++){
-    const d = new Date(TODAY); d.setDate(TODAY.getDate()+k);
-    if (!iv.days.includes(d.getDay())) continue;
-    const ds = iso(d);
-    const btns = iv.hours.map(hr=>{ const key=slotKey(iv.id,ds,hr); const taken=!!S.bookings[key]; const sel=S.slot&&S.slot.key===key;
-      return `<button class="slot" data-slot="${key}" data-date="${ds}" data-hour="${hr}" ${taken?"disabled":""} aria-pressed="${sel}">${hr}</button>`; }).join("");
-    h += `<div class="slot-day"><h4>${d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"})}</h4><div class="slot-row">${btns}</div></div>`;
-  }
-  $("#slots").innerHTML = h || `<p class="note">Aucun créneau sur les 14 prochains jours.</p>`;
-  $("#rdvForm").hidden = !S.slot;
-  if (S.slot) $("#rdvBtn").textContent = "Réserver le "+fmtLong(S.slot.date)+" à "+S.slot.hour;
-}
-function renderMyRdv(){
-  const list = mineOf("rdv").filter(r=>daysTo(r.date)>=0).sort((a,b)=>(a.date+a.hour).localeCompare(b.date+b.hour));
-  $("#myRdv").innerHTML = list.length ? list.map(r=>{ const iv=INTERVENANTS.find(i=>i.id===r.interv)||{role:"",where:""}; const s=fmtShort(r.date);
-    return `<div class="ev"><div class="date-tag"><b>${s.day}</b>${s.mon}</div><div><div class="t">${esc(iv.role)} · ${esc(r.hour)}</div><div class="d">${esc(iv.where)}</div><div class="d">${esc(r.motif)}</div></div><button class="btn ghost small" data-cancel="${r.id}">Annuler</button></div>`; }).join("")
-    : `<p class="note">Aucun rendez-vous prévu. Après les résultats de juin, un rendez-vous avec ton prof principal ou un tuteur aide à comprendre un refus.</p>`;
-}
-$("#people").addEventListener("click", e=>{ const b=e.target.closest("[data-iv]"); if(!b) return; S.interv=b.dataset.iv; S.slot=null; renderPeople(); renderSlots(); });
-$("#slots").addEventListener("click", e=>{ const b=e.target.closest("[data-slot]"); if(!b||b.disabled) return; S.slot={key:b.dataset.slot,date:b.dataset.date,hour:b.dataset.hour}; renderSlots(); $("#rdvMotif").focus(); });
-$("#rdvForm").addEventListener("submit", async e=>{
-  e.preventDefault(); if(!S.slot) return;
-  const motif=$("#rdvMotif").value.trim(); if(!motif) return;
-  const {key,date,hour}=S.slot; const btn=$("#rdvBtn"); btn.disabled=true;
-  try{
-    if (S.db && S.uid){
-      const ref = S.db.collection("bookings").doc(key);
-      const lease = await ref.acquire({holder:S.uid, ttlMs:5000});
-      if (!lease.acquired) throw {message:"ce créneau est en cours de réservation par quelqu'un d'autre"};
-      const cur = await ref.get();
-      if (cur.exists && cur.data().by) throw {message:"ce créneau vient d'être pris"};
-      await ref.set({by:S.uid, at:Date.now()});
-    }
-    await savePersonal("rdv-"+key, {kind:"rdv", interv:S.interv, date, hour, motif, key, created:Date.now()});
-    if (!S.db) { S.bookings[key]=true; }
-    S.slot=null; $("#rdvMotif").value=""; renderSlots(); toast("Rendez-vous réservé : "+fmtLong(date)+" à "+hour);
-  }catch(err){ toast("Réservation impossible : "+(err.message||err.code)); }
-  btn.disabled=false;
-});
-$("#myRdv").addEventListener("click", async e=>{
-  const b=e.target.closest("[data-cancel]"); if(!b) return;
-  if (b.dataset.confirm!=="1"){ b.dataset.confirm="1"; b.textContent="Confirmer l'annulation"; return; }
-  const r = S.mine.find(x=>x.id===b.dataset.cancel);
-  try{ if (S.db && r) await S.db.collection("bookings").doc(r.key).delete(); else if (r) delete S.bookings[r.key];
-       await deletePersonal(b.dataset.cancel); toast("Rendez-vous annulé"); renderSlots(); }
-  catch(err){ toast("Annulation impossible"); }
-});
-
-/* ---------- Discussion ---------- */
-$("#meRegion").innerHTML = REGIONS.map(r=>`<option>${r}</option>`).join("");
-const prefs = ls.get("reperes-me",{role:"Lycéen·ne",region:"Île-de-France"});
-$("#meRole").value = prefs.role; $("#meRegion").value = prefs.region;
-["#meRole","#meRegion"].forEach(s=>$(s).addEventListener("change",()=>ls.set("reperes-me",{role:$("#meRole").value,region:$("#meRegion").value})));
-function renderChans(){
-  $("#chans").innerHTML = CHANNELS.map(c=>`<button data-ch="${c.id}" aria-pressed="${c.id===S.channel}"># ${c.t}<small>${c.d}</small></button>`).join("");
-  const c = CHANNELS.find(c=>c.id===S.channel); $("#chanTitle").textContent = "# "+c.t; $("#chanDesc").textContent = c.d;
-}
-async function renderMsgs(){
-  const box=$("#msgs");
-  if (!S.db){ box.innerHTML = `<div class="empty"><strong>Discussion pas encore ouverte</strong><span>Les salons sont prêts. La messagerie en direct entre lycéens de toute la France sera activée avec la prochaine version, reliée à un serveur.</span></div>`; return; }
-  if (!S.chat.length){ box.innerHTML = `<div class="empty"><strong>Aucun message dans ce salon</strong><span>Lance la conversation : présente-toi et pose ta question.</span></div>`; return; }
-  const ids=[...new Set(S.chat.map(m=>m.uid))].filter(id=>!(id in S.names));
-  if (ids.length && S.user && S.user.profiles){ try{ const ps=await S.user.profiles(ids); ids.forEach(id=>S.names[id]=(ps[id]&&ps[id].name)||""); }catch(_){} }
-  const atBottom = box.scrollHeight-box.scrollTop-box.clientHeight < 80;
-  box.innerHTML = S.chat.map(m=>{ const me=m.uid===S.uid; const nm = me?"Toi":(S.names[m.uid]||"Membre");
-    const t = new Date(m.ts).toLocaleString("fr-FR",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
-    return `<div class="msg ${me?"me":""}"><div class="who2"><b>${esc(nm)}</b><span class="role">${esc(m.role||"")}</span> · ${esc(m.region||"")} · ${t}</div><div class="bub">${esc(m.text)}</div></div>`; }).join("");
-  if (atBottom || box.dataset.ch!==S.channel){ box.scrollTop=box.scrollHeight; box.dataset.ch=S.channel; }
-}
-function subscribeChat(){
-  if (!S.db) return;
-  if (S.chatUnsub) S.chatUnsub();
-  S.chat=[]; renderMsgs();
-  const ch=S.channel;
-  S.chatUnsub = S.db.collection("chat").where("channel","==",ch).orderBy("ts","desc").limit(150)
-    .onSnapshot(snap=>{ if(ch!==S.channel) return; S.chat = snap.docs.map(d=>d.data()).reverse(); renderMsgs(); },
-                err=>{ $("#msgs").innerHTML=`<div class="empty"><strong>Messages inaccessibles</strong><span>${esc(err.message||err.code)}</span></div>`; });
-}
-$("#chans").addEventListener("click", e=>{ const b=e.target.closest("[data-ch]"); if(!b) return; S.channel=b.dataset.ch; renderChans(); subscribeChat(); });
-$("#compose").addEventListener("submit", async e=>{
-  e.preventDefault(); const text=$("#msgIn").value.trim(); if(!text) return;
-  if (!S.db||!S.uid){ toast("La messagerie n'est pas encore activée"); return; }
-  const btn=$("#msgBtn"); btn.disabled=true;
-  try{ await S.db.collection("chat").add({channel:S.channel, uid:S.uid, text, role:$("#meRole").value, region:$("#meRegion").value, ts:Date.now()}); $("#msgIn").value=""; }
-  catch(err){ toast(err.code==="invalid_argument"?"Tu peux lire, mais ton accès ne permet pas d'écrire ici.":"Envoi impossible : "+(err.message||err.code)); }
-  btn.disabled=false;
-});
-$("#msgIn").addEventListener("keydown", e=>{ if(e.key==="Enter"&&!e.shiftKey){ e.preventDefault(); $("#compose").requestSubmit(); } });
 
 /* ---------- Carte des formations ---------- */
 const TYPES = {BTS:"BTS",BUT:"BUT",Licence:"Licence",LAS:"Licence accès santé (L.AS)",PASS:"PASS (santé)",CPGE:"Classe prépa (CPGE)",ING:"École d'ingénieurs",COM:"École de commerce",IFSI:"Infirmier (IFSI)",EFTS:"Travail social",AUTRE:"Autres (DN MADE, DE santé, DCG…)"};
@@ -1600,13 +1624,161 @@ $("#jqCopy").onclick=async ()=>{
 };
 renderJpoQ();
 
+/* ---------- Ma voie ---------- */
+const DIMS = {tech:"Faire, fabriquer, réparer", sci:"Comprendre, chercher, analyser", art:"Imaginer, créer", soc:"Aider, soigner, transmettre", lead:"Convaincre, entreprendre, diriger", org:"Organiser, gérer, compter"};
+const QUIZ = [
+  ["tech","J'aime réparer, monter ou bricoler des objets."],
+  ["sci","Je cherche à comprendre comment les choses fonctionnent."],
+  ["art","J'aime dessiner, écrire, faire de la musique ou des vidéos."],
+  ["soc","On vient souvent me demander de l'aide ou des conseils."],
+  ["lead","J'aime convaincre les autres et défendre mes idées."],
+  ["org","J'aime que les choses soient bien planifiées, rangées, vérifiées."],
+  ["tech","J'apprends mieux en manipulant qu'en lisant."],
+  ["sci","Les maths, la physique, la chimie ou la biologie m'intéressent."],
+  ["art","J'ai souvent des idées originales et j'aime les mettre en forme."],
+  ["soc","Je me verrais bien soigner, enseigner ou accompagner des gens."],
+  ["lead","Je me verrais bien lancer un projet ou animer une équipe."],
+  ["org","Les chiffres, les tableaux et les budgets ne me font pas peur."],
+];
+const SCALE = ["Pas du tout","Un peu","Assez","Tout à fait"];
+const DOMAINS = [{"id": "info", "n": "Informatique et numérique", "w": {"tech": 2, "sci": 2, "org": 1}, "d": "Programmer, gérer des réseaux, protéger des données, créer des sites ou des applications.", "m": "Développeur·se, technicien·ne réseaux, analyste de données, spécialiste cybersécurité", "f": [["BTS SIO", "BTS", "services informatiques", "2 ans"], ["BUT Informatique", "BUT", "^informatique", "3 ans"], ["BUT Réseaux et télécoms", "BUT", "reseaux et telecom", "3 ans"], ["Licence Informatique", "Licence", "^informatique", "3 ans"]]}, {"id": "indus", "n": "Industrie, mécanique, électricité, énergie", "w": {"tech": 3, "sci": 1}, "d": "Concevoir, fabriquer, installer et réparer des machines, des systèmes électriques ou énergétiques.", "m": "Technicien·ne de maintenance, électrotechnicien·ne, ingénieur·e, automaticien·ne", "f": [["BTS Électrotechnique", "BTS", "electrotechnique", "2 ans"], ["BUT Génie mécanique et productique", "BUT", "genie mecanique", "3 ans"], ["BUT Génie électrique (GEII)", "BUT", "genie electrique", "3 ans"], ["École d'ingénieurs post-bac", "ING", "", "5 ans"]]}, {"id": "sci", "n": "Sciences, recherche, laboratoire", "w": {"sci": 3, "tech": 1}, "d": "Comprendre la matière, le vivant, les mathématiques ; mener des expériences et analyser des résultats.", "m": "Technicien·ne de laboratoire, chercheur·se, ingénieur·e, enseignant·e de sciences", "f": [["BUT Mesures physiques", "BUT", "mesures physiques", "3 ans"], ["Licence Physique, chimie", "Licence", "^(physique|chimie)", "3 ans"], ["Licence Mathématiques", "Licence", "^mathematiques", "3 ans"], ["Classe prépa scientifique", "CPGE", "preparatoire scientifique", "2 ans"]]}, {"id": "vivant", "n": "Vivant, environnement, agriculture", "w": {"sci": 2, "tech": 2}, "d": "Travailler avec les plantes, les animaux, la nature ; protéger l'environnement ou produire l'alimentation.", "m": "Technicien·ne en environnement, conseiller·ère agricole, biologiste, garde forestier", "f": [["BTSA (agricole)", "BTS", "bts - agricole", "2 ans"], ["BUT Génie biologique", "BUT", "genie biologique", "3 ans"], ["Licence Sciences de la vie", "Licence", "^sciences de la vie", "3 ans"], ["Licence Sciences de la Terre", "Licence", "^sciences de la terre", "3 ans"]]}, {"id": "sante", "n": "Santé et soin", "w": {"soc": 2, "sci": 2}, "d": "Soigner, prévenir, accompagner des patients, à l'hôpital, en cabinet ou à domicile.", "m": "Infirmier·ère, médecin, kiné, sage-femme, pharmacien·ne, diététicien·ne", "f": [["Infirmier (IFSI)", "IFSI", "", "3 ans"], ["PASS (accès santé)", "PASS", "", "1 an puis sélection"], ["Licence accès santé (L.AS)", "LAS", "", "1 an puis sélection"], ["BTS Diététique", "BTS", "dietetique", "2 ans"]]}, {"id": "social", "n": "Social, éducation, accompagnement", "w": {"soc": 3, "lead": 1}, "d": "Aider des personnes en difficulté, éduquer, animer, accompagner des enfants ou des adultes.", "m": "Éducateur·rice spécialisé·e, assistant·e de service social, professeur·e des écoles, animateur·rice", "f": [["Diplômes d'État du travail social", "EFTS", "", "3 ans"], ["Licence Sciences de l'éducation", "Licence", "^sciences de l'education", "3 ans"], ["BUT Carrières sociales", "BUT", "carrieres sociales", "3 ans"], ["BTS ESF", "BTS", "economie sociale familiale", "2 ans"]]}, {"id": "sport", "n": "Sport et animation", "w": {"soc": 2, "tech": 1, "lead": 1}, "d": "Entraîner, enseigner le sport, animer, travailler dans les loisirs ou la santé par l'activité physique.", "m": "Éducateur·rice sportif·ve, professeur·e d'EPS, coach, préparateur·rice physique", "f": [["Licence STAPS", "Licence", "activites physiques et sportives", "3 ans"], ["BUT Carrières sociales", "BUT", "carrieres sociales", "3 ans"]]}, {"id": "art", "n": "Arts, design, métiers d'art", "w": {"art": 3, "tech": 1}, "d": "Créer des objets, des images, des espaces, des vêtements ; travailler la matière ou le graphisme.", "m": "Designer, graphiste, illustrateur·rice, artisan d'art, architecte d'intérieur", "f": [["DN MADE (design, métiers d'art)", "AUTRE", "\\| dn made", "3 ans"], ["Licence Arts plastiques", "Licence", "^arts plastiques", "3 ans"], ["BUT MMI (multimédia)", "BUT", "multimedia", "3 ans"]]}, {"id": "lettres", "n": "Lettres, langues, communication, culture", "w": {"art": 2, "soc": 1, "sci": 1}, "d": "Lire, écrire, traduire, communiquer, travailler dans l'édition, les médias ou la culture.", "m": "Journaliste, traducteur·rice, chargé·e de communication, bibliothécaire, professeur·e", "f": [["Licence LEA (langues)", "Licence", "^langues etrangeres appliquees", "3 ans"], ["Licence Lettres", "Licence", "^lettres", "3 ans"], ["BUT Information-communication", "BUT", "^information communication", "3 ans"], ["BTS Communication", "BTS", "^communication", "2 ans"]]}, {"id": "droit", "n": "Droit, sciences politiques, sécurité", "w": {"lead": 2, "sci": 1, "org": 1}, "d": "Connaître les règles, défendre des droits, conseiller, travailler pour l'État ou les collectivités.", "m": "Avocat·e, juriste, greffier·ère, policier·ère, cadre de la fonction publique", "f": [["Licence Droit", "Licence", "^droit", "3 ans"], ["BUT Carrières juridiques", "BUT", "carrieres juridiques", "3 ans"], ["Licence Science politique", "Licence", "^science politique", "3 ans"]]}, {"id": "commerce", "n": "Commerce, vente, management", "w": {"lead": 3, "org": 1}, "d": "Vendre, négocier, gérer un magasin ou une équipe, lancer et développer une activité.", "m": "Commercial·e, manager de magasin, chef·fe de produit, entrepreneur·se", "f": [["BTS MCO (commerce)", "BTS", "management commercial operationnel", "2 ans"], ["BTS NDRC (négociation)", "BTS", "negociation", "2 ans"], ["BUT Techniques de commercialisation", "BUT", "techniques de commercialisation", "3 ans"], ["École de commerce", "COM", "", "3 à 5 ans"]]}, {"id": "gestion", "n": "Gestion, comptabilité, finance", "w": {"org": 3, "sci": 1}, "d": "Tenir les comptes, gérer les budgets, analyser les chiffres d'une entreprise.", "m": "Comptable, gestionnaire de paie, contrôleur·se de gestion, conseiller·ère bancaire", "f": [["BTS Comptabilité et gestion", "BTS", "^comptabilite et gestion", "2 ans"], ["DCG (comptabilité)", "AUTRE", "\\| dcg", "3 ans"], ["BUT GEA (gestion)", "BUT", "gestion des entreprises", "3 ans"], ["Licence Économie, gestion", "Licence", "^(economie|gestion)", "3 ans"]]}, {"id": "btp", "n": "Bâtiment, travaux publics, architecture", "w": {"tech": 2, "art": 1, "org": 1}, "d": "Concevoir, construire et rénover des bâtiments, des routes, des ouvrages.", "m": "Conducteur·rice de travaux, géomètre, architecte, technicien·ne d'études", "f": [["BTS Bâtiment", "BTS", "^batiment", "2 ans"], ["BUT Génie civil", "BUT", "genie civil", "3 ans"], ["École d'architecture", "AUTRE", "architecture", "5 ans"]]}, {"id": "hotel", "n": "Hôtellerie, restauration, tourisme", "w": {"soc": 1, "lead": 1, "tech": 1}, "d": "Accueillir, cuisiner, organiser des séjours ou des événements.", "m": "Chef·fe de cuisine, réceptionniste, guide, organisateur·rice d'événements", "f": [["BTS Management en hôtellerie-restauration", "BTS", "hotellerie", "2 ans"], ["BTS Tourisme", "BTS", "^tourisme", "2 ans"]]}, {"id": "logist", "n": "Transport, logistique, organisation", "w": {"org": 2, "tech": 1, "lead": 1}, "d": "Faire circuler les marchandises et les personnes, organiser les flux, gérer des entrepôts.", "m": "Logisticien·ne, affréteur·se, responsable d'entrepôt, gestionnaire de transport", "f": [["BUT Management de la logistique et des transports", "BUT", "management de la logistique", "3 ans"], ["BTS Gestion des transports", "BTS", "gestion des transports", "2 ans"]]}, {"id": "humaines", "n": "Psychologie, histoire, sociologie, géographie", "w": {"sci": 2, "soc": 2}, "d": "Comprendre les personnes, les sociétés, le passé et les territoires.", "m": "Psychologue, professeur·e, urbaniste, chargé·e d'études, archiviste", "f": [["Licence Psychologie", "Licence", "^psychologie", "3 ans"], ["Licence Histoire", "Licence", "^histoire", "3 ans"], ["Licence Sociologie", "Licence", "^sociologie", "3 ans"], ["Licence Géographie", "Licence", "^geographie", "3 ans"]]}];
+const PLAN = [
+  ["Semaine 1 · Faire le point", ["Réponds au questionnaire « Ce qui t'attire » ci-dessous.","Note trois activités où tu oublies l'heure, et trois choses que tu ne veux surtout pas faire.","Essaie MonProjetSup, l'outil officiel qui propose des formations selon tes goûts."]],
+  ["Semaine 2 · Explorer", ["Ouvre trois pistes proposées et lis la fiche de cinq formations sur la carte : taux d'accès, profil des admis.","Lis deux fiches métiers sur onisep.fr pour voir à quoi ressemble le quotidien."]],
+  ["Semaine 3 · Rencontrer", ["Prends rendez-vous avec ton professeur principal ou le psychologue de l'Éducation nationale.","Va à une porte ouverte ou à une immersion, ou parle à un étudiant de la filière."]],
+  ["Semaine 4 · Décider assez pour avancer", ["Garde deux ou trois domaines, pas plus.","Ajoute à ta liste au moins deux formations sûres, en plus de celles qui t'attirent le plus.","Note les dates : vœux jusqu'au 11 mars 2027, confirmation jusqu'au 1er avril."]],
+];
+function renderPlan(){
+  const done=new Set(ls.get("reperes-voie-plan",[])); let i=0, n=0;
+  $("#voiePlan").innerHTML = PLAN.map(([w,items])=>`<div><h4>${w}</h4><div class="checklist">${items.map(t=>{ const id=i++; n++; return `<label><input type="checkbox" data-plan="${id}" ${done.has(id)?"checked":""}><span>${esc(t)}</span></label>`; }).join("")}</div></div>`).join("");
+  $("#planCount").textContent = done.size+" / "+n; $("#planBar").style.width = (done.size/n*100)+"%";
+}
+$("#voiePlan").addEventListener("change", e=>{ const c=e.target.closest("[data-plan]"); if(!c) return; const s=new Set(ls.get("reperes-voie-plan",[])); c.checked?s.add(+c.dataset.plan):s.delete(+c.dataset.plan); ls.set("reperes-voie-plan",[...s]); renderPlan(); });
+function renderQuiz(){
+  const st=ls.get("reperes-voie",{});
+  $("#quizItems").innerHTML = QUIZ.map((q,i)=>`<fieldset class="qi"><legend>${i+1}. ${esc(q[1])}</legend><div class="seg">${SCALE.map((l,v)=>`<label><input type="radio" name="q${i}" value="${v}" ${st.a&&st.a[i]===v?"checked":""}><span>${l}</span></label>`).join("")}</div></fieldset>`).join("");
+  const bac = st.bac || ls.get("reperes-carte",{}).bac; if (bac) $("#qBac").value=bac;
+  ["qDur","qStyle","qAlt"].forEach(k=>{ if(st[k]) $("#"+k).value=st[k]; });
+  if (st.a && st.a.every(v=>v!=null)) showVoie(st);
+}
+$("#voieQuiz").addEventListener("submit", e=>{
+  e.preventDefault();
+  const a=QUIZ.map((_,i)=>{ const r=document.querySelector(`input[name="q${i}"]:checked`); return r?+r.value:null; });
+  const miss=a.map((v,i)=>v==null?i+1:null).filter(Boolean);
+  if (miss.length){ $("#quizMissing").textContent="Il manque la réponse "+(miss.length>1?"aux phrases ":"à la phrase ")+miss.join(", ")+"."; document.querySelector(`input[name="q${miss[0]-1}"]`).closest("fieldset").scrollIntoView({behavior:"smooth",block:"center"}); return; }
+  $("#quizMissing").textContent="";
+  const st={a, bac:$("#qBac").value, qDur:$("#qDur").value, qStyle:$("#qStyle").value, qAlt:$("#qAlt").value};
+  ls.set("reperes-voie",st); ls.set("reperes-carte",{...ls.get("reperes-carte",{}), bac:st.bac});
+  showVoie(st); $("#voieRes").scrollIntoView({behavior:"smooth",block:"start"});
+});
+function showVoie(st){
+  const dim={}; Object.keys(DIMS).forEach(k=>dim[k]=0);
+  QUIZ.forEach((q,i)=>dim[q[0]]+=st.a[i]);                      // 0 à 6 par dimension
+  const topDims=Object.entries(dim).sort((x,y)=>y[1]-x[1]);
+  const flat = topDims[0][1]-topDims[5][1] <= 1 || topDims[0][1] <= 2;
+  const ranked = DOMAINS.map(d=>{ let s=0,w=0; Object.entries(d.w).forEach(([k,v])=>{ s+=v*dim[k]; w+=v; }); return {d, sc:s/(w*6)}; }).sort((x,y)=>y.sc-x.sc);
+  const pref = t => { const short={BTS:0,BUT:1,IFSI:2,EFTS:2,AUTRE:3,Licence:4,LAS:4,PASS:5,CPGE:5,COM:5,ING:6};
+    let r=short[t]??4; if(st.qDur==="long") r=-r; if(st.qDur==="moyen") r=Math.abs(r-3);
+    if(st.qStyle==="concret" && (t==="BTS"||t==="BUT")) r-=2; if(st.qStyle==="theorie" && (t==="Licence"||t==="CPGE")) r-=2;
+    if(st.bac==="pro" && t==="BTS") r-=3; if(st.bac==="tec" && (t==="BUT"||t==="BTS")) r-=2; return r; };
+  const adv=[];
+  if (flat) adv.push(["","Tes réponses ne font pas ressortir de domaine net. C'est fréquent, et ce n'est pas un problème. Passe directement à la semaine 3 du plan : un échange avec un psychologue de l'Éducation nationale t'aidera plus qu'un questionnaire."]);
+  if (st.bac==="pro") adv.push(["","Avec un bac pro, le BTS est la voie la plus sûre : une partie des places t'est réservée et l'enseignement est concret. Une licence reste possible, mais la réussite des bacheliers professionnels y est faible : si tu la vises, fais-le en connaissance de cause et parles-en à ton professeur principal."]);
+  if (st.bac==="tec") adv.push(["","Avec un bac technologique, regarde en priorité les BUT et les BTS de ta spécialité : une part des places est prévue pour les bacheliers technologiques."]);
+  if (st.qAlt==="oui") adv.push(["ok","Beaucoup de BTS et de BUT existent en apprentissage. Sur Parcoursup, tu peux ajouter jusqu'à 10 vœux en apprentissage, et en formuler après le 1er avril. Commence à chercher une entreprise dès l'hiver, car c'est le contrat qui confirme ta place."]);
+  if (st.qDur==="nsp") adv.push(["","Tu ne sais pas encore combien de temps étudier ? Un BUT (3 ans, avec poursuite possible) ou une licence te laissent le choix de t'arrêter ou de continuer plus tard."]);
+  const nice = s => Math.round(s*100);
+  $("#voieRes").hidden=false;
+  $("#voieRes").innerHTML = `
+    <div class="res-head"><h3>Tes pistes</h3><button class="btn small" type="button" id="voieRedo">Refaire le questionnaire</button></div>
+    <div class="dims">${topDims.map(([k,v])=>`<div><span>${DIMS[k]}</span><div class="progress"><i style="width:${v/6*100}%"></i></div></div>`).join("")}</div>
+    ${adv.map(a=>`<div class="callout ${a[0]}">${a[1]}</div>`).join("")}
+    <div class="doms">${ranked.slice(0,4).map(({d,sc},i)=>`
+      <article class="dom">
+        <div class="res-head"><h4>${i+1}. ${esc(d.n)}</h4><span class="score">${nice(sc)} %</span></div>
+        <p>${esc(d.d)}</p>
+        <p class="note"><strong>Métiers :</strong> ${esc(d.m)}</p>
+        <div class="chips">${d.f.slice().sort((x,y)=>pref(x[1])-pref(y[1])).map(f=>`<button type="button" class="pill" data-voief="${esc(d.id)}|${esc(f[0])}">${esc(f[0])} <span class="note">· ${esc(f[3])}</span></button>`).join("")}</div>
+      </article>`).join("")}</div>
+    <details><summary>Voir les autres domaines</summary><div class="doms" style="margin-top:12px">${ranked.slice(4).map(({d,sc})=>`<article class="dom"><div class="res-head"><h4>${esc(d.n)}</h4><span class="score">${nice(sc)} %</span></div><p class="note">${esc(d.d)}</p><div class="chips">${d.f.map(f=>`<button type="button" class="pill" data-voief="${esc(d.id)}|${esc(f[0])}">${esc(f[0])}</button>`).join("")}</div></article>`).join("")}</div></details>
+    <p class="note">Ce questionnaire n'est pas un test scientifique : il indique par où commencer à chercher. Le pourcentage mesure la proximité entre tes réponses et chaque domaine, pas tes chances d'admission. Clique sur une formation pour la voir sur la carte.</p>`;
+}
+$("#voieRes").addEventListener("click", async e=>{
+  if (e.target.id==="voieRedo"){ ls.set("reperes-voie",{}); $("#voieRes").hidden=true; renderQuiz(); $("#voieQuiz").scrollIntoView({behavior:"smooth"}); return; }
+  const b=e.target.closest("[data-voief]"); if(!b) return;
+  const [id,lab]=b.dataset.voief.split("|"), d=DOMAINS.find(x=>x.id===id), f=d&&d.f.find(x=>x[0]===lab); if(!f) return;
+  location.hash="#carte"; await loadCarte(); if(!M.ready) return;
+  const rx=new RegExp(f[2]), S_=M.data.strs, cods=new Set();
+  M.data.f.forEach(a=>{ if(a[1]===f[1] && rx.test(norm(S_[a[3]])+" | "+norm(S_[a[2]]))) cods.add(a[21]); });
+  $("#fQ").value=""; ["#fType","#fRegion","#fStat","#fSel"].forEach(s=>$(s).value=""); $("#fTaux").value=0; ["#fInt","#fMyBac","#fZone"].forEach(s=>$(s).checked=false);
+  const bac=ls.get("reperes-voie",{}).bac; if (bac) $("#fBac").value=bac;
+  M.only={cods, label:f[0]+" · "+cods.size+" formations"}; M.site=null; applyFilters();
+  if (M.map) M.map.fitBounds([[41.3,-5.2],[51.1,9.6]]);
+});
+renderPlan(); renderQuiz();
+
+/* ---------- Qui contacter ---------- */
+const C = { data:null, loading:null, pos:null };
+function loadContacts(){
+  if (C.loading) return C.loading;
+  C.loading = fetch("orientation.json").then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
+    C.data=d; const deps=[...new Set(d.orgs.map(o=>o[4]))].sort((a,b)=>a.localeCompare(b,"fr",{numeric:true}));
+    $("#cDep").innerHTML=`<option value="">Choisir</option>`+deps.map(x=>`<option>${esc(x)}</option>`).join("");
+    const p=ls.get("reperes-jpo-pos",null); if(p&&p.lat){ C.pos=[p.lat,p.lon]; $("#cCity").value=p.label||""; }
+    renderCio();
+  }).catch(()=>{ $("#cioList").innerHTML=`<p class="note">L'annuaire n'a pas pu être chargé. Recharge la page.</p>`; C.loading=null; });
+  return C.loading;
+}
+function renderCio(){
+  if (!C.data) return;
+  const dep=$("#cDep").value; let list;
+  if (C.pos) list=C.data.orgs.map(o=>({o, km:distKm(C.pos,[o[6],o[7]])})).sort((a,b)=>a.km-b.km);
+  else if (dep) list=C.data.orgs.filter(o=>o[4]===dep).map(o=>({o,km:null}));
+  else { $("#cioList").innerHTML=`<p class="note">Indique ta ville ou ton département.</p>`; $("#cioCount").textContent=""; return; }
+  const cio=list.filter(x=>x.o[1]==="CIO").slice(0, C.pos?4:50), uni=list.filter(x=>x.o[1]==="SCUIO").slice(0, C.pos?2:20);
+  const card=({o,km})=>`<div class="cio-c"><div class="t">${esc(o[0])}${km!=null?` <span class="jmeta"><span class="km">${km<1?"< 1":Math.round(km)} km</span></span>`:""}</div>
+    <div class="d">${esc(o[2])}</div>
+    <div class="jact">${o[5]?`<a class="btn small" href="tel:${esc(o[5].replace(/\s/g,""))}">Appeler ${esc(o[5])}</a>`:""}${o[8]?`<a class="btn small" href="${esc(o[8])}" target="_blank" rel="noopener">Horaires (Onisep) ↗</a>`:""}<a class="btn small" href="https://www.openstreetmap.org/?mlat=${o[6]}&mlon=${o[7]}#map=17/${o[6]}/${o[7]}" target="_blank" rel="noopener">Plan ↗</a></div></div>`;
+  $("#cioCount").textContent = C.pos ? "Les plus proches de "+($("#cCity").value||"ta position") : cio.length+" CIO dans le département "+dep;
+  $("#cioList").innerHTML = (cio.length?`<h4>Centres d'information et d'orientation</h4>`+cio.map(card).join(""):"") + (uni.length?`<h4>Services d'orientation des universités</h4>`+uni.map(card).join(""):"") || `<p class="note">Aucun centre trouvé.</p>`;
+}
+$("#cDep").addEventListener("change", ()=>{ C.pos=null; $("#cCity").value=""; renderCio(); });
+$("#cCity").addEventListener("focus", ()=>{ loadJpo().then(addFormationCities); }, {once:true});
+$("#cCity").addEventListener("change", async ()=>{
+  const v=$("#cCity").value.trim(); if(!v){ C.pos=null; renderCio(); return; }
+  await loadJpo(); const c=J.cities&&resolveCity(v);
+  if (!c){ toast("Ville introuvable : choisis-la dans la liste proposée, ou ton département"); return; }
+  C.pos=[c[0],c[1]]; $("#cDep").value=""; ls.set("reperes-jpo-pos",{lat:c[0],lon:c[1],label:v}); renderCio();
+});
+$("#cGeo").onclick=()=>{
+  if (!navigator.geolocation){ toast("Localisation indisponible : tape ta ville"); return; }
+  $("#cGeo").disabled=true;
+  navigator.geolocation.getCurrentPosition(p=>{ $("#cGeo").disabled=false; C.pos=[p.coords.latitude,p.coords.longitude]; $("#cCity").value="ma position"; $("#cDep").value="";
+    ls.set("reperes-jpo-pos",{lat:C.pos[0],lon:C.pos[1],label:"ma position"}); renderCio(); },
+    ()=>{ $("#cGeo").disabled=false; toast("Localisation refusée : tape ta ville ou choisis ton département"); }, {timeout:10000, maximumAge:600000});
+};
+
+/* ---------- Installation (application) ---------- */
+let installEvt=null;
+const isStandalone = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
+const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
+addEventListener("beforeinstallprompt", e=>{ e.preventDefault(); installEvt=e; $("#installBtn").hidden=false; });
+addEventListener("appinstalled", ()=>{ $("#installBtn").hidden=true; toast("Application installée"); });
+if (!isStandalone() && isIOS()) $("#installBtn").hidden=false;
+$("#installBtn").onclick=async ()=>{
+  if (installEvt){ installEvt.prompt(); const r=await installEvt.userChoice; installEvt=null; if(r.outcome==="accepted") $("#installBtn").hidden=true; return; }
+  $("#installHelp").showModal();
+};
+$("#installClose").onclick=()=>$("#installHelp").close();
+if ("serviceWorker" in navigator && (location.protocol==="https:"||location.hostname==="localhost")) addEventListener("load", ()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+
 /* ---------- Rendu global ---------- */
-function renderAll(){ renderCountdown(); renderCal(); renderDay(); renderDocs(); renderMyRdv(); renderSlots(); if (typeof renderWish==="function") renderWish(); renderJpoMine(); if (J.ready){ renderJpoHero(); renderJpoList(); } }
+function renderAll(){ renderCountdown(); renderCal(); renderDay(); renderDocs(); if (typeof renderWish==="function") renderWish(); renderJpoMine(); if (J.ready){ renderJpoHero(); renderJpoList(); } }
 
 /* ---------- Démarrage ---------- */
 function boot(){
   S.mine = localMine();
-  route(); loadJpo(); renderTutos(); renderPeople(); renderChans(); renderAll(); renderMsgs();
+  route(); loadJpo(); renderTutos(); renderAll();
   const tag=$("#modeTag"); tag.textContent="Sur cet appareil";
   if (!window.claude || !window.claude.use) { tag.title="Données enregistrées dans ce navigateur"; return; }
   (async ()=>{
@@ -1618,8 +1790,6 @@ function boot(){
     const timer=setTimeout(()=>{ tag.textContent="Connexion lente"; tag.classList.remove("on"); },10000);
     db.collection("data/users/"+uid).onSnapshot(snap=>{ if(!snap.metadata.fromCache){ clearTimeout(timer); tag.textContent="Synchronisé"; tag.classList.add("on"); } S.mine=snap.docs.map(d=>({id:d.id,...d.data()})); renderAll(); },
       err=>{ clearTimeout(timer); tag.textContent="Hors ligne"; tag.classList.remove("on"); });
-    db.collection("bookings").onSnapshot(snap=>{ const b={}; snap.docs.forEach(d=>{ if(d.data().by) b[d.id]=true; }); S.bookings=b; renderSlots(); }, ()=>{});
-    subscribeChat();
   })();
 }
 boot();

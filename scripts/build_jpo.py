@@ -1,15 +1,17 @@
-"""Construit jpo.json (journées portes ouvertes) pour l'onglet « Portes ouvertes ».
+"""Construit jpo.json (journées portes ouvertes) et orientation.json (CIO et services
+d'orientation universitaires) pour les onglets « Portes ouvertes » et « Qui contacter ».
 
 Sources (open data) :
 - Onisep, Idéo-Structures d'enseignement supérieur et secondaire (licence ODbL),
   colonne « journées portes ouvertes ».
 - Ministère de l'Agriculture, RefEA « Les journées portes ouvertes » (licence ouverte).
+- Onisep, Idéo-Organismes d'information et d'orientation (licence ODbL) : CIO et SCUIO.
 - MESR, Parcoursup 2025 (cod_aff_form -> cod_uai), pour relier chaque formation
   de la carte aux portes ouvertes de son établissement.
 
 Usage, depuis la racine du dépôt :
     python3 scripts/build_jpo.py [dossier-de-cache]
-Le script télécharge les sources (avec plusieurs essais), puis réécrit jpo.json.
+Le script télécharge les sources (avec plusieurs essais), puis réécrit jpo.json et orientation.json.
 Avec un dossier de cache, les fichiers déjà téléchargés sont réutilisés.
 """
 import csv, datetime, io, json, math, re, sys, urllib.request
@@ -50,6 +52,32 @@ def get(url, timeout=300):
 
 def rows(text):
     return list(csv.DictReader(io.StringIO(text), delimiter=";"))
+
+
+def datagouv_csv(title):
+    q = urllib.request.quote(title)
+    for d in json.loads(get("https://www.data.gouv.fr/api/1/datasets/?q=" + q + "&page_size=10"))["data"]:
+        if d["title"] == title:
+            return next(r["url"] for r in d["resources"] if r["format"] == "csv")
+    raise SystemExit("Jeu introuvable sur data.gouv.fr : " + title)
+
+
+def build_orientation():
+    """CIO et SCUIO : nom, type, adresse, commune, département, téléphone, lat, lon, lien Onisep."""
+    out = []
+    for r in rows(get(datagouv_csv("Idéo-Organismes d'information et d'orientation (Enseignement secondaire et supérieur)"))):
+        try:
+            lat, lon = round(float(r["latitude (Y)"]), 5), round(float(r["longitude (X)"]), 5)
+        except ValueError:
+            continue
+        t = "CIO" if "(CIO)" in r["type d'organisme"] else "SCUIO"
+        adr = " ".join(x for x in (r["adresse"].strip(), r["CP"].strip(), r["commune"].strip()) if x)
+        out.append([r["nom"].strip(), t, adr, r["commune"].strip(), r["département"].split(" - ")[0].strip(),
+                    r["téléphone"].strip(), lat, lon, r["lien site onisep.fr"].strip()])
+    out.sort(key=lambda x: (x[4], x[3], x[0]))
+    with open("orientation.json", "w", encoding="utf-8") as f:
+        json.dump({"generated": datetime.date.today().isoformat(), "orgs": out}, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"{len(out)} CIO et services d'orientation universitaires", file=sys.stderr)
 
 
 def onisep_secondaire_url():
@@ -189,6 +217,7 @@ def main():
         json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
     print(f"{len(ests)} établissements, {len(events)} journées, {len(link)} formations reliées "
           f"({kinds[0]} même établissement, {kinds[1]} même adresse)", file=sys.stderr)
+    build_orientation()
 
 
 if __name__ == "__main__":
